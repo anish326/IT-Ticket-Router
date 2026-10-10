@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AI Ticket Intelligence Platform — Explainable SLA breach prediction, model health monitoring, and human-in-the-loop escalation.">
+<title>AI Ticket Intelligence Platform</title>
+<style>
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.9);
+  --bg-glass: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-pink: #ec4899;
+  --gradient-1: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --gradient-2: linear-gradient(135deg, #06b6d4, #3b82f6);
+  --gradient-3: linear-gradient(135deg, #f59e0b, #ef4444);
+  --gradient-risk-high: linear-gradient(135deg, #ef4444, #dc2626);
+  --gradient-risk-medium: linear-gradient(135deg, #f59e0b, #d97706);
+  --gradient-risk-low: linear-gradient(135deg, #10b981, #059669);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+  --transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:14px; }
+body { font-family:var(--font); background:var(--bg-primary); color:var(--text-primary); min-height:100vh; overflow-x:hidden; }
+body::before { content:''; position:fixed; top:0; left:0; right:0; bottom:0; background:radial-gradient(ellipse at 20% 20%, rgba(59,130,246,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.06) 0%, transparent 60%); pointer-events:none; z-index:0; }
+
+/* Login */
+.login-container { display:flex; align-items:center; justify-content:center; min-height:100vh; position:relative; z-index:1; }
+.login-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem; width:100%; max-width:400px; backdrop-filter:blur(20px); box-shadow:var(--shadow-lg); }
+.login-card h1 { font-size:1.5rem; margin-bottom:.5rem; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.login-card p { color:var(--text-secondary); margin-bottom:1.5rem; font-size:.9rem; }
+.login-card .field { margin-bottom:1rem; }
+.login-card label { display:block; font-size:.8rem; color:var(--text-secondary); margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.5px; }
+.login-card input { width:100%; padding:.7rem 1rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-primary); font-size:.95rem; outline:none; transition:var(--transition); }
+.login-card input:focus { border-color:var(--accent-blue); box-shadow:0 0 0 3px rgba(59,130,246,0.15); }
+.login-error { color:var(--accent-red); font-size:.85rem; margin-bottom:1rem; display:none; }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1.2rem; border:none; border-radius:var(--radius-sm); cursor:pointer; font-size:.85rem; font-weight:600; transition:var(--transition); text-decoration:none; }
+.btn-primary { background:var(--gradient-1); color:#fff; }
+.btn-primary:hover { opacity:.9; transform:translateY(-1px); box-shadow:0 4px 16px rgba(59,130,246,0.3); }
+.btn-secondary { background:var(--bg-glass); color:var(--text-primary); border:1px solid var(--border); }
+.btn-secondary:hover { border-color:var(--border-hover); background:rgba(255,255,255,0.08); }
+.btn-success { background:var(--gradient-risk-low); color:#fff; }
+.btn-danger { background:var(--gradient-risk-high); color:#fff; }
+.btn-warning { background:var(--gradient-risk-medium); color:#fff; }
+.btn-sm { padding:.4rem .8rem; font-size:.8rem; }
+.btn-full { width:100%; justify-content:center; padding:.8rem; }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Layout */
+.app { display:flex; min-height:100vh; position:relative; z-index:1; }
+.sidebar { width:240px; background:var(--bg-secondary); border-right:1px solid var(--border); padding:1.5rem 0; display:flex; flex-direction:column; position:fixed; top:0; bottom:0; z-index:10; }
+.sidebar-brand { padding:0 1.5rem 1.5rem; border-bottom:1px solid var(--border); margin-bottom:1rem; }
+.sidebar-brand h2 { font-size:1rem; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.sidebar-brand span { font-size:.75rem; color:var(--text-muted); }
+.sidebar-nav { flex:1; padding:0 .75rem; }
+.nav-item { display:flex; align-items:center; gap:.75rem; padding:.7rem 1rem; border-radius:var(--radius-sm); color:var(--text-secondary); cursor:pointer; transition:var(--transition); margin-bottom:.25rem; font-size:.9rem; }
+.nav-item:hover { background:var(--bg-glass); color:var(--text-primary); }
+.nav-item.active { background:rgba(59,130,246,0.12); color:var(--accent-blue); font-weight:600; }
+.nav-item .icon { font-size:1.1rem; width:20px; text-align:center; }
+.nav-badge { margin-left:auto; background:var(--accent-red); color:#fff; font-size:.7rem; padding:.15rem .5rem; border-radius:10px; font-weight:700; }
+.sidebar-footer { padding:1rem 1.5rem; border-top:1px solid var(--border); }
+.sidebar-footer .user-info { font-size:.8rem; color:var(--text-secondary); margin-bottom:.5rem; }
+.sidebar-footer .user-name { color:var(--text-primary); font-weight:600; }
+.main { flex:1; margin-left:240px; padding:1.5rem 2rem; }
+
+/* Header */
+.page-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.page-header h1 { font-size:1.5rem; font-weight:700; }
+.page-header .subtitle { color:var(--text-secondary); font-size:.85rem; margin-top:.2rem; }
+
+/* Cards */
+.card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; backdrop-filter:blur(12px); transition:var(--transition); }
+.card:hover { border-color:var(--border-hover); }
+.card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+.card-title { font-size:.95rem; font-weight:600; }
+.card-subtitle { font-size:.8rem; color:var(--text-muted); }
+
+/* Stats grid */
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1.5rem; }
+.stat-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; position:relative; overflow:hidden; }
+.stat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.stat-card.blue::before { background:var(--gradient-2); }
+.stat-card.purple::before { background:var(--gradient-1); }
+.stat-card.green::before { background:var(--gradient-risk-low); }
+.stat-card.amber::before { background:var(--gradient-risk-medium); }
+.stat-card.red::before { background:var(--gradient-risk-high); }
+.stat-label { font-size:.75rem; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); margin-bottom:.5rem; }
+.stat-value { font-size:1.8rem; font-weight:700; }
+.stat-detail { font-size:.8rem; color:var(--text-secondary); margin-top:.3rem; }
+
+/* Grid layouts */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+.grid-sidebar { display:grid; grid-template-columns:2fr 1fr; gap:1.5rem; }
+
+/* Tables */
+.table-container { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; padding:.7rem 1rem; font-size:.75rem; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); border-bottom:1px solid var(--border); font-weight:600; }
+td { padding:.7rem 1rem; font-size:.85rem; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--text-secondary); }
+tr:hover td { background:rgba(255,255,255,0.02); color:var(--text-primary); }
+tr { cursor:pointer; transition:var(--transition); }
+
+/* Badges */
+.badge { display:inline-flex; align-items:center; padding:.2rem .6rem; border-radius:20px; font-size:.75rem; font-weight:600; }
+.badge-high, .badge-critical { background:rgba(239,68,68,0.15); color:#f87171; }
+.badge-medium { background:rgba(245,158,11,0.15); color:#fbbf24; }
+.badge-low { background:rgba(16,185,129,0.15); color:#34d399; }
+.badge-pending { background:rgba(59,130,246,0.15); color:#60a5fa; }
+.badge-approved { background:rgba(16,185,129,0.15); color:#34d399; }
+.badge-rejected { background:rgba(239,68,68,0.15); color:#f87171; }
+.badge-investigating { background:rgba(245,158,11,0.15); color:#fbbf24; }
+.badge-stable { background:rgba(16,185,129,0.15); color:#34d399; }
+.badge-warning { background:rgba(245,158,11,0.15); color:#fbbf24; }
+.badge-drift_detected, .badge-drift { background:rgba(239,68,68,0.15); color:#f87171; }
+.badge-insufficient_data { background:rgba(100,116,139,0.15); color:#94a3b8; }
+
+/* Risk meter */
+.risk-meter { display:flex; align-items:center; gap:1rem; margin:1rem 0; }
+.risk-circle { width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-direction:column; font-weight:700; font-size:1.3rem; }
+.risk-circle.high { background:rgba(239,68,68,0.15); border:3px solid var(--accent-red); color:var(--accent-red); }
+.risk-circle.medium { background:rgba(245,158,11,0.15); border:3px solid var(--accent-amber); color:var(--accent-amber); }
+.risk-circle.low { background:rgba(16,185,129,0.15); border:3px solid var(--accent-green); color:var(--accent-green); }
+.risk-circle small { font-size:.6rem; font-weight:500; }
+
+/* Factor bars */
+.factor-item { margin-bottom:.75rem; }
+.factor-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:.3rem; }
+.factor-label { font-size:.85rem; font-weight:500; }
+.factor-impact { font-size:.75rem; color:var(--text-muted); }
+.factor-bar { height:6px; border-radius:3px; background:rgba(255,255,255,0.06); overflow:hidden; }
+.factor-bar-fill { height:100%; border-radius:3px; transition:width 0.6s ease; }
+.factor-bar-fill.increases { background:var(--gradient-risk-high); }
+.factor-bar-fill.decreases { background:var(--gradient-risk-low); }
+.factor-bar-fill.contributes { background:var(--gradient-2); }
+.factor-detail { font-size:.78rem; color:var(--text-secondary); margin-top:.2rem; }
+.factor-source { font-size:.7rem; color:var(--text-muted); font-style:italic; }
+
+/* Recommendation box */
+.recommendation { background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2); border-radius:var(--radius-sm); padding:1rem; margin-top:1rem; }
+.recommendation-title { font-size:.8rem; text-transform:uppercase; letter-spacing:.5px; color:var(--accent-blue); margin-bottom:.5rem; font-weight:600; }
+.recommendation-text { font-size:.9rem; line-height:1.5; }
+
+/* Policy factors */
+.policy-factor { background:rgba(245,158,11,0.08); border-left:3px solid var(--accent-amber); padding:.5rem .75rem; margin-bottom:.5rem; border-radius:0 var(--radius-sm) var(--radius-sm) 0; }
+.policy-factor .label { font-size:.8rem; font-weight:600; color:var(--accent-amber); }
+.policy-factor .detail { font-size:.78rem; color:var(--text-secondary); }
+
+/* Forms */
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; font-size:.8rem; color:var(--text-secondary); margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.5px; font-weight:500; }
+.form-control { width:100%; padding:.6rem .9rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-primary); font-size:.9rem; outline:none; transition:var(--transition); font-family:var(--font); }
+.form-control:focus { border-color:var(--accent-blue); box-shadow:0 0 0 3px rgba(59,130,246,0.1); }
+select.form-control { cursor:pointer; }
+textarea.form-control { resize:vertical; min-height:80px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-actions { display:flex; gap:.5rem; justify-content:flex-end; margin-top:1rem; }
+
+/* Search bar */
+.search-bar { display:flex; gap:.5rem; margin-bottom:1rem; }
+.search-bar input { flex:1; }
+
+/* Tabs */
+.tabs { display:flex; gap:.25rem; margin-bottom:1rem; background:var(--bg-glass); padding:.25rem; border-radius:var(--radius-sm); }
+.tab { padding:.5rem 1rem; border-radius:6px; cursor:pointer; font-size:.85rem; color:var(--text-secondary); transition:var(--transition); border:none; background:transparent; font-family:var(--font); }
+.tab.active { background:var(--accent-blue); color:#fff; font-weight:600; }
+.tab:hover:not(.active) { color:var(--text-primary); background:rgba(255,255,255,0.05); }
+
+/* Modal */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:100; display:none; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+.modal-overlay.show { display:flex; }
+.modal { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; width:90%; max-width:600px; max-height:85vh; overflow-y:auto; box-shadow:var(--shadow-lg); }
+.modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.modal-header h2 { font-size:1.2rem; }
+.modal-close { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.5rem; padding:.25rem; line-height:1; }
+.modal-close:hover { color:var(--text-primary); }
+
+/* Metric progress */
+.metric-bar { margin-bottom:1rem; }
+.metric-bar .label { display:flex; justify-content:space-between; margin-bottom:.3rem; }
+.metric-bar .label span:first-child { font-size:.85rem; }
+.metric-bar .label span:last-child { font-size:.85rem; font-weight:600; }
+.metric-track { height:8px; background:rgba(255,255,255,0.06); border-radius:4px; overflow:hidden; }
+.metric-fill { height:100%; border-radius:4px; transition:width 0.8s ease; }
+.metric-fill.good { background:var(--accent-green); }
+.metric-fill.ok { background:var(--accent-amber); }
+.metric-fill.bad { background:var(--accent-red); }
+
+/* Toast notifications */
+.toast-container { position:fixed; top:1rem; right:1rem; z-index:200; display:flex; flex-direction:column; gap:.5rem; }
+.toast { padding:.75rem 1.25rem; border-radius:var(--radius-sm); color:#fff; font-size:.85rem; animation:slideIn .3s ease; box-shadow:var(--shadow); }
+.toast.success { background:rgba(16,185,129,0.9); }
+.toast.error { background:rgba(239,68,68,0.9); }
+.toast.info { background:rgba(59,130,246,0.9); }
+@keyframes slideIn { from{transform:translateX(100%);opacity:0} to{transform:translateX(0);opacity:1} }
+
+/* Empty state */
+.empty-state { text-align:center; padding:3rem 2rem; color:var(--text-muted); }
+.empty-state .icon { font-size:3rem; margin-bottom:1rem; }
+.empty-state h3 { color:var(--text-secondary); margin-bottom:.5rem; }
+
+/* Section */
+.section { display:none; }
+.section.active { display:block; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,0.2); }
+
+/* Responsive */
+@media (max-width:768px) {
+  .sidebar { width:60px; }
+  .sidebar-brand h2, .sidebar-brand span, .nav-item span, .sidebar-footer .user-info { display:none; }
+  .main { margin-left:60px; padding:1rem; }
+  .grid-2, .grid-3, .grid-sidebar, .form-row, .stats-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+{% if page == 'login' %}
+<!-- LOGIN PAGE -->
+<div class="login-container">
+  <div class="login-card">
+    <h1>🧠 AI Ticket Intelligence</h1>
+    <p>Sign in to access the dashboard</p>
+    <div class="login-error" id="loginError"></div>
+    <div class="field">
+      <label>Username</label>
+      <input type="text" id="loginUser" placeholder="admin" autocomplete="username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="admin123" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary btn-full" onclick="doLogin()" id="loginBtn">Sign In</button>
+    <p style="margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+      Default accounts: admin/admin123 · reviewer/reviewer123 · agent/agent123
+    </p>
+  </div>
+</div>
+{% else %}
+<!-- MAIN APP -->
+<div class="toast-container" id="toasts"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h2>🧠 AI Ticket Intel</h2>
+      <span>Intelligence Platform</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="showSection('tickets')" data-section="tickets">
+        <span class="icon">📋</span><span>Tickets</span>
+      </div>
+      <div class="nav-item" onclick="showSection('analysis')" data-section="analysis">
+        <span class="icon">🔍</span><span>Risk Analysis</span>
+      </div>
+      <div class="nav-item" onclick="showSection('escalations')" data-section="escalations">
+        <span class="icon">🚨</span><span>Escalations</span>
+        <span class="nav-badge" id="escBadge" style="display:none">0</span>
+      </div>
+      <div class="nav-item" onclick="showSection('health')" data-section="health">
+        <span class="icon">📊</span><span>Model Health</span>
+      </div>
+      <div class="nav-item" onclick="showSection('audits')" data-section="audits">
+        <span class="icon">📜</span><span>Audit Trail</span>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-name">{{ user.display_name }}</div>
+        <div>{{ user.role }}</div>
+      </div>
+      <button class="btn btn-secondary btn-sm btn-full" onclick="doLogout()">Sign Out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- TICKETS SECTION -->
+    <div class="section active" id="sec-tickets">
+      <div class="page-header">
+        <div><h1>Ticket Management</h1><div class="subtitle">Create, search, acknowledge, and manage support tickets</div></div>
+        <div style="display:flex;gap:.5rem">
+          <button class="btn btn-secondary" onclick="openImportModal()">📥 Import</button>
+          <button class="btn btn-primary" onclick="openNewTicketModal()">+ New Ticket</button>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input class="form-control" id="ticketSearch" placeholder="Search tickets..." onkeyup="if(event.key==='Enter')loadTickets()">
+        <select class="form-control" id="filterPriority" style="width:140px" onchange="loadTickets()">
+          <option value="">All Priorities</option>
+          <option value="Critical">Critical</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+        <select class="form-control" id="filterStatus" style="width:140px" onchange="loadTickets()">
+          <option value="">All Status</option>
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Waiting">Waiting</option>
+          <option value="Resolved">Resolved</option>
+          <option value="Closed">Closed</option>
+        </select>
+        <button class="btn btn-secondary" onclick="loadTickets()">Search</button>
+      </div>
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Ticket ID</th><th>Title</th><th>Priority</th><th>Type</th><th>Status</th><th>Team</th><th>SLA Risk</th><th>Actions</th></tr></thead>
+            <tbody id="ticketTableBody"><tr><td colspan="8" class="empty-state">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISK ANALYSIS SECTION -->
+    <div class="section" id="sec-analysis">
+      <div class="page-header">
+        <div><h1>Ticket Risk Analysis</h1><div class="subtitle">Calibrated breach prediction, ensemble uncertainty, and SHAP factors</div></div>
+      </div>
+      <div class="card" style="margin-bottom:1.5rem">
+        <div class="card-title" style="margin-bottom:1rem">Analyze a Ticket</div>
+        <div class="form-row" style="grid-template-columns:1fr 1fr 1fr 1fr auto">
+          <div class="form-group">
+            <label>Ticket ID</label>
+            <input class="form-control" id="analyzeTicketId" placeholder="TKT-1000">
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select class="form-control" id="analyzePriority">
+              <option value="Low">Low</option><option value="Medium" selected>Medium</option><option value="High">High</option><option value="Critical">Critical</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Issue Type</label>
+            <select class="form-control" id="analyzeType">
+              <option value="Bug">Bug</option><option value="Task">Task</option><option value="Incident">Incident</option><option value="Service Request">Service Request</option><option value="Change Request">Change Request</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Created Hours</label>
+            <input class="form-control" id="analyzeHours" type="number" value="5" step="0.5">
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end">
+            <button class="btn btn-primary" onclick="runAnalysis()">🔍 Analyze</button>
+          </div>
+        </div>
+        <details style="margin-top:.5rem">
+          <summary style="cursor:pointer;font-size:.85rem;color:var(--text-secondary)">Advanced features ▾</summary>
+          <div class="form-row" style="margin-top:.75rem">
+            <div class="form-group"><label>SLA Deadline (hrs)</label><input class="form-control" id="analyzeSLA" type="number" value="24" step="1"></div>
+            <div class="form-group"><label>Response Delay (hrs)</label><input class="form-control" id="analyzeDelay" type="number" value="2" step="0.5"></div>
+            <div class="form-group"><label>Team Backlog</label><input class="form-control" id="analyzeBacklog" type="number" value="8"></div>
+            <div class="form-group"><label>Similar Ticket Res. (hrs)</label><input class="form-control" id="analyzeSimilar" type="number" value="6" step="0.5"></div>
+            <div class="form-group"><label>Description Length</label><input class="form-control" id="analyzeDescLen" type="number" value="200"></div>
+          </div>
+        </details>
+      </div>
+      <div id="analysisResult" style="display:none"></div>
+    </div>
+
+    <!-- ESCALATIONS SECTION -->
+    <div class="section" id="sec-escalations">
+      <div class="page-header">
+        <div><h1>Reviewer Escalation Queue</h1><div class="subtitle">Prioritized decision workflow with evidence snapshots and concurrency locks</div></div>
+        <button class="btn btn-secondary" onclick="checkTimeouts()">⏱ Check Timeouts</button>
+      </div>
+      <div class="stats-grid" id="escStats"></div>
+      <div class="tabs">
+        <button class="tab active" onclick="loadEscalations('pending_ack',this)">Pending Ack</button>
+        <button class="tab" onclick="loadEscalations('under_review',this)">Under Review</button>
+        <button class="tab" onclick="loadEscalations('snoozed',this)">Snoozed</button>
+        <button class="tab" onclick="loadEscalations('approved',this)">Approved</button>
+        <button class="tab" onclick="loadEscalations('rejected',this)">Rejected</button>
+        <button class="tab" onclick="loadEscalations('reopened',this)">Reopened</button>
+        <button class="tab" onclick="loadEscalations('',this)">All</button>
+      </div>
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead><tr><th>ID</th><th>Ticket</th><th>Risk</th><th>Level</th><th>Trigger</th><th>Reviewer</th><th>Status</th><th>Ver</th><th>Created</th><th>Actions</th></tr></thead>
+            <tbody id="escTableBody"><tr><td colspan="10" class="empty-state">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL HEALTH SECTION -->
+    <div class="section" id="sec-health">
+      <div class="page-header">
+        <div><h1>Model Health & Governance</h1><div class="subtitle">Drift monitoring, candidate promotion gate, and atomic rollback</div></div>
+        <div style="display:flex;gap:.5rem">
+          <button class="btn btn-secondary" onclick="runEvaluation()">📊 Evaluate</button>
+          <button class="btn btn-primary" onclick="prepareCandidate()">🔄 Retrain Candidate</button>
+          <button class="btn btn-danger" onclick="rollbackModel()">⏪ Rollback Active</button>
+        </div>
+      </div>
+      <div class="stats-grid" id="healthStats"></div>
+      <div id="candidateComparisonCard" style="display:none;margin-bottom:1.5rem"></div>
+      <div class="grid-2">
+        <div class="card" id="metricsCard"><div class="card-title">Performance Metrics</div><div class="empty-state"><div class="icon">📊</div><h3>No evaluations yet</h3><p>Run an evaluation to see metrics</p></div></div>
+        <div class="card" id="driftCard"><div class="card-title">Drift Detection</div><div class="empty-state"><div class="icon">📡</div><h3>No drift data</h3><p>Insufficient confirmed outcomes</p></div></div>
+      </div>
+      <div class="card" style="margin-top:1rem" id="versionsCard">
+        <div class="card-header"><div class="card-title">Registered Model Versions & Rollback History</div></div>
+        <div class="table-container">
+          <table><thead><tr><th>Version</th><th>Status</th><th>Precision</th><th>Recall</th><th>F1</th><th>Brier</th><th>Trained</th><th>Actions</th></tr></thead>
+          <tbody id="versionsBody"><tr><td colspan="8">Loading...</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUDIT TRAIL SECTION -->
+    <div class="section" id="sec-audits">
+      <div class="page-header">
+        <div><h1>Append-Only Audit Trail</h1><div class="subtitle">Auditable record of SLA outcome corrections, escalation decisions, and operational activity</div></div>
+        <button class="btn btn-secondary" onclick="loadAudits()">🔄 Refresh Audits</button>
+      </div>
+      <div class="card" style="margin-bottom:1.5rem">
+        <div class="card-header"><div class="card-title">Verified SLA Outcome Corrections</div><div class="card-subtitle">Formal human corrections with preserved justification reasons</div></div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Ticket ID</th><th>Previous Breach</th><th>Corrected Breach</th><th>Justification Reason</th><th>Corrected By</th><th>Recorded At</th></tr></thead>
+            <tbody id="outcomeAuditsBody"><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Reviewer Escalation Decisions</div></div>
+          <div class="table-container">
+            <table>
+              <thead><tr><th>ID</th><th>Ticket</th><th>Decision</th><th>Version</th><th>Reviewer</th><th>Decided At</th></tr></thead>
+              <tbody id="escAuditsBody"><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Agent & Operational Activity Logs</div></div>
+          <div class="table-container">
+            <table>
+              <thead><tr><th>Ticket</th><th>User</th><th>Type</th><th>Note</th><th>Time</th></tr></thead>
+              <tbody id="actAuditsBody"><tr><td colspan="5" class="empty-state">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endif %}
+
+<script>
+/* ========== API HELPERS ========== */
+async function api(url, opts={}) {
+  try {
+    const r = await fetch(url, {
+      headers: {'Content-Type':'application/json', ...opts.headers},
+      ...opts,
+      body: opts.body ? JSON.stringify(opts.body) : undefined
+    });
+    if (r.status === 401) { window.location.href='/login'; return null; }
+    const contentType = r.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      const data = await r.json();
+      if (!r.ok && !data.error) {
+        data.error = `Request failed (${r.status})`;
+      }
+      return data;
+    }
+    const text = await r.text();
+    if (!r.ok) return { error: text || `HTTP ${r.status}` };
+    return text;
+  } catch(err) {
+    console.error('API request error:', err);
+    return { error: err.message || 'Network error' };
+  }
+}
+function toast(msg, type='info') {
+  const c = document.getElementById('toasts'); if(!c) return;
+  const t = document.createElement('div');
+  t.className = `toast ${type}`; t.textContent = msg;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+function badge(text, cls) { return `<span class="badge badge-${(cls||text||'').toLowerCase().replace(/\s/g,'_')}">${text||'—'}</span>`; }
+function fmtDate(d) { if(!d) return '—'; return new Date(d).toLocaleString(undefined, {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}); }
+function fmtPct(v) { return v != null ? (v * 100).toFixed(1) + '%' : '—'; }
+function fmtNum(v, d=4) { return v != null ? Number(v).toFixed(d) : '—'; }
+
+/* ========== LOGIN ========== */
+async function doLogin() {
+  const u = document.getElementById('loginUser')?.value;
+  const p = document.getElementById('loginPass')?.value;
+  const err = document.getElementById('loginError');
+  if (!u || !p) { err.textContent='Enter username and password'; err.style.display='block'; return; }
+  const r = await api('/api/login', {method:'POST', body:{username:u, password:p}});
+  if (r?.error) { err.textContent=r.error; err.style.display='block'; }
+  else { window.location.href='/dashboard'; }
+}
+async function doLogout() { await api('/api/logout', {method:'POST'}); window.location.href='/login'; }
+
+/* ========== NAVIGATION ========== */
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const sec = document.getElementById('sec-'+name);
+  if(sec) sec.classList.add('active');
+  document.querySelector(`.nav-item[data-section="${name}"]`)?.classList.add('active');
+  if(name==='tickets') loadTickets();
+  if(name==='escalations') { loadEscalations('pending_ack'); updateEscStats(); }
+  if(name==='health') loadHealth();
+  if(name==='audits') loadAudits();
+}
+
+/* ========== TICKETS & AGENT WORKFLOW ========== */
+async function loadTickets() {
+  const search = document.getElementById('ticketSearch')?.value || '';
+  const priority = document.getElementById('filterPriority')?.value || '';
+  const status = document.getElementById('filterStatus')?.value || '';
+  let url = `/tickets?limit=50&search=${encodeURIComponent(search)}`;
+  if(priority) url += `&priority=${priority}`;
+  if(status) url += `&status=${status}`;
+  const d = await api(url);
+  if(!d) return;
+  const tb = document.getElementById('ticketTableBody');
+  if(!d.tickets?.length) { tb.innerHTML='<tr><td colspan="8"><div class="empty-state"><div class="icon">📋</div><h3>No tickets found</h3><p>Create a ticket or import data</p></div></td></tr>'; return; }
+  tb.innerHTML = d.tickets.map(t => `<tr onclick="viewTicket('${t.ticket_id}')">
+    <td><strong>${t.ticket_id}</strong></td>
+    <td>${t.title||'—'}</td>
+    <td>${badge(t.priority, t.priority)}</td>
+    <td>${t.issue_type||'—'}</td>
+    <td>${badge(t.status, t.status==='Open'?'pending':t.status==='Resolved'?'approved':'medium')}</td>
+    <td>${t.assigned_team||'—'}</td>
+    <td>${t.sla_breach===1?badge('Breached','high'):t.sla_breach===0?badge('Met','low'):badge('Unknown','insufficient_data')}</td>
+    <td><button class="btn btn-sm btn-secondary" onclick="event.stopPropagation();analyzeFromTicket('${t.ticket_id}')">🔍</button></td>
+  </tr>`).join('');
+}
+
+function viewTicket(id) { openTicketDetailModal(id); }
+
+async function openTicketDetailModal(id) {
+  const [t, actRes] = await Promise.all([
+    api(`/tickets/${id}`),
+    api(`/tickets/${id}/activities`)
+  ]);
+  if(!t || t.error) { toast('Ticket not found','error'); return; }
+  const activities = actRes?.activities || [];
+
+  const m = document.getElementById('modalContent');
+  m.innerHTML = `<div class="modal-header">
+      <h2>📋 ${t.ticket_id} — ${t.title || 'Untitled Ticket'}</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="form-row">
+      <div><div class="stat-label">Priority</div>${badge(t.priority,t.priority)}</div>
+      <div><div class="stat-label">Status</div>${badge(t.status, t.status==='Open'?'pending':t.status==='Resolved'?'approved':'medium')}</div>
+      <div><div class="stat-label">Type</div>${t.issue_type}</div>
+      <div><div class="stat-label">Team</div>${t.assigned_team||'—'}</div>
+    </div>
+
+    <!-- Agent Action Bar -->
+    <div style="margin-top:1.25rem;padding:1rem;background:var(--bg-glass);border-radius:var(--radius-sm);border:1px solid var(--border);display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
+      <strong>Agent Actions:</strong>
+      ${!t.acknowledged_at ? `<button class="btn btn-sm btn-primary" onclick="ackTicket('${t.ticket_id}')">✓ Acknowledge Assignment</button>` : `<span style="font-size:.8rem;color:var(--accent-green)">✓ Acknowledged by ${t.acknowledged_by||'Agent'}</span>`}
+      <button class="btn btn-sm btn-secondary" onclick="openRequestEscalationPrompt('${t.ticket_id}')">🚨 Request Human Review</button>
+      <button class="btn btn-sm btn-secondary" onclick="analyzeFromTicket('${t.ticket_id}')">🔍 Predict Risk</button>
+    </div>
+
+    <div class="form-row" style="margin-top:1rem">
+      <div><div class="stat-label">SLA Deadline</div><p>${t.sla_deadline_hours}h</p></div>
+      <div><div class="stat-label">Time Remaining</div><p>${t.time_remaining_hours?.toFixed(1) || '—'}h</p></div>
+      <div><div class="stat-label">Created Hours</div><p>${t.created_hours}</p></div>
+      <div><div class="stat-label">Response Delay</div><p>${t.response_delay_hours}h</p></div>
+    </div>
+
+    <!-- Add Work Note Form -->
+    <div style="margin-top:1.25rem">
+      <div class="stat-label">Add Operational Work Note</div>
+      <div style="display:flex;gap:.5rem;margin-top:.4rem">
+        <input class="form-control" id="workNoteInput" placeholder="Record investigation findings or work performed...">
+        <button class="btn btn-sm btn-secondary" onclick="submitWorkNote('${t.ticket_id}')">Add Note</button>
+      </div>
+    </div>
+
+    <!-- Chronological Activity Log -->
+    <div style="margin-top:1.5rem">
+      <div class="card-title">Chronological Activity History</div>
+      <div style="max-height:160px;overflow-y:auto;margin-top:.5rem;background:rgba(0,0,0,0.2);padding:.75rem;border-radius:var(--radius-sm)">
+        ${activities.length ? activities.map(a => `<div style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between">
+          <span><strong>${badge(a.activity_type, 'blue')} ${a.user_name}:</strong> ${a.note}</span>
+          <span style="font-size:.75rem;color:var(--text-muted)">${fmtDate(a.created_at)}</span>
+        </div>`).join('') : '<p style="color:var(--text-muted);font-size:.85rem">No activity logs recorded yet.</p>'}
+      </div>
+    </div>
+
+    ${t.predictions?.length ? `<div style="margin-top:1.25rem"><div class="card-title">Prediction History</div>${t.predictions.map(p=>`<div class="card" style="margin-top:.5rem;padding:.75rem"><div style="display:flex;justify-content:space-between;align-items:center"><span>${fmtDate(p.predicted_at)}</span><span>${badge(p.risk_label,p.risk_label)}</span><span>Score: ${fmtPct(p.risk_score)}</span><span>Uncertainty: ±${(p.uncertainty||0.05).toFixed(3)}</span><span>v${p.model_version}</span></div></div>`).join('')}</div>` : ''}`;
+  openModal();
+}
+
+async function ackTicket(ticketId) {
+  const r = await api(`/tickets/${ticketId}/ack`, {method:'POST'});
+  if(r?.status==='acknowledged') { toast('Ticket acknowledged & marked In Progress','success'); openTicketDetailModal(ticketId); loadTickets(); }
+  else { toast(r?.error||'Failed to acknowledge','error'); }
+}
+
+async function submitWorkNote(ticketId) {
+  const note = document.getElementById('workNoteInput')?.value?.trim();
+  if(!note) return;
+  const r = await api(`/tickets/${ticketId}/notes`, {method:'POST', body:{note}});
+  if(r?.status==='recorded') { toast('Work note recorded','success'); openTicketDetailModal(ticketId); }
+  else { toast(r?.error||'Failed to record note','error'); }
+}
+
+function openRequestEscalationPrompt(ticketId) {
+  const reason = prompt('Please enter justification reason for requesting human escalation:');
+  if(!reason) return;
+  const urgency = prompt('Urgency level (critical, high, medium):', 'high') || 'high';
+  api(`/tickets/${ticketId}/request-escalation`, {method:'POST', body:{reason, urgency}}).then(r => {
+    if(r?.status==='escalation_requested') { toast('Escalation request submitted to reviewer lead','success'); openTicketDetailModal(ticketId); }
+    else { toast(r?.error||'Failed to request escalation','error'); }
+  });
+}
+
+async function analyzeFromTicket(id) {
+  const t = await api(`/tickets/${id}`);
+  if(!t||t.error) return;
+  closeModal();
+  document.getElementById('analyzeTicketId').value = t.ticket_id;
+  document.getElementById('analyzePriority').value = t.priority;
+  document.getElementById('analyzeType').value = t.issue_type;
+  document.getElementById('analyzeHours').value = t.created_hours;
+  document.getElementById('analyzeSLA').value = t.sla_deadline_hours;
+  document.getElementById('analyzeDelay').value = t.response_delay_hours;
+  document.getElementById('analyzeBacklog').value = t.team_backlog_count;
+  document.getElementById('analyzeSimilar').value = t.similar_ticket_resolution_hours;
+  document.getElementById('analyzeDescLen').value = t.description_length;
+  showSection('analysis');
+  runAnalysis();
+}
+
+function openNewTicketModal() {
+  const m = document.getElementById('modalContent');
+  m.innerHTML = `<div class="modal-header"><h2>Create New Ticket</h2><button class="modal-close" onclick="closeModal()">&times;</button></div>
+    <div class="form-group"><label>Title</label><input class="form-control" id="newTitle" placeholder="Ticket title"></div>
+    <div class="form-group"><label>Description</label><textarea class="form-control" id="newDesc" placeholder="Describe the issue..."></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>Priority</label><select class="form-control" id="newPriority"><option>Low</option><option selected>Medium</option><option>High</option><option>Critical</option></select></div>
+      <div class="form-group"><label>Issue Type</label><select class="form-control" id="newType"><option>Bug</option><option selected>Task</option><option>Incident</option><option>Service Request</option><option>Change Request</option></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>SLA Deadline (hours)</label><input class="form-control" id="newSLA" type="number" value="24"></div>
+      <div class="form-group"><label>Assigned Team</label><select class="form-control" id="newTeam"><option>L1 Support</option><option>L2 Support</option><option>L3 Engineering</option><option>DevOps</option><option>Security</option></select></div>
+    </div>
+    <div class="form-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="createTicket()">Create</button></div>`;
+  openModal();
+}
+
+async function createTicket() {
+  const body = {
+    title: document.getElementById('newTitle').value,
+    description: document.getElementById('newDesc').value,
+    priority: document.getElementById('newPriority').value,
+    issue_type: document.getElementById('newType').value,
+    sla_deadline_hours: parseFloat(document.getElementById('newSLA').value),
+    assigned_team: document.getElementById('newTeam').value,
+    status: 'Open', created_hours: 0, response_delay_hours: 0
+  };
+  if(!body.title) { toast('Title is required','error'); return; }
+  const r = await api('/tickets', {method:'POST', body});
+  if(r?.status==='created') { toast('Ticket created','success'); closeModal(); loadTickets(); }
+  else { toast(r?.error||'Failed','error'); }
+}
+
+function openImportModal() {
+  const m = document.getElementById('modalContent');
+  m.innerHTML = `<div class="modal-header"><h2>📥 Import Tickets</h2><button class="modal-close" onclick="closeModal()">&times;</button></div>
+    <p style="color:var(--text-secondary);margin-bottom:1rem">Load synthetic data or paste ticket JSON. The import endpoint accepts <code>{"tickets": [...]}</code>.</p>
+    <button class="btn btn-primary btn-full" onclick="importSynthetic()">Load Synthetic Dataset</button>
+    <div style="margin:1rem 0;text-align:center;color:var(--text-muted)">or</div>
+    <div class="form-group"><label>Paste JSON</label><textarea class="form-control" id="importJson" rows="6" placeholder='{"tickets": [{"ticket_id":"TKT-1","title":"Test",...}]}'></textarea></div>
+    <div class="form-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="importJson()">Import JSON</button></div>`;
+  openModal();
+}
+
+async function importSynthetic() {
+  toast('Loading synthetic data...','info');
+  const exp = await api('/tickets/export');
+  if(exp?.total > 50) { toast(`Already have ${exp.total} tickets`,'info'); closeModal(); return; }
+  const tickets = [];
+  for(let i=0;i<20;i++){
+    const prios=['Low','Medium','High','Critical'];
+    const types=['Bug','Task','Incident','Service Request'];
+    const teams=['L1 Support','L2 Support','L3 Engineering'];
+    tickets.push({
+      ticket_id:`TKT-${3000+i}`, title:`Sample ticket #${3000+i}`,
+      priority:prios[Math.floor(Math.random()*4)], issue_type:types[Math.floor(Math.random()*4)],
+      assigned_team:teams[Math.floor(Math.random()*3)], status:'Open',
+      sla_deadline_hours: 4+Math.random()*44, created_hours: Math.random()*10,
+      response_delay_hours: Math.random()*5, team_backlog_count: Math.floor(Math.random()*15)+1,
+      similar_ticket_resolution_hours: 1+Math.random()*15, description_length: Math.floor(50+Math.random()*400)
+    });
+  }
+  const r = await api('/tickets/import', {method:'POST', body:{tickets}});
+  if(r) { toast(`Imported ${r.imported} tickets`,'success'); closeModal(); loadTickets(); }
+}
+
+async function importJson() {
+  try {
+    const d = JSON.parse(document.getElementById('importJson').value);
+    const r = await api('/tickets/import', {method:'POST', body:d});
+    if(r) { toast(`Imported ${r.imported} tickets`,'success'); closeModal(); loadTickets(); }
+  } catch(e) { toast('Invalid JSON','error'); }
+}
+
+/* ========== RISK ANALYSIS ========== */
+async function runAnalysis() {
+  const body = {
+    ticket_id: document.getElementById('analyzeTicketId').value || 'TKT-DEMO',
+    priority: document.getElementById('analyzePriority').value,
+    issue_type: document.getElementById('analyzeType').value,
+    created_hours: parseFloat(document.getElementById('analyzeHours').value),
+    sla_deadline_hours: parseFloat(document.getElementById('analyzeSLA').value),
+    response_delay_hours: parseFloat(document.getElementById('analyzeDelay').value),
+    team_backlog_count: parseInt(document.getElementById('analyzeBacklog').value),
+    similar_ticket_resolution_hours: parseFloat(document.getElementById('analyzeSimilar').value),
+    description_length: parseInt(document.getElementById('analyzeDescLen').value),
+  };
+  const r = await api('/predict', {method:'POST', body});
+  if(!r||r.error) { toast(r?.error||'Prediction failed','error'); return; }
+  renderAnalysis(r, body);
+}
+
+function renderAnalysis(r, input) {
+  const el = document.getElementById('analysisResult');
+  el.style.display = 'block';
+  const riskClass = r.risk_label?.toLowerCase() || 'medium';
+  const timeRemaining = Math.max(0, (input.sla_deadline_hours||24) - (input.created_hours||0));
+
+  let factorsHtml = '';
+  const factors = r.explanation?.top_factors || [];
+  const maxImpact = factors.length ? Math.max(...factors.map(f=>f.impact)) : 1;
+  factors.forEach(f => {
+    const pct = Math.max(5, (f.impact / maxImpact) * 100);
+    const dirClass = f.direction === 'increases_risk' ? 'increases' : f.direction === 'decreases_risk' ? 'decreases' : 'contributes';
+    factorsHtml += `<div class="factor-item">
+      <div class="factor-header"><span class="factor-label">${f.label}</span><span class="factor-impact">${f.direction==='increases_risk'?'↑':'↓'} ${fmtNum(f.impact,3)}</span></div>
+      <div class="factor-bar"><div class="factor-bar-fill ${dirClass}" style="width:${pct}%"></div></div>
+      <div class="factor-detail">${f.detail}</div>
+      <div class="factor-source">Source: ${f.source==='model'?'Model (SHAP)':f.source==='feature_importance'?'Feature importance':'Rule-based'}</div>
+    </div>`;
+  });
+
+  let policyHtml = '';
+  (r.explanation?.policy_factors||[]).forEach(p => {
+    policyHtml += `<div class="policy-factor"><div class="label">⚠ ${p.label}</div><div class="detail">${p.detail} <em>(${p.source})</em></div></div>`;
+  });
+
+  let escHtml = '';
+  if(r.escalation?.triggered) {
+    escHtml = `<div class="card" style="margin-top:1rem;border-color:rgba(239,68,68,0.3)">
+      <div class="card-title" style="color:var(--accent-red)">🚨 Escalation Triggered</div>
+      <p style="margin:.5rem 0;color:var(--text-secondary)">${r.escalation.reason}</p>
+      <div class="form-row"><div><strong>Level:</strong> ${badge(r.escalation.level,r.escalation.level)}</div><div><strong>Reviewer:</strong> ${r.escalation.assigned_reviewer}</div></div>
+    </div>`;
+  }
+
+  let feedbackHtml = `<div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center">
+    <span style="font-size:.85rem;color:var(--text-secondary)">Was this recommendation helpful?</span>
+    <button class="btn btn-sm btn-success" onclick="submitFeedback('${r.ticket_id}','${r.prediction_id}','helpful')">👍 Helpful</button>
+    <button class="btn btn-sm btn-warning" onclick="submitFeedback('${r.ticket_id}','${r.prediction_id}','not_helpful')">👎 Not Helpful</button>
+    <button class="btn btn-sm btn-danger" onclick="submitFeedback('${r.ticket_id}','${r.prediction_id}','incorrect')">❌ Incorrect</button>
+  </div>`;
+
+  const warnings = r.data_quality_warnings || [];
+  let warningsBanner = '';
+  if (warnings.length > 0) {
+    warningsBanner = `<div style="background:rgba(245,158,11,0.1);border-left:3px solid var(--accent-amber);padding:.6rem .8rem;border-radius:4px;margin-bottom:1rem;font-size:.82rem">
+      <strong>⚠️ Data Quality Warnings Flagged:</strong>
+      <ul style="margin-left:1.2rem;margin-top:.3rem">${warnings.map(w=>`<li>${w}</li>`).join('')}</ul>
+    </div>`;
+  }
+
+  el.innerHTML = `
+    <!-- Distinct Indicators Grid -->
+    <div class="stats-grid" style="margin-bottom:1.25rem">
+      <div class="stat-card ${riskClass}">
+        <div class="stat-label">Calibrated Breach Probability</div>
+        <div class="stat-value">${fmtPct(r.breach_probability || r.risk_score)}</div>
+        <div class="stat-detail">Risk Level: <strong>${r.risk_label}</strong> (Decision Boundary: ${fmtPct(r.decision_threshold)})</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-label">Model Epistemic Uncertainty</div>
+        <div class="stat-value">±${(r.prediction_uncertainty || 0.05).toFixed(3)}</div>
+        <div class="stat-detail">90% CI: [${fmtPct(r.confidence_interval ? r.confidence_interval[0] : 0)} – ${fmtPct(r.confidence_interval ? r.confidence_interval[1] : 1)}] (Tree Dispersion)</div>
+      </div>
+      <div class="stat-card ${r.data_quality_score >= 80 ? 'green' : r.data_quality_score >= 60 ? 'amber' : 'red'}">
+        <div class="stat-label">Data Quality Score</div>
+        <div class="stat-value">${r.data_quality_score || 100} / 100</div>
+        <div class="stat-detail">${warnings.length ? warnings.length + ' warnings detected' : '✅ Verified Input Quality'}</div>
+      </div>
+    </div>
+
+    ${warningsBanner}
+
+    <div class="grid-sidebar">
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">SLA Breach Explanation — ${r.ticket_id}</div><div>${badge(r.risk_label, riskClass)}</div></div>
+          <div class="risk-meter">
+            <div class="risk-circle ${riskClass}"><span>${fmtPct(r.breach_probability || r.risk_score)}</span><small>prob</small></div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;margin-bottom:.5rem">
+                <div><span class="stat-label">Time Remaining</span><br><strong>${timeRemaining.toFixed(1)}h</strong></div>
+                <div><span class="stat-label">Model Certainty</span><br><strong>${fmtPct(r.confidence)}</strong></div>
+                <div><span class="stat-label">Model</span><br><strong>v${r.model_version}</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-title" style="margin-top:1rem">Top Contributing Factors</div>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.75rem">SHAP values indicate feature influence on model output, not causal attribution.</p>
+          ${factorsHtml || '<p style="color:var(--text-muted)">No SHAP factors available</p>'}
+          ${policyHtml ? `<div style="margin-top:1rem"><div class="card-title">Operational Rules</div>${policyHtml}</div>` : ''}
+          <div class="recommendation">
+            <div class="recommendation-title">💡 Recommended Next Steps</div>
+            <div class="recommendation-text">${r.explanation?.recommendation || 'No specific recommendation.'}</div>
+          </div>
+          ${escHtml}
+          ${feedbackHtml}
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1rem">
+          <div class="card-title">Ticket Details</div>
+          <div style="margin-top:.75rem">
+            ${[['Priority',input.priority],['Type',input.issue_type],['Age',input.created_hours+'h'],['SLA',input.sla_deadline_hours+'h'],['Delay',input.response_delay_hours+'h'],['Backlog',input.team_backlog_count],['Team',r.assigned_team]].map(([l,v])=>`<div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--border)"><span class="stat-label">${l}</span><span>${v}</span></div>`).join('')}
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Record Confirmed Outcome</div>
+          <p style="font-size:.8rem;color:var(--text-secondary);margin:.5rem 0">Confirm SLA result (tickets must be resolved before confirming Met):</p>
+          <div style="display:flex;gap:.5rem">
+            <button class="btn btn-sm btn-danger" onclick="recordOutcome('${r.ticket_id}','${r.prediction_id}',true)">Breached</button>
+            <button class="btn btn-sm btn-success" onclick="recordOutcome('${r.ticket_id}','${r.prediction_id}',false)">Met</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+async function submitFeedback(ticketId, predId, label) {
+  const r = await api('/feedback', {method:'POST', body:{ticket_id:ticketId, prediction_id:predId, feedback_label:label}});
+  if(r?.status==='recorded') toast('Feedback recorded','success');
+  else toast(r?.error||'Failed','error');
+}
+
+async function recordOutcome(ticketId, predId, breach) {
+  const r = await api('/outcomes', {method:'POST', body:{ticket_id:ticketId, prediction_id:predId, actual_breach:breach}});
+  if(r?.status==='recorded') toast(`Outcome recorded: ${breach?'Breached':'Met'}`,'success');
+  else toast(r?.error||'Failed','error');
+}
+
+/* ========== REVIEWER ESCALATION QUEUE ========== */
+async function loadEscalations(status, tabEl) {
+  if(tabEl) { document.querySelectorAll('#sec-escalations .tab').forEach(t=>t.classList.remove('active')); tabEl.classList.add('active'); }
+  let url = '/escalations?limit=50';
+  if(status) url += `&status=${status}`;
+  const d = await api(url);
+  if(!d) return;
+  const tb = document.getElementById('escTableBody');
+  if(!d.escalations?.length) { tb.innerHTML='<tr><td colspan="10"><div class="empty-state"><div class="icon">🚨</div><h3>No escalations found</h3><p>No items matching filter.</p></div></td></tr>'; return; }
+  tb.innerHTML = d.escalations.map(e => `<tr>
+    <td>#${e.id}</td><td><strong>${e.ticket_id}</strong></td>
+    <td>${fmtPct(e.risk_score)}</td><td>${badge(e.escalation_level, e.escalation_level)}</td>
+    <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.trigger_conditions||'—'}</td>
+    <td>${e.assigned_reviewer||'—'}</td>
+    <td>${badge(e.status, e.status)}</td>
+    <td><span style="font-size:.75rem;color:var(--text-muted)">v${e.version||1}</span></td>
+    <td>${fmtDate(e.created_at)}</td>
+    <td><button class="btn btn-sm btn-primary" onclick="event.stopPropagation();openDecideModal(${e.id})">Review</button></td>
+  </tr>`).join('');
+}
+
+async function updateEscStats() {
+  const d = await api('/escalations');
+  if(!d) return;
+  const c = d.counts||{};
+  const pending = (c.pending_ack||0) + (c.pending||0);
+  const b = document.getElementById('escBadge');
+  if(b) { b.textContent=pending; b.style.display=pending>0?'inline':'none'; }
+  document.getElementById('escStats').innerHTML = `
+    <div class="stat-card amber"><div class="stat-label">Pending Ack</div><div class="stat-value">${pending}</div></div>
+    <div class="stat-card blue"><div class="stat-label">Under Review</div><div class="stat-value">${c.under_review||0}</div></div>
+    <div class="stat-card purple"><div class="stat-label">Snoozed</div><div class="stat-value">${c.snoozed||0}</div></div>
+    <div class="stat-card green"><div class="stat-label">Approved</div><div class="stat-value">${c.approved||0}</div></div>
+    <div class="stat-card red"><div class="stat-label">Rejected</div><div class="stat-value">${c.rejected||0}</div></div>
+    <div class="stat-card amber"><div class="stat-label">Reopened</div><div class="stat-value">${c.reopened||0}</div></div>`;
+}
+
+async function openDecideModal(id) {
+  const e = await api(`/escalation/${id}`);
+  if(!e || e.error) { toast('Escalation not found','error'); return; }
+
+  const snap = e.evidence_snapshot || {};
+  const m = document.getElementById('modalContent');
+  m.innerHTML = `<div class="modal-header">
+      <h2>Review Escalation #${e.id} (${e.ticket_id})</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="form-row">
+      <div><div class="stat-label">Status</div>${badge(e.status, e.status)}</div>
+      <div><div class="stat-label">Severity</div>${badge(e.escalation_level, e.escalation_level)}</div>
+      <div><div class="stat-label">Concurrency Ver</div><strong>v${e.version}</strong></div>
+      <div><div class="stat-label">Timeout Deadline</div><span style="font-size:.85rem">${fmtDate(e.timeout_at)}</span></div>
+    </div>
+
+    <!-- Evidence Snapshot -->
+    <div class="card" style="margin-top:1.25rem;background:rgba(255,255,255,0.02)">
+      <div class="card-title">🔍 Evidence Snapshot (AI Telemetry at Trigger)</div>
+      <div class="form-row" style="margin-top:.5rem">
+        <div><span class="stat-label">Breach Probability:</span> <strong>${fmtPct(snap.breach_probability || e.risk_score)}</strong></div>
+        <div><span class="stat-label">Ensemble Uncertainty:</span> <strong>±${(snap.prediction_uncertainty || 0.05).toFixed(3)}</strong></div>
+        <div><span class="stat-label">Model Version:</span> <strong>v${snap.model_version || '1.0.0'}</strong></div>
+        <div><span class="stat-label">Data Quality:</span> <strong>${snap.data_quality_score || 100}/100</strong></div>
+      </div>
+      <div style="margin-top:.75rem"><strong>Trigger Policy:</strong> ${e.trigger_conditions}</div>
+      ${snap.recommendation ? `<div style="margin-top:.5rem"><strong>Recommended Action:</strong> ${snap.recommendation}</div>` : ''}
+    </div>
+
+    <!-- Operational State Actions -->
+    <div style="margin-top:1.25rem;padding:.75rem;background:var(--bg-glass);border-radius:var(--radius-sm);display:flex;gap:.5rem;flex-wrap:wrap">
+      ${e.status === 'pending_ack' || e.status === 'pending' ? `<button class="btn btn-sm btn-primary" onclick="ackEscalation(${e.id})">👁 Acknowledge & Review</button>` : ''}
+      <button class="btn btn-sm btn-secondary" onclick="openSnoozePrompt(${e.id}, '${e.escalation_level}')">⏱ Snooze</button>
+      <button class="btn btn-sm btn-secondary" onclick="openReopenPrompt(${e.id})">🔄 Reopen</button>
+      <button class="btn btn-sm btn-secondary" onclick="openEffectivenessPrompt(${e.id})">📋 Track Action Outcome</button>
+      <button class="btn btn-sm btn-secondary" onclick="openCorrectOutcomePrompt('${e.ticket_id}')">✏️ Correct SLA Outcome</button>
+    </div>
+
+    <!-- Reviewer Decision Form -->
+    <div style="margin-top:1.25rem">
+      <div class="card-title">Record Reviewer Decision</div>
+      <div class="form-group" style="margin-top:.5rem">
+        <label>Decision</label>
+        <select class="form-control" id="decDecision">
+          <option value="approve">✅ Approve Escalation / Action</option>
+          <option value="reassign">🔄 Approve Reassignment</option>
+          <option value="reject">❌ Reject Recommendation</option>
+          <option value="investigate">🔍 Request In-Depth Investigation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Reason / Justification</label>
+        <textarea class="form-control" id="decReason" placeholder="Detail reason for operational audit..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitDecision(${e.id}, ${e.version})">Submit Decision (v${e.version})</button>
+      </div>
+    </div>`;
+  openModal();
+}
+
+async function ackEscalation(id) {
+  const r = await api(`/escalation/${id}/ack`, {method:'POST'});
+  if(r?.status==='under_review') { toast('Escalation acknowledged. Under review.','success'); openDecideModal(id); updateEscStats(); }
+  else { toast(r?.error||'Failed to acknowledge','error'); }
+}
+
+async function openSnoozePrompt(id, level) {
+  const dur = prompt(`Enter snooze duration in minutes${level.toLowerCase()==='critical'?' (Max 15m for Critical):':':'}`, '15');
+  if(!dur) return;
+  const reason = prompt('Enter justification reason for snoozing:');
+  if(!reason) return;
+  const r = await api(`/escalation/${id}/snooze`, {method:'POST', body:{duration_minutes:parseInt(dur), reason}});
+  if(r?.status==='snoozed') { toast('Escalation snoozed','success'); closeModal(); loadEscalations('snoozed'); updateEscStats(); }
+  else { toast(r?.error||'Failed to snooze','error'); }
+}
+
+async function openReopenPrompt(id) {
+  const reason = prompt('Enter justification reason for reopening escalation:');
+  if(!reason) return;
+  const r = await api(`/escalation/${id}/reopen`, {method:'POST', body:{reason}});
+  if(r?.status==='reopened') { toast('Escalation reopened','success'); closeModal(); loadEscalations('reopened'); updateEscStats(); }
+  else { toast(r?.error||'Failed to reopen','error'); }
+}
+
+async function openEffectivenessPrompt(id) {
+  const comp = confirm('Was the approved action completed? (OK for Yes, Cancel for No)');
+  const eff = prompt('Did the action help prevent breach / resolve risk? (yes, no, partially):', 'yes');
+  const notes = prompt('Enter outcome effectiveness notes:');
+  const r = await api(`/escalation/${id}/action-status`, {method:'POST', body:{completed:comp, effective:eff||'yes', notes:notes||''}});
+  if(r?.action_effective) { toast('Action effectiveness recorded','success'); openDecideModal(id); }
+  else { toast(r?.error||'Failed to update effectiveness','error'); }
+}
+
+async function openCorrectOutcomePrompt(ticketId) {
+  const breach = confirm(`Mark ticket ${ticketId} SLA outcome as BREACHED? (OK = Breached, Cancel = Met)`);
+  const reason = prompt('Required: Enter detailed justification reason for correcting SLA outcome:');
+  if(!reason) { toast('A justification reason is required to correct outcome.','error'); return; }
+  const r = await api('/outcome/correct', {method:'POST', body:{ticket_id:ticketId, actual_breach:breach, reason}});
+  if(r?.status==='corrected') { toast('Outcome corrected & logged in audit history','success'); loadAudits(); }
+  else { toast(r?.error||'Failed to correct outcome','error'); }
+}
+
+async function submitDecision(id, expectedVersion) {
+  const d = document.getElementById('decDecision').value;
+  const r = document.getElementById('decReason').value;
+  const res = await api(`/escalations/${id}/decide`, {method:'POST', body:{decision:d, decision_reason:r, expected_version:expectedVersion}});
+  if(res?.status==='decision_recorded') { toast('Decision recorded','success'); closeModal(); loadEscalations('under_review'); updateEscStats(); }
+  else { toast(res?.error||'Failed','error'); }
+}
+
+async function checkTimeouts() {
+  const r = await api('/escalations/check', {method:'POST'});
+  if(r) { toast(`Processed ${r.processed} timeout checks`,'info'); loadEscalations('pending_ack'); updateEscStats(); }
+}
+
+/* ========== MODEL HEALTH & GOVERNANCE ========== */
+async function loadHealth() {
+  const d = await api('/model-health');
+  if(!d) return;
+  const e = d.latest_evaluation;
+  // Stats
+  document.getElementById('healthStats').innerHTML = `
+    <div class="stat-card blue"><div class="stat-label">Active Model Version</div><div class="stat-value" style="font-size:1.3rem">v${d.active_version||d.model_version||'—'}</div><div class="stat-detail">Hot-reloaded atomically</div></div>
+    <div class="stat-card purple"><div class="stat-label">Total Predictions</div><div class="stat-value">${d.total_predictions||0}</div></div>
+    <div class="stat-card green"><div class="stat-label">Confirmed Outcomes</div><div class="stat-value">${d.total_confirmed_outcomes||0}</div></div>
+    <div class="stat-card ${e?.drift_status==='stable'?'green':e?.drift_status==='warning'?'amber':'red'}"><div class="stat-label">Drift Status</div><div class="stat-value" style="font-size:1.2rem">${e?badge(e.drift_status,e.drift_status):'—'}</div></div>`;
+
+  // Metrics
+  const mc = document.getElementById('metricsCard');
+  if(e && e.precision_score != null) {
+    mc.innerHTML = `<div class="card-title">Supervised Performance Metrics</div>
+      <p style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0">${e.confirmed_outcomes||0} confirmed outcomes evaluated on held-out split</p>
+      ${metricBar('Precision',e.precision_score)}${metricBar('Recall',e.recall_score)}${metricBar('F1 Score',e.f1_score)}${metricBar('Brier Score (Calibrated)',1-e.brier_score, e.brier_score?.toFixed(4)+' (lower is better)')}
+      <div class="form-row" style="margin-top:1rem">
+        <div><span class="stat-label">True Pos</span><br><strong style="color:var(--accent-green)">${e.true_positives}</strong></div>
+        <div><span class="stat-label">True Neg</span><br><strong style="color:var(--accent-green)">${e.true_negatives}</strong></div>
+        <div><span class="stat-label">False Pos (FP)</span><br><strong style="color:var(--accent-amber)">${e.false_positives}</strong></div>
+        <div><span class="stat-label">False Neg (FN)</span><br><strong style="color:var(--accent-red)">${e.false_negatives}</strong></div>
+      </div>
+      <div style="margin-top:.75rem;font-size:.8rem;color:var(--text-secondary)">${e.notes||''}</div>`;
+  } else {
+    mc.innerHTML = `<div class="card-title">Performance Metrics</div><div class="empty-state"><div class="icon">📊</div><h3>Insufficient confirmed data</h3><p>${e?.notes||'Run predictions and confirm outcomes, then evaluate.'}</p></div>`;
+  }
+
+  // Drift
+  const dc = document.getElementById('driftCard');
+  if(e?.drift_details) {
+    const dd = e.drift_details;
+    dc.innerHTML = `<div class="card-title">Drift Detection & Degradation</div>
+      <div style="margin:.75rem 0"><strong>Feature drift:</strong> ${dd.feature_drift_detected?'⚠️ Shift Detected':'✅ Stable'}</div>
+      <div><strong>Outcome drift:</strong> ${dd.outcome_drift_detected?'⚠️ Shift Detected':'✅ Stable'}</div>
+      ${dd.degraded_features?.length?`<div style="margin-top:.75rem"><strong>Affected features:</strong><ul>${dd.degraded_features.map(f=>`<li style="color:var(--accent-amber);font-size:.85rem">${f}</li>`).join('')}</ul></div>`:''}
+      ${dd.details?.length?`<div style="margin-top:.75rem"><strong>Details:</strong><ul>${dd.details.map(d=>`<li style="font-size:.85rem;color:var(--text-secondary)">${d}</li>`).join('')}</ul></div>`:''}
+      ${dd.message?`<p style="margin-top:.5rem;font-size:.85rem;color:var(--text-muted)">${dd.message}</p>`:''}`;
+  }
+
+  // Versions table
+  const vr = await api('/model-health/versions');
+  if(vr?.versions) {
+    document.getElementById('versionsBody').innerHTML = vr.versions.map(v => `<tr>
+      <td><strong>${v.version}</strong></td>
+      <td>${v.is_active?badge('Active','approved'):v.is_candidate?badge('Candidate','pending'):badge('Archived','insufficient_data')}</td>
+      <td>${fmtNum(v.precision_score)}</td><td>${fmtNum(v.recall_score)}</td><td>${fmtNum(v.f1_score)}</td><td>${fmtNum(v.brier_score)}</td>
+      <td>${fmtDate(v.training_date)}</td>
+      <td>${v.is_candidate&&!v.is_active?`<button class="btn btn-sm btn-success" onclick="activateVersion('${v.version}')">Promote & Activate</button>`:v.is_active?badge('Active','green'):`<button class="btn btn-sm btn-secondary" onclick="activateVersion('${v.version}')">Activate</button>`}</td>
+    </tr>`).join('');
+  }
+}
+
+function metricBar(label, value, displayVal) {
+  const pct = Math.max(0, Math.min(100, (value||0)*100));
+  const cls = pct >= 70 ? 'good' : pct >= 50 ? 'ok' : 'bad';
+  return `<div class="metric-bar"><div class="label"><span>${label}</span><span>${displayVal || fmtPct(value)}</span></div><div class="metric-track"><div class="metric-fill ${cls}" style="width:${pct}%"></div></div></div>`;
+}
+
+async function runEvaluation() {
+  toast('Running model evaluation on confirmed outcomes...','info');
+  const r = await api('/model-health/evaluate', {method:'POST'});
+  if(r) { toast('Evaluation complete','success'); loadHealth(); }
+}
+
+async function prepareCandidate() {
+  toast('Retraining candidate model on balanced outcomes...','info');
+  const r = await api('/model-health/retrain', {method:'POST'});
+  if(r?.status==='candidate_ready') {
+    toast(`Candidate v${r.candidate_version} prepared and evaluated`,'success');
+    renderCandidateComparison(r);
+    loadHealth();
+  } else {
+    toast(r?.message||'Retraining failed','error');
+  }
+}
+
+function renderCandidateComparison(data) {
+  const card = document.getElementById('candidateComparisonCard');
+  if(!card || !data.comparison) return;
+  const comp = data.comparison;
+  const cand = comp.candidate_metrics || {};
+  const act = comp.active_model_metrics || {};
+  const gates = comp.gate_checks || {};
+
+  card.style.display = 'block';
+  card.innerHTML = `<div class="card" style="border:1px solid var(--accent-purple);background:rgba(139,92,246,0.06)">
+    <div class="card-header">
+      <div>
+        <div class="card-title" style="color:var(--accent-purple)">🎯 Side-by-Side Candidate Promotion Gate (v${data.candidate_version})</div>
+        <div class="card-subtitle">Identical held-out evaluation split comparison with asymmetric false-negative cost (C_FN=5, C_FP=1)</div>
+      </div>
+      <button class="btn btn-sm btn-success" onclick="activateVersion('${data.candidate_version}')">Promote & Activate Candidate</button>
+    </div>
+    <div class="table-container" style="margin-top:.75rem">
+      <table>
+        <thead><tr><th>Evaluation Metric</th><th>Active Model</th><th>Candidate v${data.candidate_version}</th><th>Gate Validation</th></tr></thead>
+        <tbody>
+          <tr><td>Precision</td><td>${fmtNum(act.precision)}</td><td>${fmtNum(cand.precision)}</td><td>${cand.precision >= act.precision ? '✅ Improved' : '— Retained'}</td></tr>
+          <tr><td>Recall (Breach Catch Rate)</td><td>${fmtNum(act.recall)}</td><td>${fmtNum(cand.recall)}</td><td>${gates.recall_retention ? '✅ Retained' : '❌ Degraded'}</td></tr>
+          <tr><td>F1 Score</td><td>${fmtNum(act.f1)}</td><td>${fmtNum(cand.f1)}</td><td>${cand.f1 >= act.f1 ? '✅ Improved' : '— Comparable'}</td></tr>
+          <tr><td>Brier Score (Calibration)</td><td>${fmtNum(act.brier_score)}</td><td>${fmtNum(cand.brier_score)}</td><td>${cand.brier_score <= act.brier_score ? '✅ Calibrated' : '— Evaluated'}</td></tr>
+          <tr><td>Brier Skill Score (BSS)</td><td>${fmtNum(act.brier_skill_score)}</td><td>${fmtNum(cand.brier_skill_score)}</td><td>${gates.brier_skill_positive ? '✅ Better than Base Rate' : '⚠️ Naive Risk'}</td></tr>
+          <tr><td><strong>Misclassification Cost (5×FN + 1×FP)</strong></td><td><strong>${act.misclassification_cost || '—'}</strong></td><td><strong style="color:var(--accent-green)">${cand.misclassification_cost || '—'}</strong></td><td>${gates.false_negative_cost_better_or_equal ? '✅ Cost Reduced / Equal' : '❌ Higher Cost'}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+async function activateVersion(ver) {
+  if(!confirm(`Promote and activate model version ${ver}? This will atomically switch the active runtime model.`)) return;
+  const r = await api('/model-health/activate', {method:'POST', body:{version:ver}});
+  if(r?.status==='activated') { toast(`Model v${ver} activated with hot-reload`,'success'); loadHealth(); }
+  else { toast(r?.error||'Activation failed','error'); }
+}
+
+async function rollbackModel() {
+  if(!confirm('Roll back active model to the previous registered version?')) return;
+  const r = await api('/model-health/rollback', {method:'POST'});
+  if(r?.status==='rolled_back') { toast(`Successfully rolled back to v${r.active_version}`,'success'); loadHealth(); }
+  else { toast(r?.error||'Rollback failed','error'); }
+}
+
+/* ========== AUDIT TRAIL ========== */
+async function loadAudits() {
+  const d = await api('/audit-logs');
+  if(!d) return;
+
+  // Outcome audits
+  const ob = document.getElementById('outcomeAuditsBody');
+  if(ob) {
+    if(!d.outcome_corrections?.length) {
+      ob.innerHTML = '<tr><td colspan="6" class="empty-state">No outcome corrections recorded yet.</td></tr>';
+    } else {
+      ob.innerHTML = d.outcome_corrections.map(a => `<tr>
+        <td><strong>${a.ticket_id}</strong></td>
+        <td>${a.previous_breach===1?badge('Breached','high'):badge('Met','low')}</td>
+        <td>${a.corrected_breach===1?badge('Breached','high'):badge('Met','low')}</td>
+        <td>${a.reason}</td>
+        <td>${a.corrected_by}</td>
+        <td>${fmtDate(a.created_at)}</td>
+      </tr>`).join('');
+    }
+  }
+
+  // Escalation audits
+  const eb = document.getElementById('escAuditsBody');
+  if(eb) {
+    if(!d.escalation_decisions?.length) {
+      eb.innerHTML = '<tr><td colspan="6" class="empty-state">No escalation decisions recorded yet.</td></tr>';
+    } else {
+      eb.innerHTML = d.escalation_decisions.map(e => `<tr>
+        <td>#${e.id}</td>
+        <td><strong>${e.ticket_id}</strong></td>
+        <td>${badge(e.decision, e.decision)}</td>
+        <td>v${e.version}</td>
+        <td>${e.reviewer_name||'Reviewer'}</td>
+        <td>${fmtDate(e.decided_at)}</td>
+      </tr>`).join('');
+    }
+  }
+
+  // Activity audits
+  const ab = document.getElementById('actAuditsBody');
+  if(ab) {
+    if(!d.ticket_activities?.length) {
+      ab.innerHTML = '<tr><td colspan="5" class="empty-state">No ticket activities recorded yet.</td></tr>';
+    } else {
+      ab.innerHTML = d.ticket_activities.map(a => `<tr>
+        <td><strong>${a.ticket_id}</strong></td>
+        <td>${a.user_name}</td>
+        <td>${badge(a.activity_type, 'blue')}</td>
+        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.note}</td>
+        <td>${fmtDate(a.created_at)}</td>
+      </tr>`).join('');
+    }
+  }
+}
+
+/* ========== MODAL ========== */
+function openModal() { document.getElementById('modal').classList.add('show'); }
+function closeModal() { document.getElementById('modal').classList.remove('show'); }
+document.getElementById('modal')?.addEventListener('click', e => { if(e.target.id==='modal') closeModal(); });
+
+/* ========== INIT ========== */
+document.addEventListener('DOMContentLoaded', () => {
+  if(document.getElementById('sec-tickets')) {
+    loadTickets();
+    updateEscStats();
+  }
+  document.getElementById('loginPass')?.addEventListener('keyup', e => { if(e.key==='Enter') doLogin(); });
+});
+</script>
+</body>
+</html>

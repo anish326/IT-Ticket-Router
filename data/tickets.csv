@@ -1,4 +1,1001 @@
-ticket_id,priority,issue_type,created_hours,assigned_team,sla_breach
-1,High,Bug,5,L2,Yes
-2,Medium,Task,2,L1,No
-3,High,Incident,6,L3,Yes
+ticket_id,title,priority,issue_type,created_at,created_hours,sla_deadline_hours,time_remaining_hours,response_delay_hours,team_backlog_count,similar_ticket_resolution_hours,description_length,assigned_team,status,sla_breach,synthetic
+TKT-1000,[Medium] Change Request report,Medium,Change Request,2026-05-13T02:12:49.783051,4.54,17.58,13.04,0.42,8,5.1,102,DevOps,In Progress,0,1
+TKT-1001,[Low] Task report,Low,Task,2026-03-08T06:40:59.386903,54.16,45.89,0.0,0.56,6,15.8,91,Security,Closed,0,1
+TKT-1002,[Low] Incident report,Low,Incident,2026-01-07T12:33:30.280384,26.63,67.65,41.02,2.72,12,6.74,116,Security,In Progress,0,1
+TKT-1003,Task: System issue #3,Medium,Task,2026-01-31T01:57:11.436308,5.53,8.25,2.72,1.26,6,17.41,175,DevOps,Open,0,1
+TKT-1004,User-reported task,Low,Task,2026-02-28T20:47:31.024160,56.63,59.02,2.4,5.46,10,2.38,341,DevOps,In Progress,0,1
+TKT-1005,Task: System issue #5,Low,Task,2026-01-30T08:28:33.459374,83.28,68.63,0.0,2.51,11,2.23,188,L3 Engineering,Closed,1,1
+TKT-1006,Bug: System issue #6,Medium,Bug,2026-01-31T15:01:02.287873,9.85,11.5,1.65,1.29,6,7.02,195,Security,In Progress,1,1
+TKT-1007,Incident: System issue #7,High,Incident,2026-01-15T21:17:10.931126,2.91,6.96,4.05,2.91,12,17.33,96,DevOps,In Progress,0,1
+TKT-1008,Automated bug ticket,Critical,Bug,2026-03-03T17:24:23.891534,1.9,1.34,0.0,1.9,11,20.9,74,L3 Engineering,Resolved,1,1
+TKT-1009,Automated change request ticket,Low,Change Request,2026-04-20T11:46:24.735826,4.17,24.44,20.27,2.72,4,9.75,57,L1 Support,Open,1,1
+TKT-1010,Incident: System issue #10,High,Incident,2026-06-03T04:38:42.480005,8.11,9.26,1.15,0.25,12,3.42,324,L3 Engineering,Resolved,0,1
+TKT-1011,L2 Support - Task #TKT-1011,Critical,Task,2026-04-10T19:56:40.764226,4.0,2.72,0.0,0.2,9,6.08,246,L2 Support,Resolved,1,1
+TKT-1012,DevOps - Bug #TKT-1012,High,Bug,2026-05-08T22:29:43.823946,4.1,8.42,4.32,1.36,4,2.87,220,DevOps,In Progress,1,1
+TKT-1013,Automated incident ticket,Low,Incident,2026-04-09T00:13:29.358972,33.66,37.75,4.09,0.08,7,2.22,82,Security,Waiting,0,1
+TKT-1014,User-reported bug,Low,Bug,2026-06-24T20:23:57.357359,4.07,58.3,54.23,1.27,8,6.74,288,L1 Support,In Progress,0,1
+TKT-1015,[Medium] Task report,Medium,Task,2026-05-17T17:53:42.709942,1.87,8.23,6.36,0.12,7,27.69,121,L2 Support,Resolved,0,1
+TKT-1016,Security - Bug #TKT-1016,Medium,Bug,2026-06-18T08:26:41.463252,13.19,16.02,2.83,2.88,16,4.78,53,Security,In Progress,0,1
+TKT-1017,Automated task ticket,High,Task,2026-02-17T06:12:01.303125,8.44,7.97,0.0,1.07,10,18.06,220,Security,Closed,1,1
+TKT-1018,DevOps - Bug #TKT-1018,High,Bug,2026-06-12T19:01:42.804681,10.06,8.04,0.0,0.96,5,9.58,133,DevOps,Closed,1,1
+TKT-1019,Bug: System issue #19,High,Bug,2026-06-20T15:33:37.530896,2.19,10.25,8.06,2.19,14,7.31,41,Security,Open,0,1
+TKT-1020,Incident: System issue #20,Critical,Incident,2026-03-05T08:56:34.172683,2.52,3.12,0.61,1.19,13,4.76,20,L1 Support,Waiting,1,1
+TKT-1021,Automated incident ticket,Critical,Incident,2026-04-24T15:00:07.620280,2.38,3.09,0.71,2.38,10,7.46,27,L2 Support,Closed,1,1
+TKT-1022,L1 Support - Service Request #TKT-1022,Critical,Service Request,2026-04-07T19:56:10.689384,2.45,1.93,0.0,2.45,11,18.98,101,L1 Support,Closed,0,1
+TKT-1023,[High] Incident report,High,Incident,2026-03-17T00:01:12.900355,1.0,6.19,5.19,1.0,15,21.83,76,L2 Support,Waiting,0,1
+TKT-1024,L3 Engineering - Change Request #TKT-1024,Medium,Change Request,2026-04-10T16:14:15.156621,22.38,16.98,0.0,1.29,6,17.23,36,L3 Engineering,Closed,0,1
+TKT-1025,L1 Support - Incident #TKT-1025,Medium,Incident,2026-06-05T13:24:40.398429,5.54,23.19,17.65,5.54,9,13.12,61,L1 Support,In Progress,0,1
+TKT-1026,L1 Support - Incident #TKT-1026,Critical,Incident,2026-02-10T15:01:40.672975,2.12,3.47,1.34,1.07,7,4.48,119,L1 Support,Open,0,1
+TKT-1027,User-reported task,Medium,Task,2026-03-29T13:08:21.465691,10.22,17.89,7.68,1.55,8,4.5,502,L1 Support,In Progress,0,1
+TKT-1028,Bug: System issue #28,High,Bug,2026-04-07T16:38:58.691569,3.35,5.87,2.52,1.61,13,1.4,145,L1 Support,Open,0,1
+TKT-1029,[High] Bug report,High,Bug,2026-06-01T22:47:47.876957,0.61,4.41,3.8,0.61,11,1.19,400,Security,In Progress,0,1
+TKT-1030,User-reported bug,Medium,Bug,2026-01-22T00:05:42.298344,8.05,17.77,9.72,2.18,6,16.53,93,L1 Support,Open,0,1
+TKT-1031,User-reported service request,Critical,Service Request,2026-03-15T20:47:56.491739,5.65,3.8,0.0,0.57,11,4.56,268,L1 Support,Closed,1,1
+TKT-1032,Automated service request ticket,Medium,Service Request,2026-06-12T06:33:48.109184,14.79,17.99,3.19,1.44,8,19.53,73,L2 Support,Resolved,1,1
+TKT-1033,L2 Support - Bug #TKT-1033,High,Bug,2026-02-26T10:38:21.598356,6.81,5.99,0.0,0.09,11,20.04,271,L2 Support,Closed,0,1
+TKT-1034,[Medium] Task report,Medium,Task,2026-03-04T13:24:24.090973,14.91,10.91,0.0,2.19,8,30.75,237,Security,Resolved,1,1
+TKT-1035,Automated service request ticket,Low,Service Request,2026-06-14T06:09:51.755273,10.96,29.89,18.93,0.45,9,20.94,217,L3 Engineering,Resolved,0,1
+TKT-1036,Task: System issue #36,Medium,Task,2026-05-14T02:00:19.410603,5.52,15.24,9.71,1.51,9,3.27,224,DevOps,Closed,1,1
+TKT-1037,Automated incident ticket,Medium,Incident,2026-01-13T09:46:13.376345,6.69,20.0,13.31,5.71,6,3.05,121,L2 Support,In Progress,1,1
+TKT-1038,[High] Bug report,High,Bug,2026-03-02T12:26:50.441501,5.33,4.6,0.0,0.79,13,15.96,170,DevOps,Closed,0,1
+TKT-1039,[Low] Task report,Low,Task,2026-02-28T15:38:13.430333,26.94,28.17,1.23,3.33,11,10.34,101,L1 Support,In Progress,0,1
+TKT-1040,Security - Service Request #TKT-1040,Critical,Service Request,2026-01-21T21:30:28.223914,3.99,2.7,0.0,1.59,10,9.37,244,Security,Closed,0,1
+TKT-1041,L1 Support - Task #TKT-1041,Low,Task,2026-03-31T21:02:54.031175,9.81,58.57,48.76,0.38,11,21.11,199,L1 Support,Waiting,1,1
+TKT-1042,Service Request: System issue #42,Low,Service Request,2026-03-21T00:40:31.700148,73.68,67.94,0.0,2.36,12,5.03,933,L1 Support,Closed,0,1
+TKT-1043,[Medium] Bug report,Medium,Bug,2026-01-15T07:56:46.631116,11.68,8.04,0.0,0.01,11,1.78,282,L1 Support,Resolved,1,1
+TKT-1044,Automated change request ticket,Critical,Change Request,2026-01-08T10:19:25.770403,4.36,3.12,0.0,0.5,13,7.98,102,L3 Engineering,Resolved,0,1
+TKT-1045,L3 Engineering - Incident #TKT-1045,Medium,Incident,2026-05-23T15:55:26.659576,12.49,13.1,0.61,5.43,5,20.54,158,L3 Engineering,In Progress,0,1
+TKT-1046,Task: System issue #46,High,Task,2026-03-28T17:03:45.646966,11.88,9.02,0.0,10.35,8,3.31,80,L1 Support,Closed,1,1
+TKT-1047,Task: System issue #47,High,Task,2026-04-17T06:33:15.368992,15.79,11.86,0.0,2.3,9,3.65,133,L1 Support,Closed,0,1
+TKT-1048,Incident: System issue #48,High,Incident,2026-02-09T06:31:11.206264,7.5,8.15,0.65,1.86,12,2.24,83,Security,Resolved,0,1
+TKT-1049,Task: System issue #49,Medium,Task,2026-01-02T05:57:17.438450,1.88,19.13,17.26,1.88,13,6.36,358,DevOps,Open,1,1
+TKT-1050,[Medium] Bug report,Medium,Bug,2026-06-17T17:59:25.131127,10.31,9.69,0.0,0.52,7,25.89,195,DevOps,Closed,0,1
+TKT-1051,Incident: System issue #51,Medium,Incident,2026-04-08T12:44:12.625341,3.73,20.48,16.74,3.58,10,2.24,111,L2 Support,Open,1,1
+TKT-1052,Change Request: System issue #52,Critical,Change Request,2026-05-03T00:32:44.703768,2.45,2.34,0.0,2.26,7,6.75,55,DevOps,Closed,1,1
+TKT-1053,Bug: System issue #53,High,Bug,2026-01-24T23:22:03.885919,15.83,10.94,0.0,0.08,15,8.05,56,L1 Support,Resolved,1,1
+TKT-1054,Automated incident ticket,Medium,Incident,2026-01-04T13:09:48.151823,9.51,20.75,11.24,6.07,4,27.4,493,DevOps,Waiting,1,1
+TKT-1055,[Medium] Incident report,Medium,Incident,2026-03-20T07:37:33.440007,5.75,23.75,18.0,1.56,14,9.52,45,L1 Support,Resolved,0,1
+TKT-1056,Incident: System issue #56,Low,Incident,2026-06-09T04:32:40.771466,34.67,27.96,0.0,1.11,9,8.74,300,L1 Support,Closed,0,1
+TKT-1057,Security - Service Request #TKT-1057,Medium,Service Request,2026-01-15T18:05:46.090974,18.56,22.32,3.76,4.25,7,10.12,65,Security,Open,1,1
+TKT-1058,Task: System issue #58,High,Task,2026-04-08T23:30:27.742708,1.43,7.95,6.52,1.29,11,88.58,195,L3 Engineering,Resolved,1,1
+TKT-1059,User-reported task,Critical,Task,2026-02-20T03:53:45.902600,3.84,2.78,0.0,0.59,10,5.12,145,DevOps,Closed,1,1
+TKT-1060,Automated incident ticket,Medium,Incident,2026-01-30T18:25:23.266442,20.75,14.26,0.0,0.75,8,7.86,53,L2 Support,Closed,1,1
+TKT-1061,Bug: System issue #61,High,Bug,2026-01-31T12:06:54.051716,4.87,4.29,0.0,2.73,9,19.83,265,Security,Closed,1,1
+TKT-1062,Automated task ticket,Critical,Task,2026-04-02T15:15:15.744722,0.68,1.12,0.45,0.68,8,3.68,204,Security,Closed,0,1
+TKT-1063,Service Request: System issue #63,Low,Service Request,2026-03-22T05:00:03.410625,17.86,65.67,47.81,2.95,12,12.37,62,Security,Waiting,1,1
+TKT-1064,Security - Bug #TKT-1064,Critical,Bug,2026-06-26T05:23:32.913010,2.97,2.22,0.0,2.97,14,3.07,46,Security,Resolved,1,1
+TKT-1065,Automated bug ticket,Medium,Bug,2026-04-19T22:53:52.524267,17.56,18.69,1.13,1.56,7,1.32,471,DevOps,Resolved,0,1
+TKT-1066,DevOps - Service Request #TKT-1066,High,Service Request,2026-06-22T07:51:44.519491,1.62,4.15,2.53,0.02,8,1.91,137,DevOps,Open,0,1
+TKT-1067,[High] Task report,High,Task,2026-06-26T03:27:10.911680,8.53,10.59,2.05,0.33,9,13.68,102,Security,Open,1,1
+TKT-1068,[High] Incident report,High,Incident,2026-04-18T04:05:11.827003,10.22,10.35,0.13,0.48,13,5.17,92,DevOps,In Progress,1,1
+TKT-1069,[Medium] Bug report,Medium,Bug,2026-04-26T03:59:26.257650,11.66,12.11,0.45,0.15,8,1.63,341,DevOps,Closed,1,1
+TKT-1070,Automated task ticket,High,Task,2026-04-27T11:39:07.553200,5.57,8.77,3.19,1.14,10,6.07,43,L2 Support,In Progress,0,1
+TKT-1071,User-reported incident,Low,Incident,2026-06-22T16:56:28.424628,33.7,32.41,0.0,0.56,10,35.07,157,L1 Support,Resolved,1,1
+TKT-1072,Automated change request ticket,High,Change Request,2026-04-20T20:39:40.689685,2.35,8.05,5.71,0.16,6,21.07,153,L2 Support,In Progress,0,1
+TKT-1073,[Medium] Task report,Medium,Task,2026-04-08T11:38:41.686955,18.42,18.05,0.0,1.9,6,22.68,104,DevOps,Closed,0,1
+TKT-1074,User-reported change request,Low,Change Request,2026-06-16T10:18:39.826864,43.28,47.38,4.1,3.62,6,7.73,226,DevOps,Open,1,1
+TKT-1075,Task: System issue #75,High,Task,2026-03-11T21:30:39.001707,2.85,8.52,5.66,0.59,8,5.12,80,DevOps,Closed,0,1
+TKT-1076,[High] Incident report,High,Incident,2026-02-25T11:00:56.310473,7.34,8.99,1.65,1.39,10,4.66,18,Security,In Progress,0,1
+TKT-1077,Automated incident ticket,High,Incident,2026-02-06T03:03:32.831961,0.77,4.52,3.75,0.77,8,11.75,355,Security,In Progress,0,1
+TKT-1078,Security - Bug #TKT-1078,Critical,Bug,2026-01-19T17:17:09.485234,4.24,2.98,0.0,4.14,9,9.91,120,Security,Closed,1,1
+TKT-1079,Service Request: System issue #79,High,Service Request,2026-01-20T07:11:15.888034,3.51,4.28,0.77,1.23,12,6.95,316,L1 Support,In Progress,1,1
+TKT-1080,[Low] Incident report,Low,Incident,2026-05-20T18:25:04.556479,43.91,54.91,11.0,0.11,13,3.2,30,DevOps,Open,1,1
+TKT-1081,DevOps - Change Request #TKT-1081,Low,Change Request,2026-04-27T13:54:09.758414,46.26,37.72,0.0,4.94,14,8.32,137,DevOps,Closed,0,1
+TKT-1082,Automated task ticket,Low,Task,2026-03-16T17:57:32.619440,67.47,60.39,0.0,2.37,6,8.71,56,L1 Support,Resolved,0,1
+TKT-1083,User-reported service request,High,Service Request,2026-04-22T05:03:25.722446,3.26,5.5,2.25,3.26,4,3.74,79,L2 Support,Open,1,1
+TKT-1084,User-reported task,Low,Task,2026-06-08T03:07:52.647952,40.0,71.82,31.83,1.49,7,2.18,407,L1 Support,In Progress,0,1
+TKT-1085,DevOps - Incident #TKT-1085,Low,Incident,2026-04-12T09:36:48.311947,46.29,50.91,4.63,2.82,7,3.79,259,DevOps,Open,1,1
+TKT-1086,Security - Task #TKT-1086,Medium,Task,2026-01-17T06:45:13.882377,10.55,11.53,0.98,3.33,13,2.39,57,Security,Closed,1,1
+TKT-1087,Automated task ticket,Medium,Task,2026-06-07T10:11:40.855537,6.4,21.47,15.07,4.06,8,1.8,91,DevOps,Waiting,1,1
+TKT-1088,[High] Change Request report,High,Change Request,2026-01-13T17:53:55.070375,2.25,4.46,2.21,0.76,8,4.85,146,DevOps,Resolved,0,1
+TKT-1089,Service Request: System issue #89,Low,Service Request,2026-06-23T17:51:50.240889,71.54,50.89,0.0,0.13,12,14.99,82,L1 Support,Resolved,0,1
+TKT-1090,DevOps - Incident #TKT-1090,Medium,Incident,2026-05-23T20:08:38.220427,15.62,16.78,1.16,0.64,8,3.77,331,DevOps,In Progress,0,1
+TKT-1091,[Medium] Bug report,Medium,Bug,2026-03-01T18:31:44.688882,15.91,20.11,4.2,0.57,9,7.05,300,L1 Support,Open,0,1
+TKT-1092,Automated service request ticket,High,Service Request,2026-03-10T19:24:51.956758,14.78,10.2,0.0,0.57,13,5.65,107,Security,Closed,0,1
+TKT-1093,User-reported bug,Critical,Bug,2026-05-14T11:38:06.124594,2.91,1.96,0.0,1.66,9,15.73,97,L3 Engineering,Resolved,1,1
+TKT-1094,Bug: System issue #94,Critical,Bug,2026-05-18T01:23:45.642103,5.41,3.96,0.0,2.64,8,4.58,551,L2 Support,Closed,1,1
+TKT-1095,Automated service request ticket,High,Service Request,2026-05-26T10:45:58.341371,4.47,10.75,6.28,0.08,4,12.02,70,DevOps,Open,0,1
+TKT-1096,User-reported task,Low,Task,2026-06-06T06:47:23.069637,18.89,34.35,15.46,0.18,11,5.46,59,DevOps,Open,0,1
+TKT-1097,Bug: System issue #97,Medium,Bug,2026-05-14T12:23:08.886167,9.89,22.69,12.8,4.89,10,14.56,199,L1 Support,In Progress,1,1
+TKT-1098,Automated incident ticket,Medium,Incident,2026-02-23T20:04:02.385484,14.4,12.8,0.0,0.12,10,7.81,375,Security,Closed,0,1
+TKT-1099,Automated change request ticket,Low,Change Request,2026-01-12T23:26:50.567947,3.12,69.88,66.76,2.96,6,2.19,466,L3 Engineering,Open,0,1
+TKT-1100,L3 Engineering - Service Request #TKT-1100,Medium,Service Request,2026-06-25T01:42:36.043096,5.34,12.2,6.87,1.6,5,8.04,101,L3 Engineering,In Progress,1,1
+TKT-1101,User-reported bug,Medium,Bug,2026-04-04T07:35:37.517592,0.59,8.09,7.5,0.59,6,1.41,200,L1 Support,Waiting,0,1
+TKT-1102,Automated change request ticket,Medium,Change Request,2026-04-14T19:02:51.627920,8.75,8.47,0.0,0.11,13,14.13,227,L1 Support,Closed,1,1
+TKT-1103,Automated bug ticket,Medium,Bug,2026-03-17T17:51:16.032996,2.6,20.02,17.42,0.21,7,9.72,261,L1 Support,In Progress,1,1
+TKT-1104,DevOps - Incident #TKT-1104,High,Incident,2026-05-30T13:21:23.776547,14.76,11.93,0.0,2.97,10,17.09,113,DevOps,Closed,0,1
+TKT-1105,Automated task ticket,Medium,Task,2026-03-23T08:31:58.513101,19.79,17.27,0.0,0.26,4,3.88,235,L2 Support,Resolved,0,1
+TKT-1106,Task: System issue #106,Critical,Task,2026-01-29T03:15:57.988817,1.22,1.08,0.0,1.22,8,7.23,185,DevOps,Closed,1,1
+TKT-1107,[Critical] Task report,Critical,Task,2026-01-08T08:27:45.987565,0.94,1.09,0.15,0.44,6,2.95,137,DevOps,Closed,0,1
+TKT-1108,User-reported change request,Medium,Change Request,2026-03-12T10:33:42.429522,7.56,14.17,6.6,1.95,9,6.46,101,DevOps,In Progress,1,1
+TKT-1109,User-reported task,Low,Task,2026-04-24T01:19:56.166740,28.91,47.47,18.56,12.73,8,10.97,43,L3 Engineering,In Progress,0,1
+TKT-1110,Bug: System issue #110,Medium,Bug,2026-05-15T14:06:55.320727,1.93,16.79,14.86,1.93,8,6.91,31,L3 Engineering,Resolved,0,1
+TKT-1111,L3 Engineering - Service Request #TKT-1111,Medium,Service Request,2026-06-11T08:02:06.163730,10.45,15.3,4.84,2.3,6,34.78,49,L3 Engineering,In Progress,1,1
+TKT-1112,Change Request: System issue #112,High,Change Request,2026-01-04T18:34:53.500572,8.22,7.81,0.0,3.21,9,4.81,294,L3 Engineering,Resolved,1,1
+TKT-1113,User-reported service request,Critical,Service Request,2026-05-26T23:40:16.677554,3.99,3.65,0.0,0.28,7,2.34,356,L2 Support,Closed,0,1
+TKT-1114,Bug: System issue #114,Medium,Bug,2026-04-01T10:41:48.617031,22.11,20.71,0.0,0.13,8,5.91,246,Security,Resolved,1,1
+TKT-1115,[Medium] Service Request report,Medium,Service Request,2026-02-04T03:28:52.042667,25.45,19.52,0.0,1.51,10,9.08,177,DevOps,Closed,1,1
+TKT-1116,Automated service request ticket,Low,Service Request,2026-02-27T11:58:29.839901,18.65,24.01,5.36,0.12,5,14.3,74,Security,Resolved,1,1
+TKT-1117,User-reported service request,Medium,Service Request,2026-06-10T20:53:15.596097,20.44,14.94,0.0,1.18,8,3.97,225,Security,Closed,0,1
+TKT-1118,User-reported service request,Critical,Service Request,2026-02-23T23:35:07.948761,1.65,1.32,0.0,1.65,8,4.92,131,L1 Support,Resolved,0,1
+TKT-1119,User-reported incident,High,Incident,2026-06-08T18:16:37.588155,5.98,5.73,0.0,2.34,9,5.72,114,L3 Engineering,Resolved,1,1
+TKT-1120,Security - Task #TKT-1120,Medium,Task,2026-05-31T17:16:28.470743,4.99,8.24,3.24,1.03,5,50.91,278,Security,Open,1,1
+TKT-1121,Automated bug ticket,Medium,Bug,2026-06-04T14:47:58.914885,2.43,17.21,14.77,1.21,9,4.76,669,Security,Open,0,1
+TKT-1122,Service Request: System issue #122,Critical,Service Request,2026-05-21T19:13:29.473776,1.72,2.37,0.66,0.9,7,11.36,154,DevOps,Resolved,0,1
+TKT-1123,L1 Support - Task #TKT-1123,High,Task,2026-02-20T01:20:42.878014,9.61,11.85,2.24,5.92,10,3.7,147,L1 Support,In Progress,1,1
+TKT-1124,Automated service request ticket,Medium,Service Request,2026-03-06T02:26:12.278808,33.49,23.19,0.0,2.42,13,26.93,61,L1 Support,Closed,1,1
+TKT-1125,Incident: System issue #125,Low,Incident,2026-06-26T22:41:17.717327,39.49,33.13,0.0,5.96,12,10.69,486,DevOps,Closed,0,1
+TKT-1126,L1 Support - Incident #TKT-1126,Medium,Incident,2026-05-26T04:32:00.553184,10.69,8.74,0.0,0.49,7,121.11,46,L1 Support,Closed,0,1
+TKT-1127,Task: System issue #127,High,Task,2026-05-23T02:12:43.383276,5.3,6.01,0.71,1.11,7,4.57,176,Security,Waiting,0,1
+TKT-1128,L3 Engineering - Incident #TKT-1128,Medium,Incident,2026-04-04T08:08:13.287039,8.89,20.14,11.25,1.09,13,7.46,261,L3 Engineering,Waiting,0,1
+TKT-1129,Bug: System issue #129,High,Bug,2026-06-07T23:48:53.714857,3.88,8.31,4.43,1.38,4,15.9,257,Security,Open,0,1
+TKT-1130,L1 Support - Task #TKT-1130,Medium,Task,2026-02-11T19:23:59.929249,8.91,8.02,0.0,8.52,11,23.75,37,L1 Support,Resolved,1,1
+TKT-1131,User-reported task,Medium,Task,2026-04-24T10:50:06.305460,8.84,15.71,6.87,7.45,9,4.94,119,L2 Support,Open,0,1
+TKT-1132,User-reported bug,High,Bug,2026-03-04T11:52:38.041312,9.82,6.68,0.0,4.85,11,2.19,111,L3 Engineering,Resolved,0,1
+TKT-1133,[Medium] Service Request report,Medium,Service Request,2026-06-05T14:36:24.607312,13.14,10.87,0.0,2.01,9,21.24,256,L3 Engineering,Closed,0,1
+TKT-1134,Security - Service Request #TKT-1134,Low,Service Request,2026-01-10T15:55:50.347910,22.08,50.35,28.27,0.92,8,31.52,87,Security,In Progress,0,1
+TKT-1135,Automated incident ticket,High,Incident,2026-02-06T03:38:45.745097,8.4,7.35,0.0,0.27,7,4.77,498,L2 Support,Resolved,1,1
+TKT-1136,User-reported task,Medium,Task,2026-02-07T07:02:17.862768,6.7,15.73,9.03,0.85,8,28.18,433,L2 Support,In Progress,0,1
+TKT-1137,DevOps - Task #TKT-1137,Medium,Task,2026-04-18T21:55:37.132592,31.07,21.86,0.0,0.28,10,2.95,43,DevOps,Resolved,0,1
+TKT-1138,Bug: System issue #138,High,Bug,2026-05-02T09:01:45.665285,2.26,11.82,9.56,0.02,9,29.95,448,L1 Support,Open,1,1
+TKT-1139,User-reported service request,Critical,Service Request,2026-01-03T19:22:50.855984,0.95,1.75,0.79,0.79,7,3.39,221,L3 Engineering,In Progress,0,1
+TKT-1140,Automated task ticket,Medium,Task,2026-06-28T02:41:21.980091,14.76,12.66,0.0,1.39,11,7.38,410,L2 Support,Closed,1,1
+TKT-1141,User-reported incident,High,Incident,2026-02-06T12:44:47.409188,5.63,8.72,3.09,1.58,5,5.04,267,Security,Open,1,1
+TKT-1142,Change Request: System issue #142,High,Change Request,2026-05-27T21:01:22.662314,2.02,9.48,7.47,0.85,12,7.91,25,L1 Support,In Progress,0,1
+TKT-1143,Change Request: System issue #143,Low,Change Request,2026-05-03T04:23:03.057167,82.79,64.22,0.0,3.45,8,3.74,323,L2 Support,Closed,1,1
+TKT-1144,User-reported change request,High,Change Request,2026-01-23T04:51:36.322197,8.14,9.08,0.94,0.32,6,10.58,515,L3 Engineering,Waiting,0,1
+TKT-1145,Service Request: System issue #145,Medium,Service Request,2026-02-06T23:50:31.326641,11.08,13.24,2.16,2.14,9,4.94,270,L2 Support,Resolved,0,1
+TKT-1146,L3 Engineering - Change Request #TKT-1146,High,Change Request,2026-05-02T12:25:28.624842,9.71,7.26,0.0,0.63,12,5.53,392,L3 Engineering,Closed,0,1
+TKT-1147,Automated bug ticket,Medium,Bug,2026-06-08T06:09:14.247122,11.79,14.23,2.44,8.61,8,4.23,62,L3 Engineering,Resolved,1,1
+TKT-1148,User-reported service request,High,Service Request,2026-01-02T20:07:51.980549,5.87,5.74,0.0,1.65,5,10.65,475,Security,Resolved,0,1
+TKT-1149,User-reported service request,Medium,Service Request,2026-03-11T22:11:56.924801,10.01,18.6,8.59,1.24,11,2.99,443,L1 Support,In Progress,0,1
+TKT-1150,[Critical] Incident report,Critical,Incident,2026-02-04T03:48:57.762440,1.44,1.23,0.0,1.21,11,3.28,260,DevOps,Closed,1,1
+TKT-1151,User-reported bug,Low,Bug,2026-05-07T03:27:32.180636,27.31,41.68,14.37,0.08,6,11.36,55,L3 Engineering,Waiting,0,1
+TKT-1152,L3 Engineering - Service Request #TKT-1152,Low,Service Request,2026-05-27T14:55:22.216577,84.06,57.93,0.0,4.38,8,8.48,140,L3 Engineering,Resolved,1,1
+TKT-1153,User-reported bug,Medium,Bug,2026-01-04T10:05:13.408345,24.16,22.67,0.0,0.92,5,17.81,39,DevOps,Closed,0,1
+TKT-1154,L1 Support - Bug #TKT-1154,High,Bug,2026-04-15T12:35:22.293290,11.21,8.56,0.0,1.19,15,8.69,250,L1 Support,Resolved,1,1
+TKT-1155,[High] Incident report,High,Incident,2026-02-02T14:49:04.672018,6.85,9.64,2.79,2.75,10,21.61,19,Security,In Progress,0,1
+TKT-1156,L3 Engineering - Incident #TKT-1156,Critical,Incident,2026-04-18T01:04:10.487262,0.64,2.06,1.43,0.08,11,15.12,89,L3 Engineering,Waiting,0,1
+TKT-1157,Automated task ticket,Low,Task,2026-01-13T09:30:41.195107,86.87,70.82,0.0,4.79,6,7.84,37,L2 Support,Closed,1,1
+TKT-1158,[Critical] Bug report,Critical,Bug,2026-01-21T22:20:38.977459,0.66,1.03,0.36,0.58,6,14.6,492,Security,Open,0,1
+TKT-1159,Automated bug ticket,Medium,Bug,2026-03-25T01:24:11.257786,16.01,12.9,0.0,0.15,14,7.5,579,DevOps,Closed,0,1
+TKT-1160,User-reported service request,Low,Service Request,2026-01-23T12:21:53.017540,36.2,57.53,21.33,1.8,15,7.21,379,L2 Support,Waiting,1,1
+TKT-1161,Automated change request ticket,Medium,Change Request,2026-06-11T06:00:57.908890,14.8,13.4,0.0,2.13,8,37.64,436,L1 Support,Resolved,1,1
+TKT-1162,User-reported incident,Medium,Incident,2026-02-06T05:51:46.657785,4.9,12.7,7.8,4.9,11,9.85,169,L2 Support,Waiting,0,1
+TKT-1163,[Low] Incident report,Low,Incident,2026-02-11T03:31:18.899897,39.72,56.16,16.44,3.71,12,32.53,177,L3 Engineering,Resolved,1,1
+TKT-1164,Service Request: System issue #164,Low,Service Request,2026-02-12T23:33:07.068948,48.18,56.51,8.34,6.62,5,4.16,269,L3 Engineering,Waiting,1,1
+TKT-1165,Service Request: System issue #165,High,Service Request,2026-02-04T22:46:43.503115,6.11,6.37,0.26,2.29,11,3.31,105,DevOps,Closed,1,1
+TKT-1166,L3 Engineering - Change Request #TKT-1166,Medium,Change Request,2026-06-19T08:27:52.356281,4.94,15.25,10.31,0.45,8,2.58,293,L3 Engineering,Waiting,0,1
+TKT-1167,[Medium] Change Request report,Medium,Change Request,2026-02-15T05:39:33.993168,25.08,19.47,0.0,1.1,11,5.6,65,Security,Closed,1,1
+TKT-1168,[Medium] Bug report,Medium,Bug,2026-01-22T07:38:19.975490,22.72,16.75,0.0,1.05,10,10.73,222,Security,Closed,1,1
+TKT-1169,Automated bug ticket,Medium,Bug,2026-04-18T09:44:26.446014,1.45,19.82,18.37,1.45,9,50.87,140,L2 Support,In Progress,1,1
+TKT-1170,User-reported change request,Medium,Change Request,2026-04-14T17:34:00.427325,10.7,10.21,0.0,5.7,6,2.86,173,L1 Support,Closed,1,1
+TKT-1171,Automated task ticket,High,Task,2026-03-24T23:24:56.810154,9.02,6.43,0.0,0.32,8,11.49,155,Security,Closed,1,1
+TKT-1172,DevOps - Service Request #TKT-1172,Critical,Service Request,2026-01-15T03:47:21.007386,1.93,2.06,0.13,1.29,10,6.47,86,DevOps,Resolved,1,1
+TKT-1173,User-reported task,Low,Task,2026-06-24T16:40:27.465892,17.53,36.59,19.07,4.53,6,4.8,124,Security,In Progress,0,1
+TKT-1174,User-reported service request,Critical,Service Request,2026-01-02T18:48:55.175177,1.74,3.83,2.09,0.28,13,3.02,82,L3 Engineering,Open,1,1
+TKT-1175,Automated incident ticket,Medium,Incident,2026-03-24T03:01:17.858472,30.65,20.48,0.0,0.53,7,9.41,293,L1 Support,Closed,1,1
+TKT-1176,Service Request: System issue #176,Medium,Service Request,2026-05-11T16:41:04.580461,10.06,19.05,8.99,4.09,4,12.29,98,Security,In Progress,0,1
+TKT-1177,[Low] Bug report,Low,Bug,2026-04-14T15:27:48.317105,2.33,42.86,40.53,2.19,4,5.55,37,L2 Support,Waiting,1,1
+TKT-1178,Automated change request ticket,Medium,Change Request,2026-03-09T18:47:56.085331,1.75,16.8,15.05,1.39,10,0.72,109,L3 Engineering,Open,1,1
+TKT-1179,L1 Support - Change Request #TKT-1179,Medium,Change Request,2026-04-09T20:49:55.597585,10.59,19.74,9.15,1.31,9,32.28,53,L1 Support,Open,0,1
+TKT-1180,User-reported service request,High,Service Request,2026-05-02T11:45:28.819931,6.61,10.59,3.98,0.42,11,17.15,177,L3 Engineering,In Progress,0,1
+TKT-1181,[High] Incident report,High,Incident,2026-04-27T09:48:01.737219,2.98,4.19,1.2,0.82,7,24.49,230,Security,Waiting,0,1
+TKT-1182,[Medium] Bug report,Medium,Bug,2026-02-22T03:25:52.359740,13.74,9.49,0.0,0.36,6,3.3,112,Security,Closed,0,1
+TKT-1183,Automated bug ticket,Medium,Bug,2026-01-24T21:48:23.651045,22.62,17.7,0.0,0.12,7,13.54,127,DevOps,Closed,0,1
+TKT-1184,User-reported incident,High,Incident,2026-04-25T08:20:19.384246,6.53,10.44,3.91,4.1,7,9.98,190,DevOps,Resolved,0,1
+TKT-1185,User-reported service request,High,Service Request,2026-05-03T16:00:55.252609,5.48,11.57,6.08,0.0,6,1.67,71,Security,Open,1,1
+TKT-1186,User-reported service request,Low,Service Request,2026-06-15T15:28:38.574452,9.01,55.19,46.18,1.29,4,3.55,438,L3 Engineering,Open,0,1
+TKT-1187,Automated task ticket,Medium,Task,2026-04-20T14:49:27.888301,5.51,14.22,8.71,0.25,11,11.51,77,Security,Open,0,1
+TKT-1188,L3 Engineering - Incident #TKT-1188,Low,Incident,2026-01-24T10:22:03.808760,54.0,51.77,0.0,3.02,8,39.21,65,L3 Engineering,Resolved,1,1
+TKT-1189,Task: System issue #189,Medium,Task,2026-05-20T04:55:55.588200,23.1,18.43,0.0,9.27,6,2.22,86,DevOps,Closed,0,1
+TKT-1190,DevOps - Incident #TKT-1190,High,Incident,2026-05-12T18:33:28.154561,6.83,6.92,0.09,1.57,7,3.25,397,DevOps,In Progress,1,1
+TKT-1191,L2 Support - Service Request #TKT-1191,High,Service Request,2026-02-27T13:41:04.638445,4.81,8.64,3.83,4.23,5,10.99,189,L2 Support,In Progress,0,1
+TKT-1192,[High] Bug report,High,Bug,2026-05-27T19:17:05.441568,11.39,11.52,0.13,7.73,8,11.08,82,L3 Engineering,In Progress,1,1
+TKT-1193,Incident: System issue #193,Medium,Incident,2026-05-03T10:39:10.603343,4.32,17.48,13.17,0.47,11,6.0,48,Security,Closed,0,1
+TKT-1194,[Medium] Task report,Medium,Task,2026-04-19T22:24:13.419490,14.93,20.83,5.89,1.37,7,9.86,45,Security,Waiting,1,1
+TKT-1195,User-reported task,Critical,Task,2026-02-09T06:33:27.357715,0.64,2.33,1.68,0.64,15,25.11,52,Security,In Progress,0,1
+TKT-1196,DevOps - Service Request #TKT-1196,Medium,Service Request,2026-01-15T18:03:24.260233,4.11,15.07,10.96,0.51,7,6.31,172,DevOps,In Progress,0,1
+TKT-1197,L1 Support - Bug #TKT-1197,Critical,Bug,2026-01-18T23:23:35.513710,0.72,1.13,0.41,0.72,7,33.71,40,L1 Support,Waiting,0,1
+TKT-1198,User-reported change request,Low,Change Request,2026-01-17T17:43:39.224644,38.21,37.72,0.0,0.47,7,7.7,219,Security,Resolved,0,1
+TKT-1199,DevOps - Service Request #TKT-1199,Medium,Service Request,2026-03-21T00:03:45.267690,17.7,18.04,0.34,4.64,10,11.09,91,DevOps,Waiting,1,1
+TKT-1200,User-reported bug,Low,Bug,2026-06-22T15:05:27.176651,65.46,66.73,1.27,1.54,8,11.1,547,L2 Support,In Progress,1,1
+TKT-1201,[Medium] Incident report,Medium,Incident,2026-04-14T22:33:49.002211,7.75,10.58,2.83,2.02,8,2.9,242,Security,Open,1,1
+TKT-1202,L1 Support - Task #TKT-1202,Medium,Task,2026-06-14T11:39:55.453473,9.5,8.97,0.0,0.5,7,8.71,64,L1 Support,Closed,1,1
+TKT-1203,[Critical] Bug report,Critical,Bug,2026-01-05T09:28:43.286042,3.31,3.58,0.27,3.31,10,40.3,225,Security,Resolved,1,1
+TKT-1204,[Low] Service Request report,Low,Service Request,2026-05-20T09:56:19.207369,50.86,58.32,7.46,0.04,9,16.31,406,L2 Support,Waiting,1,1
+TKT-1205,Bug: System issue #205,Medium,Bug,2026-01-26T02:33:37.629363,10.91,8.01,0.0,0.06,9,12.67,43,Security,Resolved,1,1
+TKT-1206,Automated bug ticket,Low,Bug,2026-06-24T01:42:20.298663,42.42,44.55,2.13,3.24,7,14.26,153,L1 Support,Open,0,1
+TKT-1207,L1 Support - Incident #TKT-1207,High,Incident,2026-01-05T22:27:41.515444,14.01,10.3,0.0,0.78,11,17.13,105,L1 Support,Resolved,1,1
+TKT-1208,Automated service request ticket,Medium,Service Request,2026-06-05T09:19:33.452877,14.59,10.2,0.0,1.0,13,7.83,131,L3 Engineering,Closed,0,1
+TKT-1209,[Medium] Incident report,Medium,Incident,2026-02-25T18:00:58.396267,18.7,15.64,0.0,9.94,11,5.03,98,L3 Engineering,Resolved,1,1
+TKT-1210,User-reported change request,Medium,Change Request,2026-02-24T00:32:13.208249,12.34,20.41,8.07,0.37,6,0.84,315,Security,In Progress,0,1
+TKT-1211,Change Request: System issue #211,Medium,Change Request,2026-04-06T17:52:11.300965,9.84,15.49,5.65,4.25,10,6.66,101,L3 Engineering,In Progress,0,1
+TKT-1212,Bug: System issue #212,Critical,Bug,2026-04-11T00:31:02.148736,1.43,2.54,1.11,1.43,9,14.77,330,L2 Support,Open,1,1
+TKT-1213,Task: System issue #213,High,Task,2026-04-23T18:32:54.128060,3.43,4.65,1.22,3.36,8,8.46,92,L2 Support,In Progress,0,1
+TKT-1214,Task: System issue #214,Critical,Task,2026-04-07T13:44:06.675671,2.09,3.58,1.49,2.09,4,8.1,60,L3 Engineering,Resolved,1,1
+TKT-1215,Incident: System issue #215,Critical,Incident,2026-03-01T18:16:25.339308,1.91,1.32,0.0,0.16,7,1.95,171,Security,Resolved,0,1
+TKT-1216,Bug: System issue #216,Critical,Bug,2026-06-04T01:01:59.703070,1.04,1.04,0.0,1.04,11,3.62,223,Security,Closed,1,1
+TKT-1217,[Low] Incident report,Low,Incident,2026-01-17T01:46:07.995992,26.42,42.11,15.7,0.1,7,7.49,107,Security,In Progress,0,1
+TKT-1218,[High] Incident report,High,Incident,2026-04-06T22:23:34.887041,12.43,9.97,0.0,2.98,19,6.66,48,L2 Support,Resolved,1,1
+TKT-1219,Bug: System issue #219,Medium,Bug,2026-04-14T23:23:41.737868,23.7,21.66,0.0,1.12,6,1.13,115,DevOps,Resolved,1,1
+TKT-1220,Automated incident ticket,High,Incident,2026-05-09T23:29:07.141266,4.22,5.92,1.7,0.83,8,7.39,128,L3 Engineering,Closed,0,1
+TKT-1221,User-reported task,Medium,Task,2026-06-23T09:53:56.986203,11.35,15.12,3.77,1.08,16,6.32,564,L2 Support,Waiting,0,1
+TKT-1222,Automated service request ticket,Medium,Service Request,2026-02-09T18:37:28.557760,8.97,9.81,0.83,1.66,5,19.72,213,L1 Support,Waiting,0,1
+TKT-1223,Automated incident ticket,High,Incident,2026-03-19T12:15:42.255416,0.64,4.43,3.79,0.64,13,11.47,51,L2 Support,In Progress,0,1
+TKT-1224,User-reported bug,Medium,Bug,2026-04-11T07:44:53.701198,5.78,17.34,11.56,4.77,8,5.23,82,L2 Support,Resolved,0,1
+TKT-1225,Automated task ticket,High,Task,2026-02-18T01:09:04.134033,3.17,9.57,6.4,0.24,8,11.04,339,L1 Support,Open,0,1
+TKT-1226,User-reported service request,Low,Service Request,2026-02-03T09:56:59.111758,29.32,39.76,10.45,0.06,9,18.77,151,L2 Support,Resolved,1,1
+TKT-1227,User-reported task,Medium,Task,2026-05-11T18:41:16.146280,27.73,21.38,0.0,0.95,5,9.36,381,Security,Closed,1,1
+TKT-1228,DevOps - Service Request #TKT-1228,Medium,Service Request,2026-05-16T08:39:43.024119,19.5,15.31,0.0,0.3,13,6.17,75,DevOps,Resolved,0,1
+TKT-1229,[High] Change Request report,High,Change Request,2026-02-11T23:27:54.052418,10.78,7.23,0.0,5.07,10,15.26,129,L1 Support,Closed,0,1
+TKT-1230,Automated bug ticket,Medium,Bug,2026-03-04T02:57:00.405930,18.37,21.63,3.27,1.81,6,10.68,173,DevOps,In Progress,0,1
+TKT-1231,Security - Task #TKT-1231,High,Task,2026-02-27T06:02:57.586105,7.95,10.76,2.81,2.77,10,10.27,110,Security,Resolved,1,1
+TKT-1232,Incident: System issue #232,Medium,Incident,2026-01-05T02:45:34.409452,6.0,8.55,2.56,4.24,12,6.75,177,L1 Support,Open,0,1
+TKT-1233,Automated task ticket,Medium,Task,2026-02-25T03:23:55.079554,23.06,23.73,0.67,3.16,12,4.61,546,L2 Support,In Progress,1,1
+TKT-1234,Service Request: System issue #234,Medium,Service Request,2026-01-22T14:47:23.479727,30.27,23.26,0.0,2.15,5,12.29,40,L2 Support,Resolved,1,1
+TKT-1235,[Critical] Task report,Critical,Task,2026-04-01T16:24:14.940610,4.15,3.73,0.0,2.18,11,20.44,25,DevOps,Closed,1,1
+TKT-1236,[Low] Change Request report,Low,Change Request,2026-04-03T14:29:52.276293,26.99,37.96,10.97,4.88,7,5.02,68,L2 Support,Waiting,0,1
+TKT-1237,User-reported change request,High,Change Request,2026-01-10T08:45:27.048176,5.3,4.77,0.0,0.83,3,7.04,101,DevOps,Closed,0,1
+TKT-1238,User-reported incident,Medium,Incident,2026-01-21T11:33:26.559152,15.35,17.75,2.4,3.93,10,16.09,163,Security,In Progress,1,1
+TKT-1239,L1 Support - Bug #TKT-1239,Critical,Bug,2026-04-15T11:18:02.356701,0.71,1.25,0.54,0.71,9,11.99,153,L1 Support,In Progress,1,1
+TKT-1240,Service Request: System issue #240,High,Service Request,2026-06-29T12:13:15.369017,5.32,6.3,0.98,1.91,13,4.53,222,L1 Support,Waiting,0,1
+TKT-1241,L2 Support - Incident #TKT-1241,High,Incident,2026-03-03T21:44:23.847794,4.13,10.48,6.35,0.64,6,1.6,157,L2 Support,In Progress,1,1
+TKT-1242,Incident: System issue #242,Critical,Incident,2026-05-10T13:49:16.498231,0.75,2.12,1.37,0.75,13,15.67,72,DevOps,Open,0,1
+TKT-1243,Automated task ticket,Low,Task,2026-06-25T19:35:11.250745,29.45,43.73,14.28,2.15,8,3.11,496,L2 Support,Waiting,0,1
+TKT-1244,DevOps - Task #TKT-1244,Medium,Task,2026-06-19T03:24:26.841368,3.8,18.83,15.03,0.18,8,2.96,151,DevOps,Waiting,0,1
+TKT-1245,Task: System issue #245,Medium,Task,2026-03-20T03:14:17.437414,10.73,9.46,0.0,0.03,10,1.37,369,L2 Support,Closed,1,1
+TKT-1246,Automated bug ticket,High,Bug,2026-02-17T06:15:42.855314,8.96,8.15,0.0,0.48,8,5.16,167,L1 Support,Closed,1,1
+TKT-1247,[High] Service Request report,High,Service Request,2026-01-21T20:19:57.476478,11.54,9.15,0.0,2.15,6,13.1,36,L2 Support,Closed,1,1
+TKT-1248,User-reported bug,Medium,Bug,2026-04-16T15:21:06.943913,12.67,15.82,3.14,2.75,9,15.41,134,L3 Engineering,Resolved,0,1
+TKT-1249,L1 Support - Service Request #TKT-1249,Low,Service Request,2026-02-19T20:25:37.806008,28.29,54.68,26.38,15.16,10,11.8,219,L1 Support,Open,1,1
+TKT-1250,User-reported service request,High,Service Request,2026-04-17T05:44:23.198713,1.28,5.7,4.42,0.17,18,20.69,56,L1 Support,Closed,0,1
+TKT-1251,Change Request: System issue #251,Medium,Change Request,2026-05-13T23:05:25.039847,13.97,16.02,2.04,0.37,8,4.16,162,L2 Support,Waiting,1,1
+TKT-1252,L1 Support - Service Request #TKT-1252,High,Service Request,2026-05-12T06:35:39.589282,3.52,10.96,7.44,1.28,8,7.03,219,L1 Support,Resolved,0,1
+TKT-1253,Automated task ticket,High,Task,2026-05-06T05:29:19.893491,7.46,6.45,0.0,2.42,8,13.91,348,Security,Resolved,0,1
+TKT-1254,Task: System issue #254,High,Task,2026-06-22T18:26:06.025935,3.92,4.27,0.35,0.46,8,14.95,148,L3 Engineering,In Progress,1,1
+TKT-1255,[High] Incident report,High,Incident,2026-06-14T10:15:15.073994,3.25,11.42,8.17,0.01,10,5.9,51,DevOps,Open,0,1
+TKT-1256,[Medium] Incident report,Medium,Incident,2026-01-14T02:52:53.977665,10.95,21.09,10.14,2.14,9,4.47,99,L1 Support,In Progress,0,1
+TKT-1257,DevOps - Bug #TKT-1257,Medium,Bug,2026-03-24T08:02:54.593510,19.23,22.26,3.03,4.47,13,10.3,64,DevOps,Open,1,1
+TKT-1258,User-reported change request,Medium,Change Request,2026-06-21T20:14:40.420381,11.26,11.83,0.57,1.61,4,2.54,62,L2 Support,Open,0,1
+TKT-1259,User-reported change request,Critical,Change Request,2026-06-26T16:45:04.582244,1.35,3.61,2.25,0.12,6,17.14,592,DevOps,Waiting,1,1
+TKT-1260,User-reported change request,High,Change Request,2026-03-04T07:24:38.534192,5.08,4.49,0.0,1.84,6,10.8,17,L3 Engineering,Closed,0,1
+TKT-1261,Automated task ticket,Medium,Task,2026-03-29T07:08:30.007835,8.45,9.01,0.56,8.45,7,3.56,321,L3 Engineering,Resolved,1,1
+TKT-1262,L1 Support - Incident #TKT-1262,Medium,Incident,2026-04-24T17:40:50.520984,3.61,14.68,11.07,0.25,6,2.71,151,L1 Support,Open,1,1
+TKT-1263,L1 Support - Incident #TKT-1263,Low,Incident,2026-03-24T07:18:21.566416,1.04,48.86,47.82,1.04,11,4.9,239,L1 Support,In Progress,0,1
+TKT-1264,L3 Engineering - Incident #TKT-1264,Medium,Incident,2026-03-06T21:46:03.523963,17.5,23.93,6.43,1.66,12,7.66,244,L3 Engineering,Waiting,1,1
+TKT-1265,User-reported service request,Medium,Service Request,2026-02-10T00:25:56.920502,6.78,10.63,3.86,6.53,9,3.48,54,DevOps,Open,0,1
+TKT-1266,L2 Support - Bug #TKT-1266,Medium,Bug,2026-04-02T23:33:44.680430,5.42,8.39,2.97,0.62,10,3.18,348,L2 Support,Waiting,0,1
+TKT-1267,[Low] Bug report,Low,Bug,2026-04-25T06:55:39.887269,63.02,67.15,4.14,0.36,5,7.06,179,L3 Engineering,Resolved,0,1
+TKT-1268,User-reported bug,High,Bug,2026-05-26T06:06:53.934553,5.04,10.8,5.76,5.04,6,13.17,162,Security,Waiting,0,1
+TKT-1269,Service Request: System issue #269,High,Service Request,2026-01-23T22:30:52.861348,3.59,10.12,6.54,0.98,10,6.65,242,Security,In Progress,1,1
+TKT-1270,Automated bug ticket,Medium,Bug,2026-03-17T13:41:28.497804,27.88,21.65,0.0,0.26,6,2.23,413,L2 Support,Closed,1,1
+TKT-1271,Automated task ticket,High,Task,2026-03-17T13:15:31.915397,2.24,4.36,2.11,1.5,7,5.0,49,Security,Waiting,0,1
+TKT-1272,DevOps - Service Request #TKT-1272,Medium,Service Request,2026-03-03T06:48:01.835160,7.61,8.89,1.28,2.22,14,13.3,199,DevOps,In Progress,1,1
+TKT-1273,L2 Support - Incident #TKT-1273,Medium,Incident,2026-05-18T01:07:37.352846,12.16,11.3,0.0,0.05,9,7.06,112,L2 Support,Resolved,0,1
+TKT-1274,Automated incident ticket,Low,Incident,2026-01-16T01:58:26.603921,47.32,33.41,0.0,9.38,10,7.69,488,L3 Engineering,Closed,1,1
+TKT-1275,User-reported task,Low,Task,2026-04-23T00:48:20.084909,57.47,54.64,0.0,0.3,9,15.44,224,L3 Engineering,Closed,0,1
+TKT-1276,[High] Bug report,High,Bug,2026-05-15T13:06:51.827359,12.11,11.96,0.0,1.7,6,9.48,49,Security,Resolved,1,1
+TKT-1277,[Low] Change Request report,Low,Change Request,2026-01-03T03:14:41.905016,57.12,66.36,9.24,1.01,7,1.66,83,L3 Engineering,Open,1,1
+TKT-1278,L2 Support - Change Request #TKT-1278,Low,Change Request,2026-01-01T17:26:07.789716,12.01,54.66,42.65,6.33,4,7.71,322,L2 Support,Waiting,0,1
+TKT-1279,User-reported service request,Critical,Service Request,2026-02-14T04:02:32.726566,1.04,3.79,2.75,0.78,8,6.42,154,DevOps,Open,0,1
+TKT-1280,[Medium] Service Request report,Medium,Service Request,2026-04-27T07:00:00.824671,24.01,18.41,0.0,5.61,10,2.63,132,L3 Engineering,Closed,1,1
+TKT-1281,Automated bug ticket,High,Bug,2026-01-23T00:28:53.302563,2.96,10.81,7.85,2.96,9,1.28,866,Security,Waiting,0,1
+TKT-1282,L2 Support - Service Request #TKT-1282,Medium,Service Request,2026-04-02T22:23:03.488470,5.49,9.0,3.51,1.47,5,3.12,339,L2 Support,In Progress,0,1
+TKT-1283,Task: System issue #283,Low,Task,2026-04-19T12:42:49.835347,86.34,64.73,0.0,1.65,7,10.3,370,Security,Closed,1,1
+TKT-1284,DevOps - Service Request #TKT-1284,Medium,Service Request,2026-02-27T02:35:55.716855,24.8,18.92,0.0,0.68,7,9.77,178,DevOps,Closed,0,1
+TKT-1285,User-reported task,Low,Task,2026-06-26T17:37:24.963637,56.17,52.62,0.0,0.02,10,20.79,41,Security,Closed,1,1
+TKT-1286,User-reported incident,High,Incident,2026-01-12T03:40:08.264131,10.65,11.33,0.68,0.54,9,17.02,441,L3 Engineering,Waiting,1,1
+TKT-1287,Automated incident ticket,High,Incident,2026-01-26T14:59:29.577945,6.57,7.54,0.97,4.73,11,4.87,341,DevOps,In Progress,0,1
+TKT-1288,[Low] Task report,Low,Task,2026-03-11T17:35:12.503198,77.77,67.94,0.0,1.76,9,26.33,249,L3 Engineering,Closed,0,1
+TKT-1289,Bug: System issue #289,High,Bug,2026-01-24T00:54:52.857467,3.69,8.24,4.55,0.05,7,16.94,389,L2 Support,In Progress,1,1
+TKT-1290,User-reported bug,High,Bug,2026-05-11T03:41:22.918543,6.16,5.84,0.0,6.16,15,12.5,442,DevOps,Closed,1,1
+TKT-1291,Bug: System issue #291,Critical,Bug,2026-02-18T15:56:28.473116,3.19,2.48,0.0,0.45,8,22.58,158,Security,Closed,0,1
+TKT-1292,L1 Support - Service Request #TKT-1292,Low,Service Request,2026-02-21T22:49:58.479780,21.67,50.86,29.19,1.07,7,3.92,254,L1 Support,Closed,0,1
+TKT-1293,Change Request: System issue #293,High,Change Request,2026-05-12T16:36:30.995994,1.65,9.88,8.24,1.11,9,22.4,289,L1 Support,Open,0,1
+TKT-1294,Automated bug ticket,Medium,Bug,2026-04-11T23:28:13.281312,3.9,16.04,12.14,1.46,7,3.34,95,Security,In Progress,0,1
+TKT-1295,L3 Engineering - Incident #TKT-1295,Medium,Incident,2026-01-02T09:20:08.248101,12.29,9.26,0.0,0.2,12,3.32,123,L3 Engineering,Closed,0,1
+TKT-1296,User-reported bug,Medium,Bug,2026-02-15T16:37:56.343009,20.04,22.73,2.69,1.91,9,9.86,222,Security,Waiting,1,1
+TKT-1297,[High] Bug report,High,Bug,2026-03-15T11:30:10.334875,6.62,7.88,1.26,4.26,11,12.35,171,L1 Support,Resolved,1,1
+TKT-1298,User-reported incident,High,Incident,2026-06-11T09:18:34.221568,4.08,6.14,2.06,4.08,9,3.84,59,L2 Support,Open,1,1
+TKT-1299,[High] Change Request report,High,Change Request,2026-05-17T13:19:45.994578,7.56,6.66,0.0,0.41,6,1.86,198,L2 Support,Closed,1,1
+TKT-1300,DevOps - Change Request #TKT-1300,Medium,Change Request,2026-02-26T00:28:19.877468,0.95,19.11,18.15,0.95,11,4.55,307,DevOps,Resolved,0,1
+TKT-1301,[Medium] Service Request report,Medium,Service Request,2026-06-12T22:08:31.373060,3.72,9.58,5.86,3.09,9,1.66,119,L1 Support,Open,0,1
+TKT-1302,User-reported change request,Medium,Change Request,2026-03-27T16:07:15.483499,0.63,8.07,7.44,0.63,10,10.57,252,L2 Support,Waiting,0,1
+TKT-1303,Automated incident ticket,Low,Incident,2026-04-17T01:20:32.849412,46.76,32.36,0.0,0.48,7,5.27,153,L2 Support,Closed,1,1
+TKT-1304,[Medium] Bug report,Medium,Bug,2026-06-06T22:30:27.641690,4.91,18.18,13.27,1.4,9,12.07,200,L1 Support,Waiting,0,1
+TKT-1305,Task: System issue #305,Medium,Task,2026-02-27T09:03:51.190906,6.99,15.48,8.49,6.99,5,9.82,127,L3 Engineering,In Progress,0,1
+TKT-1306,[Medium] Task report,Medium,Task,2026-05-20T15:39:31.597596,0.66,8.83,8.17,0.66,13,12.53,62,Security,Resolved,0,1
+TKT-1307,Automated task ticket,Low,Task,2026-04-22T18:36:16.013526,45.97,31.65,0.0,6.16,5,3.64,51,Security,Closed,1,1
+TKT-1308,User-reported service request,Critical,Service Request,2026-01-04T19:48:48.171854,2.05,1.98,0.0,0.8,9,9.44,54,DevOps,Resolved,0,1
+TKT-1309,User-reported task,Critical,Task,2026-02-05T01:04:01.598270,1.93,1.57,0.0,0.77,9,7.43,12,L3 Engineering,Resolved,0,1
+TKT-1310,Automated change request ticket,Medium,Change Request,2026-05-26T12:58:39.826051,4.21,8.06,3.85,1.37,5,10.33,197,Security,In Progress,1,1
+TKT-1311,Incident: System issue #311,Critical,Incident,2026-03-16T11:36:32.724018,0.75,3.8,3.05,0.59,9,3.44,64,L3 Engineering,Open,0,1
+TKT-1312,DevOps - Incident #TKT-1312,High,Incident,2026-02-26T03:20:49.141442,13.72,10.5,0.0,2.79,7,6.45,549,DevOps,Closed,1,1
+TKT-1313,Task: System issue #313,Medium,Task,2026-04-02T22:37:42.578256,19.06,13.1,0.0,6.76,10,6.92,102,Security,Resolved,1,1
+TKT-1314,L2 Support - Incident #TKT-1314,High,Incident,2026-05-11T03:15:01.103097,3.67,6.82,3.15,1.6,9,6.24,299,L2 Support,Waiting,1,1
+TKT-1315,User-reported task,Medium,Task,2026-05-05T12:54:41.613925,7.7,14.19,6.5,4.52,4,11.59,198,L3 Engineering,Resolved,1,1
+TKT-1316,Automated change request ticket,Low,Change Request,2026-02-11T09:40:36.290654,28.0,59.52,31.52,4.89,6,13.55,50,Security,In Progress,0,1
+TKT-1317,Automated change request ticket,Low,Change Request,2026-01-15T10:22:22.361681,67.27,57.03,0.0,3.97,10,12.36,68,L2 Support,Closed,0,1
+TKT-1318,User-reported task,Medium,Task,2026-03-12T04:35:11.532072,16.51,11.88,0.0,1.84,2,6.43,151,DevOps,Closed,1,1
+TKT-1319,Task: System issue #319,High,Task,2026-01-16T18:37:52.718757,6.59,4.73,0.0,2.92,6,6.13,46,L2 Support,Closed,1,1
+TKT-1320,L2 Support - Service Request #TKT-1320,Medium,Service Request,2026-06-15T14:59:28.870229,4.57,14.53,9.96,1.82,11,6.46,114,L2 Support,In Progress,0,1
+TKT-1321,User-reported bug,High,Bug,2026-06-15T12:43:02.410262,8.24,5.58,0.0,3.33,10,8.64,342,DevOps,Resolved,0,1
+TKT-1322,User-reported incident,High,Incident,2026-03-25T11:00:14.401253,5.89,6.52,0.63,3.27,9,16.58,143,L3 Engineering,Closed,1,1
+TKT-1323,User-reported bug,High,Bug,2026-04-01T14:13:37.798950,3.9,5.87,1.97,3.79,11,8.97,171,L1 Support,Resolved,0,1
+TKT-1324,DevOps - Task #TKT-1324,Critical,Task,2026-01-25T17:25:58.417617,0.88,2.56,1.68,0.88,8,2.87,152,DevOps,Resolved,0,1
+TKT-1325,Automated bug ticket,Critical,Bug,2026-01-25T00:21:43.648855,2.61,1.91,0.0,2.61,6,11.24,155,DevOps,Closed,1,1
+TKT-1326,Automated service request ticket,Low,Service Request,2026-06-24T14:14:41.500588,2.56,61.42,58.86,2.29,8,2.55,544,L1 Support,Open,0,1
+TKT-1327,Automated bug ticket,High,Bug,2026-01-10T01:47:27.472694,5.35,7.58,2.24,5.35,4,4.77,175,Security,Closed,0,1
+TKT-1328,Bug: System issue #328,High,Bug,2026-01-20T03:42:41.672660,8.98,11.05,2.07,4.36,15,2.35,305,Security,Resolved,1,1
+TKT-1329,Task: System issue #329,Medium,Task,2026-01-28T14:17:48.943571,17.54,15.07,0.0,0.77,5,8.75,282,DevOps,Closed,0,1
+TKT-1330,User-reported service request,Medium,Service Request,2026-05-15T01:01:52.011594,6.97,18.59,11.61,0.26,5,20.73,152,L1 Support,In Progress,0,1
+TKT-1331,User-reported bug,High,Bug,2026-01-30T12:34:39.148438,1.82,11.88,10.06,1.82,8,17.0,84,L1 Support,Open,0,1
+TKT-1332,Automated incident ticket,High,Incident,2026-02-23T23:36:31.356553,3.65,7.38,3.73,0.76,11,20.94,72,Security,Open,1,1
+TKT-1333,User-reported task,High,Task,2026-04-24T00:15:01.829252,3.93,5.2,1.28,1.76,6,11.89,31,L1 Support,Waiting,1,1
+TKT-1334,L1 Support - Task #TKT-1334,Critical,Task,2026-02-05T01:41:27.291468,1.44,1.35,0.0,1.44,7,9.68,248,L1 Support,Closed,0,1
+TKT-1335,Change Request: System issue #335,Medium,Change Request,2026-01-02T07:31:00.565349,11.76,8.56,0.0,3.73,14,2.64,139,L1 Support,Resolved,0,1
+TKT-1336,Automated task ticket,Medium,Task,2026-05-31T22:11:57.511638,17.16,18.41,1.26,1.02,8,6.54,346,L2 Support,In Progress,0,1
+TKT-1337,Automated task ticket,High,Task,2026-06-23T09:19:26.170670,10.75,8.79,0.0,0.29,7,3.07,248,DevOps,Resolved,0,1
+TKT-1338,Automated incident ticket,Low,Incident,2026-06-20T16:21:20.817029,21.88,43.92,22.04,2.33,8,13.42,86,L3 Engineering,Waiting,0,1
+TKT-1339,Incident: System issue #339,Medium,Incident,2026-04-16T16:49:18.575245,16.28,16.76,0.48,0.75,8,1.16,39,L1 Support,Waiting,1,1
+TKT-1340,DevOps - Bug #TKT-1340,Critical,Bug,2026-01-09T17:40:42.319074,1.64,3.34,1.7,1.64,14,7.4,630,DevOps,Waiting,1,1
+TKT-1341,User-reported bug,Low,Bug,2026-04-15T21:02:32.297881,80.19,58.29,0.0,3.06,4,1.32,730,L2 Support,Resolved,0,1
+TKT-1342,User-reported service request,Low,Service Request,2026-05-11T19:37:23.035503,12.25,66.95,54.7,11.57,6,14.74,170,L2 Support,Open,0,1
+TKT-1343,User-reported task,Medium,Task,2026-02-02T12:35:36.297433,13.67,22.43,8.77,0.7,13,11.56,181,DevOps,Open,0,1
+TKT-1344,Service Request: System issue #344,Critical,Service Request,2026-01-09T05:25:06.250028,2.04,1.98,0.0,0.14,6,8.34,713,DevOps,Resolved,1,1
+TKT-1345,User-reported service request,Low,Service Request,2026-05-16T18:24:28.394913,64.78,60.16,0.0,2.77,8,1.9,446,Security,Closed,0,1
+TKT-1346,Automated incident ticket,Critical,Incident,2026-04-04T12:09:39.091245,3.2,2.73,0.0,3.2,7,13.59,287,L1 Support,Closed,1,1
+TKT-1347,Incident: System issue #347,Medium,Incident,2026-06-18T19:29:41.471836,12.01,18.85,6.84,2.92,8,4.96,512,L3 Engineering,In Progress,1,1
+TKT-1348,L3 Engineering - Task #TKT-1348,Medium,Task,2026-01-14T08:39:57.666955,8.18,23.27,15.09,6.39,8,6.49,73,L3 Engineering,In Progress,0,1
+TKT-1349,Change Request: System issue #349,Medium,Change Request,2026-04-12T19:54:20.079981,17.87,16.26,0.0,2.17,8,10.84,131,DevOps,Closed,0,1
+TKT-1350,Security - Service Request #TKT-1350,High,Service Request,2026-06-23T09:10:20.175675,7.62,8.82,1.2,0.04,14,13.48,77,Security,In Progress,1,1
+TKT-1351,Task: System issue #351,High,Task,2026-02-23T04:29:30.956650,9.28,7.2,0.0,1.73,11,6.79,289,Security,Resolved,0,1
+TKT-1352,User-reported change request,Medium,Change Request,2026-02-14T21:42:20.939741,20.47,16.1,0.0,0.68,10,7.72,241,L2 Support,Closed,1,1
+TKT-1353,DevOps - Service Request #TKT-1353,Low,Service Request,2026-01-07T18:30:36.611368,49.17,49.35,0.19,0.58,12,2.61,53,DevOps,In Progress,0,1
+TKT-1354,Automated bug ticket,Medium,Bug,2026-01-25T21:07:23.425418,1.4,11.15,9.75,0.55,6,46.23,661,L2 Support,Waiting,0,1
+TKT-1355,User-reported incident,Low,Incident,2026-04-12T21:19:17.402054,52.52,47.72,0.0,1.21,12,2.54,37,L3 Engineering,Resolved,0,1
+TKT-1356,Task: System issue #356,Medium,Task,2026-05-27T07:53:48.852906,11.46,9.4,0.0,2.77,12,2.96,59,L3 Engineering,Resolved,1,1
+TKT-1357,[High] Task report,High,Task,2026-06-26T06:28:01.682844,3.15,4.3,1.15,0.3,8,3.83,55,L3 Engineering,Open,0,1
+TKT-1358,L3 Engineering - Incident #TKT-1358,Critical,Incident,2026-05-01T19:35:05.551063,1.21,3.49,2.28,0.1,6,15.3,128,L3 Engineering,Open,1,1
+TKT-1359,[High] Incident report,High,Incident,2026-05-17T00:19:55.908096,3.87,7.58,3.71,1.65,12,1.8,338,L1 Support,Open,0,1
+TKT-1360,L2 Support - Incident #TKT-1360,Critical,Incident,2026-03-07T19:17:39.304702,1.63,3.27,1.64,1.63,9,15.89,136,L2 Support,Waiting,1,1
+TKT-1361,Bug: System issue #361,Medium,Bug,2026-05-21T02:43:41.801204,2.36,21.15,18.79,2.36,13,1.83,275,L3 Engineering,Open,0,1
+TKT-1362,Automated bug ticket,Low,Bug,2026-06-23T04:21:02.407269,68.94,57.27,0.0,1.27,10,1.4,122,L1 Support,Closed,0,1
+TKT-1363,Automated service request ticket,High,Service Request,2026-02-15T07:49:22.076237,8.0,8.88,0.88,1.15,6,33.81,203,L2 Support,In Progress,1,1
+TKT-1364,[Medium] Incident report,Medium,Incident,2026-01-25T12:59:50.136218,18.02,13.12,0.0,1.32,12,4.02,200,L3 Engineering,Closed,1,1
+TKT-1365,Automated bug ticket,Medium,Bug,2026-04-06T16:52:56.641138,12.11,12.64,0.53,0.31,3,29.43,110,L1 Support,Closed,0,1
+TKT-1366,L1 Support - Service Request #TKT-1366,Medium,Service Request,2026-01-12T18:28:27.555137,20.75,14.34,0.0,1.94,7,10.95,123,L1 Support,Closed,1,1
+TKT-1367,Bug: System issue #367,High,Bug,2026-05-09T11:52:27.812554,4.57,7.08,2.51,3.82,7,8.25,89,L3 Engineering,Waiting,0,1
+TKT-1368,User-reported task,Medium,Task,2026-04-26T04:33:38.071586,4.85,12.61,7.76,3.28,3,5.2,92,Security,In Progress,0,1
+TKT-1369,User-reported bug,Medium,Bug,2026-03-10T08:04:56.205439,13.44,13.07,0.0,0.85,8,9.67,75,DevOps,Closed,0,1
+TKT-1370,User-reported bug,Medium,Bug,2026-05-05T06:56:47.852816,25.92,23.66,0.0,6.6,10,9.25,31,Security,Closed,1,1
+TKT-1371,Security - Bug #TKT-1371,Low,Bug,2026-01-02T06:57:25.958696,39.54,39.75,0.2,3.28,10,3.4,109,Security,Open,0,1
+TKT-1372,[High] Bug report,High,Bug,2026-04-29T14:45:12.185081,6.54,6.92,0.38,2.98,7,1.67,47,L1 Support,Resolved,0,1
+TKT-1373,User-reported bug,Medium,Bug,2026-01-14T17:53:06.702203,23.52,16.17,0.0,2.95,7,14.09,218,L1 Support,Resolved,1,1
+TKT-1374,User-reported task,Low,Task,2026-03-17T15:42:06.580073,34.88,48.41,13.53,0.79,9,3.37,250,Security,Resolved,0,1
+TKT-1375,Automated service request ticket,Medium,Service Request,2026-04-22T20:00:09.788020,13.79,20.85,7.06,3.85,13,8.14,824,L3 Engineering,In Progress,0,1
+TKT-1376,[Low] Task report,Low,Task,2026-02-21T01:56:08.388840,4.31,49.48,45.17,0.43,10,6.22,57,L1 Support,Open,0,1
+TKT-1377,User-reported task,High,Task,2026-04-04T00:29:12.617801,5.5,5.37,0.0,4.79,8,21.38,256,L3 Engineering,Closed,0,1
+TKT-1378,L3 Engineering - Change Request #TKT-1378,Medium,Change Request,2026-04-16T07:59:53.416141,11.6,16.61,5.02,0.59,4,9.9,143,L3 Engineering,Open,0,1
+TKT-1379,Automated task ticket,High,Task,2026-02-11T09:13:37.376429,1.23,4.09,2.86,0.93,7,23.67,115,L3 Engineering,Open,0,1
+TKT-1380,User-reported service request,Medium,Service Request,2026-03-17T06:03:27.266615,11.4,10.87,0.0,2.08,9,2.68,507,L1 Support,Resolved,0,1
+TKT-1381,User-reported incident,Medium,Incident,2026-02-23T10:06:09.024022,3.11,8.24,5.13,0.83,9,4.46,166,DevOps,Open,1,1
+TKT-1382,User-reported bug,High,Bug,2026-06-18T11:58:27.307547,5.72,4.69,0.0,5.72,7,8.38,349,L2 Support,Resolved,1,1
+TKT-1383,[Critical] Change Request report,Critical,Change Request,2026-06-09T11:12:19.008216,3.1,2.36,0.0,0.12,7,12.69,241,L2 Support,Closed,1,1
+TKT-1384,User-reported service request,High,Service Request,2026-04-25T15:52:41.490812,0.8,11.28,10.48,0.8,13,4.96,386,DevOps,In Progress,0,1
+TKT-1385,Bug: System issue #385,High,Bug,2026-04-18T04:48:32.336461,12.73,10.18,0.0,0.47,13,4.21,69,Security,Resolved,1,1
+TKT-1386,L1 Support - Change Request #TKT-1386,High,Change Request,2026-02-10T04:59:50.266386,5.7,7.71,2.01,5.17,9,1.35,206,L1 Support,Resolved,0,1
+TKT-1387,L3 Engineering - Incident #TKT-1387,Critical,Incident,2026-04-24T20:20:54.035117,1.16,1.24,0.08,0.42,11,6.8,184,L3 Engineering,Resolved,1,1
+TKT-1388,Automated task ticket,High,Task,2026-02-17T01:31:04.443627,5.48,7.44,1.96,0.69,15,8.33,264,L2 Support,Waiting,0,1
+TKT-1389,L2 Support - Task #TKT-1389,Low,Task,2026-03-28T13:09:10.171724,40.01,67.06,27.04,7.66,7,12.78,218,L2 Support,Open,0,1
+TKT-1390,DevOps - Bug #TKT-1390,Medium,Bug,2026-01-12T03:30:57.914257,3.27,13.21,9.93,3.09,5,2.01,346,DevOps,Open,0,1
+TKT-1391,[Medium] Service Request report,Medium,Service Request,2026-02-17T19:38:32.077566,6.62,8.19,1.58,2.33,13,6.01,292,DevOps,In Progress,0,1
+TKT-1392,Service Request: System issue #392,Critical,Service Request,2026-04-05T21:51:58.437712,4.13,3.07,0.0,1.71,10,11.48,82,DevOps,Resolved,1,1
+TKT-1393,Automated incident ticket,High,Incident,2026-03-17T17:02:19.819986,1.08,7.45,6.38,1.08,5,8.74,54,L1 Support,Resolved,0,1
+TKT-1394,User-reported task,Medium,Task,2026-02-08T02:44:13.483527,0.96,15.87,14.91,0.96,9,10.11,39,DevOps,Waiting,0,1
+TKT-1395,Automated service request ticket,Medium,Service Request,2026-02-27T20:19:57.618510,7.22,10.62,3.39,1.5,4,5.73,182,L2 Support,Open,1,1
+TKT-1396,Automated incident ticket,Medium,Incident,2026-01-29T17:49:43.453569,15.2,20.23,5.03,1.03,7,16.86,547,L3 Engineering,In Progress,0,1
+TKT-1397,Task: System issue #397,High,Task,2026-01-16T10:20:04.381961,2.71,11.94,9.23,0.19,10,15.93,1253,Security,Open,1,1
+TKT-1398,[High] Bug report,High,Bug,2026-01-16T05:07:17.774767,1.8,5.01,3.21,1.79,10,3.71,179,L3 Engineering,Waiting,0,1
+TKT-1399,Bug: System issue #399,High,Bug,2026-03-23T16:49:44.813369,9.3,9.53,0.24,3.15,8,11.45,28,DevOps,Open,1,1
+TKT-1400,Service Request: System issue #400,Medium,Service Request,2026-06-26T19:38:01.847122,0.73,15.9,15.18,0.38,13,10.49,192,L2 Support,In Progress,0,1
+TKT-1401,User-reported bug,Medium,Bug,2026-04-22T01:43:42.071875,5.44,21.25,15.81,2.26,7,7.72,342,DevOps,In Progress,0,1
+TKT-1402,Automated change request ticket,High,Change Request,2026-01-21T22:50:08.499169,8.01,6.52,0.0,0.77,11,2.35,190,L2 Support,Closed,0,1
+TKT-1403,L2 Support - Service Request #TKT-1403,High,Service Request,2026-04-07T00:30:54.848726,3.79,5.49,1.7,1.99,10,2.96,274,L2 Support,In Progress,0,1
+TKT-1404,Service Request: System issue #404,High,Service Request,2026-05-05T05:10:03.929124,5.84,8.1,2.26,2.57,9,14.37,212,L1 Support,Resolved,1,1
+TKT-1405,[Critical] Incident report,Critical,Incident,2026-04-30T00:48:18.884346,0.96,3.74,2.78,0.96,9,5.68,451,Security,Open,1,1
+TKT-1406,User-reported bug,High,Bug,2026-04-05T00:51:53.104941,6.39,7.13,0.75,3.03,13,11.21,129,L3 Engineering,In Progress,0,1
+TKT-1407,User-reported task,High,Task,2026-06-17T19:11:02.263685,8.97,6.92,0.0,0.77,10,13.67,251,L2 Support,Resolved,1,1
+TKT-1408,User-reported bug,Critical,Bug,2026-04-21T12:31:31.463885,0.71,2.3,1.59,0.71,11,5.3,83,L1 Support,Resolved,0,1
+TKT-1409,[Medium] Incident report,Medium,Incident,2026-03-25T07:39:54.051057,9.69,13.21,3.52,2.31,17,12.3,185,L2 Support,In Progress,0,1
+TKT-1410,Incident: System issue #410,Critical,Incident,2026-04-18T14:29:42.530727,0.69,1.09,0.4,0.69,10,2.97,242,L1 Support,Resolved,1,1
+TKT-1411,User-reported bug,Medium,Bug,2026-03-31T17:05:42.701136,10.21,12.43,2.22,1.07,6,2.14,333,L3 Engineering,In Progress,1,1
+TKT-1412,DevOps - Bug #TKT-1412,Medium,Bug,2026-05-03T00:55:57.096330,20.94,19.23,0.0,3.26,1,13.14,636,DevOps,Closed,0,1
+TKT-1413,DevOps - Bug #TKT-1413,Medium,Bug,2026-04-11T05:01:30.293171,0.62,20.74,20.12,0.62,11,5.7,2551,DevOps,In Progress,0,1
+TKT-1414,Automated change request ticket,Low,Change Request,2026-03-24T01:41:50.220207,32.95,59.26,26.3,0.05,12,6.52,140,DevOps,In Progress,0,1
+TKT-1415,User-reported task,Critical,Task,2026-02-16T04:45:00.393325,2.45,3.32,0.87,1.0,11,4.67,51,DevOps,Resolved,1,1
+TKT-1416,User-reported change request,High,Change Request,2026-06-01T16:47:27.618365,8.56,9.15,0.59,1.57,10,4.31,284,L3 Engineering,Resolved,1,1
+TKT-1417,L1 Support - Task #TKT-1417,Medium,Task,2026-03-04T21:37:52.314461,16.38,19.4,3.03,5.86,11,4.36,58,L1 Support,Open,0,1
+TKT-1418,[Medium] Service Request report,Medium,Service Request,2026-02-01T16:28:32.492834,18.34,17.44,0.0,1.05,12,4.73,299,Security,Closed,1,1
+TKT-1419,User-reported bug,Low,Bug,2026-04-09T17:39:19.582270,4.83,58.05,53.21,0.18,12,10.19,99,L3 Engineering,In Progress,0,1
+TKT-1420,Change Request: System issue #420,Critical,Change Request,2026-02-12T16:57:33.533983,2.11,3.18,1.07,0.02,4,2.98,338,DevOps,In Progress,1,1
+TKT-1421,Service Request: System issue #421,Low,Service Request,2026-01-10T19:24:50.135578,12.64,26.85,14.2,5.67,6,4.69,44,Security,Open,0,1
+TKT-1422,Automated task ticket,High,Task,2026-05-30T11:50:31.416234,3.4,10.58,7.18,3.02,6,3.83,228,L2 Support,Open,0,1
+TKT-1423,Service Request: System issue #423,Low,Service Request,2026-06-10T02:16:11.353234,24.97,37.58,12.61,1.1,8,6.44,36,L1 Support,Waiting,0,1
+TKT-1424,User-reported service request,Medium,Service Request,2026-02-27T08:46:12.563650,4.0,19.6,15.6,0.46,9,45.44,154,DevOps,In Progress,0,1
+TKT-1425,User-reported bug,Medium,Bug,2026-03-25T23:36:40.137511,3.0,17.85,14.85,3.0,6,5.54,87,L3 Engineering,Open,1,1
+TKT-1426,Bug: System issue #426,High,Bug,2026-02-14T01:37:25.465885,4.15,9.14,4.99,0.61,10,5.17,94,L3 Engineering,Open,0,1
+TKT-1427,Bug: System issue #427,High,Bug,2026-03-04T14:30:06.901809,5.04,6.78,1.75,1.02,4,3.62,451,Security,Waiting,1,1
+TKT-1428,[High] Incident report,High,Incident,2026-05-31T05:36:20.112554,4.9,4.58,0.0,1.91,9,6.6,97,L2 Support,Closed,1,1
+TKT-1429,[Medium] Task report,Medium,Task,2026-01-03T21:21:11.932768,6.89,10.45,3.56,0.18,11,4.34,153,Security,In Progress,0,1
+TKT-1430,L3 Engineering - Bug #TKT-1430,High,Bug,2026-02-14T05:24:02.136433,6.8,5.22,0.0,1.58,11,6.31,266,L3 Engineering,Resolved,1,1
+TKT-1431,[Low] Service Request report,Low,Service Request,2026-01-20T08:43:48.363825,24.36,55.91,31.55,0.55,4,9.06,179,L2 Support,In Progress,0,1
+TKT-1432,Automated service request ticket,High,Service Request,2026-04-06T20:50:33.368340,3.02,8.72,5.7,0.85,8,9.0,419,L2 Support,Open,1,1
+TKT-1433,Security - Service Request #TKT-1433,High,Service Request,2026-03-24T06:58:31.913283,5.88,9.58,3.7,0.44,8,3.73,316,Security,Open,0,1
+TKT-1434,User-reported task,Medium,Task,2026-05-31T17:39:55.681369,15.73,23.48,7.75,1.25,13,7.37,143,L2 Support,In Progress,0,1
+TKT-1435,L3 Engineering - Incident #TKT-1435,Low,Incident,2026-01-04T11:17:59.843648,7.0,59.23,52.23,2.48,9,5.06,134,L3 Engineering,Open,0,1
+TKT-1436,Task: System issue #436,High,Task,2026-05-12T02:51:01.830133,7.73,8.08,0.35,1.26,17,11.41,170,L3 Engineering,Resolved,0,1
+TKT-1437,Bug: System issue #437,Critical,Bug,2026-05-19T05:13:54.789324,0.94,2.02,1.07,0.94,13,9.65,149,L1 Support,In Progress,1,1
+TKT-1438,[Low] Task report,Low,Task,2026-04-03T20:36:47.304489,71.57,51.51,0.0,2.59,13,4.83,260,L3 Engineering,Closed,1,1
+TKT-1439,Automated incident ticket,Medium,Incident,2026-05-11T05:06:45.982094,15.81,21.81,5.99,12.98,7,10.71,265,Security,Resolved,1,1
+TKT-1440,[Medium] Service Request report,Medium,Service Request,2026-05-27T07:35:11.110944,32.35,21.74,0.0,0.87,10,17.43,176,Security,Closed,1,1
+TKT-1441,Automated change request ticket,Medium,Change Request,2026-05-26T09:59:28.679587,0.64,19.09,18.45,0.64,7,12.82,78,L1 Support,Waiting,0,1
+TKT-1442,Task: System issue #442,High,Task,2026-04-13T04:02:48.326821,9.75,6.92,0.0,0.14,11,15.96,377,DevOps,Closed,0,1
+TKT-1443,Service Request: System issue #443,Medium,Service Request,2026-01-01T09:02:26.080502,0.97,10.7,9.72,0.97,8,5.51,38,Security,In Progress,0,1
+TKT-1444,User-reported bug,Medium,Bug,2026-03-22T10:28:50.569297,30.14,23.99,0.0,5.6,4,4.39,114,L1 Support,Closed,1,1
+TKT-1445,[Low] Bug report,Low,Bug,2026-03-19T06:24:13.693488,41.8,30.47,0.0,1.59,15,12.01,433,L2 Support,Resolved,0,1
+TKT-1446,[Low] Change Request report,Low,Change Request,2026-06-22T14:12:15.989473,18.16,26.9,8.74,0.52,13,6.26,427,L1 Support,Open,0,1
+TKT-1447,User-reported task,High,Task,2026-02-15T09:03:50.850489,10.71,9.5,0.0,0.5,12,7.19,55,Security,Closed,0,1
+TKT-1448,Change Request: System issue #448,High,Change Request,2026-04-17T19:42:32.670001,0.69,4.1,3.4,0.69,11,10.95,198,Security,Waiting,0,1
+TKT-1449,User-reported bug,High,Bug,2026-01-01T12:04:26.197388,14.87,10.06,0.0,4.15,11,4.95,46,Security,Closed,1,1
+TKT-1450,[High] Change Request report,High,Change Request,2026-05-28T15:29:57.973886,3.84,11.92,8.08,0.23,8,20.96,71,L1 Support,In Progress,0,1
+TKT-1451,Change Request: System issue #451,Critical,Change Request,2026-03-17T06:14:51.062048,1.16,1.8,0.63,0.78,11,17.4,36,L3 Engineering,Open,1,1
+TKT-1452,User-reported incident,Low,Incident,2026-01-18T06:59:19.574902,2.34,60.21,57.86,0.72,13,14.8,693,L2 Support,In Progress,0,1
+TKT-1453,L1 Support - Service Request #TKT-1453,High,Service Request,2026-04-04T19:17:23.841411,6.68,10.86,4.18,5.49,6,7.06,190,L1 Support,In Progress,0,1
+TKT-1454,L2 Support - Task #TKT-1454,Medium,Task,2026-06-15T02:51:36.456707,6.57,10.01,3.44,1.06,8,5.3,493,L2 Support,Resolved,1,1
+TKT-1455,L2 Support - Bug #TKT-1455,Medium,Bug,2026-01-18T17:05:53.043152,5.5,8.21,2.72,0.52,5,1.13,57,L2 Support,Open,0,1
+TKT-1456,L1 Support - Task #TKT-1456,Critical,Task,2026-06-23T11:44:36.486425,3.24,3.17,0.0,3.24,14,5.1,897,L1 Support,Resolved,1,1
+TKT-1457,Automated incident ticket,High,Incident,2026-03-23T15:31:27.750672,1.94,11.75,9.81,1.07,6,31.0,157,L1 Support,Open,0,1
+TKT-1458,DevOps - Change Request #TKT-1458,High,Change Request,2026-02-28T08:57:49.152955,13.67,11.41,0.0,6.39,8,10.1,173,DevOps,Closed,0,1
+TKT-1459,[High] Service Request report,High,Service Request,2026-03-31T18:02:48.799354,4.0,4.33,0.33,0.12,13,4.97,281,DevOps,Resolved,0,1
+TKT-1460,Bug: System issue #460,Medium,Bug,2026-02-15T12:15:41.822857,24.06,19.82,0.0,0.82,4,3.23,636,L2 Support,Closed,1,1
+TKT-1461,Service Request: System issue #461,Low,Service Request,2026-03-18T10:19:04.501276,24.14,62.42,38.29,1.37,10,6.55,83,L2 Support,Waiting,1,1
+TKT-1462,L3 Engineering - Task #TKT-1462,Critical,Task,2026-03-30T04:33:30.831641,3.2,3.78,0.59,1.67,8,9.12,79,L3 Engineering,Waiting,1,1
+TKT-1463,Automated task ticket,High,Task,2026-06-13T03:19:38.517079,5.86,8.03,2.16,5.86,12,5.21,794,DevOps,In Progress,0,1
+TKT-1464,Automated task ticket,Medium,Task,2026-04-24T01:05:42.851882,18.32,12.59,0.0,2.35,8,12.04,158,L1 Support,Resolved,0,1
+TKT-1465,[Low] Incident report,Low,Incident,2026-04-07T20:48:32.184878,27.02,37.19,10.17,3.42,14,4.52,60,Security,Resolved,0,1
+TKT-1466,L1 Support - Task #TKT-1466,Critical,Task,2026-05-10T05:31:25.839684,2.38,2.18,0.0,1.62,11,110.16,254,L1 Support,Closed,1,1
+TKT-1467,User-reported incident,Medium,Incident,2026-06-03T21:01:06.869380,4.58,20.89,16.32,3.13,6,1.63,339,L3 Engineering,Waiting,1,1
+TKT-1468,Change Request: System issue #468,Low,Change Request,2026-04-24T07:19:04.280179,14.96,39.45,24.49,0.02,7,16.8,89,Security,Open,1,1
+TKT-1469,Automated bug ticket,High,Bug,2026-05-07T01:26:08.235457,5.41,10.24,4.84,0.97,11,14.64,258,Security,Closed,0,1
+TKT-1470,L3 Engineering - Incident #TKT-1470,Low,Incident,2026-03-19T08:16:16.554392,5.86,39.87,34.01,2.07,11,1.48,51,L3 Engineering,Resolved,1,1
+TKT-1471,Automated change request ticket,Medium,Change Request,2026-01-22T13:09:20.410188,3.64,23.33,19.69,0.66,12,27.95,167,L1 Support,In Progress,0,1
+TKT-1472,Incident: System issue #472,High,Incident,2026-02-28T05:54:14.288356,6.23,4.6,0.0,4.06,10,2.43,135,L2 Support,Resolved,1,1
+TKT-1473,[High] Change Request report,High,Change Request,2026-05-16T00:44:13.995057,9.04,10.95,1.91,3.48,8,9.08,49,DevOps,Resolved,1,1
+TKT-1474,[Low] Incident report,Low,Incident,2026-04-15T13:46:25.125105,32.89,53.63,20.74,0.91,12,5.78,702,L1 Support,Open,0,1
+TKT-1475,Incident: System issue #475,Critical,Incident,2026-04-19T08:03:45.153779,1.48,1.54,0.06,0.8,11,8.58,39,Security,Open,1,1
+TKT-1476,L2 Support - Change Request #TKT-1476,High,Change Request,2026-04-21T21:10:58.351087,2.71,5.51,2.79,1.62,9,5.87,167,L2 Support,Closed,0,1
+TKT-1477,[Medium] Service Request report,Medium,Service Request,2026-03-09T01:28:12.138252,7.56,10.95,3.39,0.45,9,6.44,73,L2 Support,In Progress,1,1
+TKT-1478,User-reported service request,Critical,Service Request,2026-03-13T08:47:51.295179,1.72,2.12,0.4,0.49,11,10.83,93,L2 Support,In Progress,1,1
+TKT-1479,Task: System issue #479,High,Task,2026-05-11T18:18:42.178686,7.21,6.28,0.0,0.08,8,10.07,279,Security,Resolved,0,1
+TKT-1480,Automated incident ticket,Critical,Incident,2026-05-20T04:34:39.188818,1.4,1.01,0.0,0.79,9,18.28,472,L1 Support,Closed,1,1
+TKT-1481,[High] Bug report,High,Bug,2026-05-02T04:41:55.302783,0.66,6.02,5.36,0.66,9,10.03,496,L3 Engineering,Open,1,1
+TKT-1482,User-reported change request,Medium,Change Request,2026-04-25T17:10:30.057433,11.51,10.49,0.0,3.2,9,7.74,228,L1 Support,Closed,1,1
+TKT-1483,Automated bug ticket,Low,Bug,2026-05-03T04:38:17.862649,82.85,56.4,0.0,3.11,8,5.26,27,L1 Support,Closed,1,1
+TKT-1484,Security - Change Request #TKT-1484,Low,Change Request,2026-01-08T07:07:08.470816,47.63,60.17,12.54,1.15,9,6.39,244,Security,Waiting,0,1
+TKT-1485,[Low] Task report,Low,Task,2026-05-28T19:04:33.931017,35.79,27.83,0.0,0.24,7,2.0,167,L1 Support,Closed,0,1
+TKT-1486,Automated task ticket,High,Task,2026-03-27T14:51:08.780500,9.32,7.32,0.0,0.65,6,7.32,67,L2 Support,Resolved,1,1
+TKT-1487,L1 Support - Service Request #TKT-1487,Low,Service Request,2026-02-08T23:44:09.010912,40.67,64.05,23.38,2.15,10,3.35,154,L1 Support,Resolved,0,1
+TKT-1488,[Critical] Service Request report,Critical,Service Request,2026-03-05T15:07:05.560939,5.48,3.72,0.0,1.08,7,18.99,114,L2 Support,Closed,0,1
+TKT-1489,Bug: System issue #489,Medium,Bug,2026-06-14T15:27:49.922633,10.4,9.48,0.0,0.38,5,4.47,373,DevOps,Resolved,0,1
+TKT-1490,[Medium] Service Request report,Medium,Service Request,2026-06-13T10:20:27.536860,8.86,10.09,1.23,0.73,13,2.17,152,L3 Engineering,In Progress,0,1
+TKT-1491,Automated service request ticket,Medium,Service Request,2026-06-23T04:17:24.161533,15.89,12.06,0.0,6.45,11,9.6,410,L3 Engineering,Resolved,1,1
+TKT-1492,[Medium] Service Request report,Medium,Service Request,2026-05-25T02:41:39.486391,21.3,23.12,1.82,0.73,11,9.95,73,L2 Support,In Progress,0,1
+TKT-1493,[High] Service Request report,High,Service Request,2026-01-17T08:22:27.533840,13.38,10.89,0.0,0.08,6,1.92,123,L2 Support,Closed,1,1
+TKT-1494,Automated task ticket,Medium,Task,2026-01-24T23:18:59.180335,31.54,21.11,0.0,1.0,11,5.54,28,L3 Engineering,Closed,1,1
+TKT-1495,User-reported bug,Low,Bug,2026-03-05T21:03:53.437066,34.05,70.53,36.47,1.32,9,7.56,109,Security,Closed,1,1
+TKT-1496,Incident: System issue #496,Medium,Incident,2026-01-07T14:07:13.271128,21.57,22.22,0.66,2.58,14,6.2,118,Security,Resolved,0,1
+TKT-1497,Incident: System issue #497,Low,Incident,2026-03-08T13:02:06.752640,54.94,43.95,0.0,0.93,11,5.26,140,L2 Support,Closed,0,1
+TKT-1498,Automated change request ticket,High,Change Request,2026-04-11T03:29:39.266106,12.91,8.8,0.0,2.57,10,19.97,541,DevOps,Closed,1,1
+TKT-1499,User-reported incident,Medium,Incident,2026-06-19T17:43:34.492188,7.1,11.63,4.53,2.33,8,9.45,322,Security,In Progress,1,1
+TKT-1500,[High] Task report,High,Task,2026-03-21T18:21:47.909145,3.02,4.53,1.5,3.02,12,91.81,359,L3 Engineering,Waiting,1,1
+TKT-1501,Security - Task #TKT-1501,Medium,Task,2026-06-23T15:06:11.163143,7.38,13.57,6.19,2.26,6,7.75,352,Security,In Progress,0,1
+TKT-1502,[Medium] Task report,Medium,Task,2026-04-18T05:12:18.088829,5.84,11.33,5.49,2.53,10,10.58,77,Security,In Progress,1,1
+TKT-1503,Change Request: System issue #503,Medium,Change Request,2026-03-27T20:24:01.180315,14.9,11.58,0.0,0.73,7,4.76,295,DevOps,Resolved,0,1
+TKT-1504,L3 Engineering - Bug #TKT-1504,High,Bug,2026-01-20T19:15:09.797962,5.9,8.07,2.18,5.9,10,6.58,195,L3 Engineering,Closed,0,1
+TKT-1505,[Medium] Incident report,Medium,Incident,2026-03-25T16:40:11.663997,9.52,10.52,1.0,3.4,14,13.42,190,L2 Support,Resolved,1,1
+TKT-1506,[Medium] Bug report,Medium,Bug,2026-05-12T13:20:16.727948,21.67,14.71,0.0,1.07,12,11.81,463,L3 Engineering,Closed,1,1
+TKT-1507,Automated task ticket,Critical,Task,2026-01-03T07:21:46.733502,1.65,1.51,0.0,1.65,12,1.73,195,L1 Support,Closed,1,1
+TKT-1508,Automated service request ticket,Low,Service Request,2026-05-02T21:58:05.771498,29.07,28.22,0.0,2.17,8,26.45,571,L3 Engineering,Closed,1,1
+TKT-1509,User-reported change request,Low,Change Request,2026-04-25T14:29:31.897789,42.85,66.57,23.72,1.01,9,1.37,93,L2 Support,Open,1,1
+TKT-1510,[Medium] Task report,Medium,Task,2026-04-27T23:51:37.610316,5.17,13.83,8.66,1.59,9,16.17,205,L3 Engineering,In Progress,0,1
+TKT-1511,Automated task ticket,Medium,Task,2026-06-28T04:07:47.018530,17.93,20.54,2.61,0.31,10,9.35,109,L1 Support,Waiting,0,1
+TKT-1512,Automated incident ticket,Low,Incident,2026-05-06T19:00:38.776269,35.26,71.88,36.62,1.8,8,6.33,239,Security,Waiting,0,1
+TKT-1513,Security - Task #TKT-1513,Critical,Task,2026-05-08T21:40:36.826298,3.14,2.52,0.0,3.12,7,3.0,184,Security,Closed,0,1
+TKT-1514,User-reported incident,Medium,Incident,2026-05-08T19:11:47.347677,4.33,21.32,17.0,4.15,16,5.93,362,L3 Engineering,Open,0,1
+TKT-1515,Security - Incident #TKT-1515,Low,Incident,2026-01-19T08:59:09.847310,25.3,60.21,34.91,1.47,9,17.12,211,Security,Open,0,1
+TKT-1516,User-reported change request,Medium,Change Request,2026-04-05T22:22:28.470176,23.75,16.45,0.0,0.97,9,5.51,131,L3 Engineering,Resolved,0,1
+TKT-1517,[Low] Service Request report,Low,Service Request,2026-06-04T07:48:29.799611,76.67,63.89,0.0,1.12,8,14.24,214,Security,Closed,0,1
+TKT-1518,[Medium] Task report,Medium,Task,2026-06-17T13:02:59.631625,24.37,22.57,0.0,5.4,12,3.01,37,DevOps,Resolved,0,1
+TKT-1519,Change Request: System issue #519,Low,Change Request,2026-04-20T21:31:48.433633,104.29,69.61,0.0,1.16,11,18.0,72,L1 Support,Resolved,0,1
+TKT-1520,Automated task ticket,Medium,Task,2026-04-22T08:56:21.087221,5.81,16.55,10.74,0.45,8,2.62,305,Security,In Progress,0,1
+TKT-1521,Change Request: System issue #521,Medium,Change Request,2026-04-11T14:03:01.731594,9.61,18.58,8.97,1.2,5,6.98,1003,L3 Engineering,Waiting,1,1
+TKT-1522,L1 Support - Incident #TKT-1522,Low,Incident,2026-05-19T14:04:46.627327,36.15,31.89,0.0,3.58,4,8.99,411,L1 Support,Closed,1,1
+TKT-1523,Automated service request ticket,Medium,Service Request,2026-04-23T13:13:31.251631,19.75,18.31,0.0,0.87,7,12.66,159,Security,Closed,0,1
+TKT-1524,User-reported change request,Critical,Change Request,2026-03-02T05:02:16.024717,1.8,1.25,0.0,1.8,14,5.97,192,DevOps,Closed,1,1
+TKT-1525,[High] Service Request report,High,Service Request,2026-05-01T07:26:46.056790,14.38,10.97,0.0,2.16,6,14.55,351,L3 Engineering,Closed,0,1
+TKT-1526,Automated task ticket,High,Task,2026-02-20T08:10:48.781658,12.6,9.34,0.0,2.16,12,9.99,478,Security,Closed,0,1
+TKT-1527,L1 Support - Task #TKT-1527,Medium,Task,2026-06-18T19:19:34.550787,1.15,10.64,9.48,1.15,9,34.58,152,L1 Support,Waiting,0,1
+TKT-1528,User-reported change request,Medium,Change Request,2026-02-22T03:53:27.859562,29.43,22.23,0.0,3.54,8,5.39,190,DevOps,Resolved,0,1
+TKT-1529,Automated incident ticket,Medium,Incident,2026-05-29T22:37:46.074838,27.79,22.99,0.0,1.39,6,22.9,92,L1 Support,Closed,1,1
+TKT-1530,L3 Engineering - Service Request #TKT-1530,Medium,Service Request,2026-01-11T08:21:32.429880,7.73,9.98,2.26,1.03,6,28.48,85,L3 Engineering,Open,1,1
+TKT-1531,L2 Support - Incident #TKT-1531,Critical,Incident,2026-02-06T21:37:30.031178,5.2,3.76,0.0,5.2,11,24.81,145,L2 Support,Closed,1,1
+TKT-1532,User-reported task,High,Task,2026-03-10T14:34:14.823638,8.14,10.17,2.03,3.05,9,3.77,107,L2 Support,Open,1,1
+TKT-1533,User-reported task,High,Task,2026-01-09T12:24:25.882291,1.51,5.26,3.75,1.51,14,8.85,317,DevOps,Open,1,1
+TKT-1534,Task: System issue #534,High,Task,2026-03-19T13:42:08.728768,12.89,11.74,0.0,1.33,5,5.31,138,L2 Support,Closed,0,1
+TKT-1535,User-reported bug,Low,Bug,2026-01-24T06:08:48.170198,53.41,67.41,14.0,3.92,8,8.01,392,Security,Waiting,1,1
+TKT-1536,[High] Bug report,High,Bug,2026-03-10T03:30:40.967387,4.0,9.57,5.57,4.0,4,15.84,85,L2 Support,Open,0,1
+TKT-1537,[High] Service Request report,High,Service Request,2026-06-29T03:25:40.814270,3.66,9.43,5.77,0.29,9,40.08,48,L3 Engineering,Open,1,1
+TKT-1538,[Low] Service Request report,Low,Service Request,2026-03-14T14:02:07.952895,48.86,50.95,2.09,8.98,10,21.51,823,L2 Support,Resolved,1,1
+TKT-1539,[High] Service Request report,High,Service Request,2026-02-28T18:36:47.128965,12.91,9.92,0.0,1.06,6,4.08,129,DevOps,Resolved,0,1
+TKT-1540,Bug: System issue #540,Medium,Bug,2026-01-21T07:44:47.614968,8.22,19.56,11.35,4.29,13,45.8,82,DevOps,Open,1,1
+TKT-1541,User-reported incident,High,Incident,2026-01-19T19:09:55.082268,9.96,10.82,0.86,8.1,6,5.65,109,L1 Support,Open,0,1
+TKT-1542,Bug: System issue #542,High,Bug,2026-02-28T15:48:02.766018,9.68,8.16,0.0,4.56,8,1.87,106,L2 Support,Closed,1,1
+TKT-1543,User-reported bug,Medium,Bug,2026-02-20T08:37:23.111485,18.58,22.25,3.67,1.33,11,18.34,442,Security,In Progress,0,1
+TKT-1544,[High] Bug report,High,Bug,2026-05-18T14:48:15.322910,0.58,4.55,3.97,0.58,12,4.76,124,L1 Support,In Progress,0,1
+TKT-1545,[Medium] Task report,Medium,Task,2026-06-03T08:54:41.185874,5.1,13.69,8.59,0.48,5,4.2,528,DevOps,Open,0,1
+TKT-1546,Automated bug ticket,High,Bug,2026-06-08T17:11:29.298803,1.46,8.09,6.63,1.46,6,3.1,382,DevOps,In Progress,0,1
+TKT-1547,Automated bug ticket,Low,Bug,2026-05-23T18:24:22.542432,47.33,55.12,7.79,0.46,10,2.15,290,DevOps,Resolved,0,1
+TKT-1548,L2 Support - Bug #TKT-1548,Medium,Bug,2026-01-03T09:23:20.987606,9.43,14.84,5.41,9.43,10,13.43,178,L2 Support,Waiting,1,1
+TKT-1549,DevOps - Service Request #TKT-1549,High,Service Request,2026-03-05T13:16:07.696142,6.84,6.51,0.0,0.61,5,7.43,51,DevOps,Closed,1,1
+TKT-1550,[Low] Incident report,Low,Incident,2026-06-27T17:56:14.059604,95.23,66.36,0.0,1.05,7,20.4,54,L3 Engineering,Resolved,0,1
+TKT-1551,Service Request: System issue #551,Low,Service Request,2026-06-04T05:16:43.810060,18.07,36.13,18.06,1.93,9,9.89,62,L1 Support,Waiting,0,1
+TKT-1552,Automated service request ticket,Critical,Service Request,2026-06-21T14:19:23.147407,1.09,2.7,1.62,1.09,7,9.8,39,L1 Support,Open,0,1
+TKT-1553,Automated change request ticket,High,Change Request,2026-04-30T18:08:23.839546,13.7,10.97,0.0,1.12,10,26.31,286,DevOps,Resolved,1,1
+TKT-1554,Automated incident ticket,Low,Incident,2026-05-21T21:48:33.879967,61.03,41.6,0.0,1.42,10,8.38,324,DevOps,Closed,1,1
+TKT-1555,L2 Support - Change Request #TKT-1555,High,Change Request,2026-02-12T02:06:13.367958,0.54,4.97,4.43,0.54,9,4.82,128,L2 Support,Resolved,0,1
+TKT-1556,[High] Incident report,High,Incident,2026-05-21T23:54:28.187958,6.86,7.46,0.6,1.07,10,6.99,86,L2 Support,Open,1,1
+TKT-1557,User-reported service request,Medium,Service Request,2026-05-26T02:59:33.542425,6.03,11.31,5.28,0.36,8,12.79,226,L3 Engineering,Open,1,1
+TKT-1558,Task: System issue #558,Medium,Task,2026-02-19T00:16:31.433963,7.21,12.75,5.54,7.21,13,4.1,59,Security,In Progress,1,1
+TKT-1559,Security - Incident #TKT-1559,Low,Incident,2026-06-03T05:25:34.973250,35.24,26.38,0.0,2.74,8,1.63,95,Security,Closed,1,1
+TKT-1560,Incident: System issue #560,Medium,Incident,2026-04-15T22:56:27.635177,9.42,20.56,11.15,3.53,12,7.62,30,Security,Open,0,1
+TKT-1561,Bug: System issue #561,Low,Bug,2026-03-10T23:15:43.072535,87.67,64.41,0.0,0.19,10,6.03,125,DevOps,Closed,0,1
+TKT-1562,[Medium] Task report,Medium,Task,2026-05-29T01:19:03.562653,13.98,15.22,1.24,5.65,8,10.11,64,DevOps,Open,1,1
+TKT-1563,[Low] Incident report,Low,Incident,2026-04-19T04:56:22.686688,12.31,27.78,15.47,0.97,7,10.94,228,L2 Support,Open,1,1
+TKT-1564,L2 Support - Bug #TKT-1564,Low,Bug,2026-05-04T11:11:10.425532,10.69,28.09,17.4,4.83,4,1.97,152,L2 Support,In Progress,0,1
+TKT-1565,Bug: System issue #565,Critical,Bug,2026-06-05T13:07:57.422382,1.33,1.48,0.15,0.62,10,9.98,129,Security,Waiting,0,1
+TKT-1566,L3 Engineering - Service Request #TKT-1566,Low,Service Request,2026-03-19T05:31:01.480287,57.82,52.39,0.0,1.81,12,6.59,169,L3 Engineering,Closed,1,1
+TKT-1567,Security - Bug #TKT-1567,Medium,Bug,2026-06-15T04:54:21.717408,2.2,20.46,18.25,1.86,5,28.8,149,Security,Open,1,1
+TKT-1568,[Medium] Bug report,Medium,Bug,2026-03-12T18:34:26.222911,17.58,16.95,0.0,8.3,6,7.76,103,L1 Support,Resolved,1,1
+TKT-1569,Bug: System issue #569,Medium,Bug,2026-01-21T06:14:54.872319,26.2,20.99,0.0,4.05,14,1.34,73,L3 Engineering,Resolved,0,1
+TKT-1570,[Medium] Incident report,Medium,Incident,2026-03-17T19:45:50.760084,15.09,10.85,0.0,3.59,8,7.21,193,DevOps,Closed,0,1
+TKT-1571,User-reported change request,Medium,Change Request,2026-05-29T14:48:20.515246,16.03,15.7,0.0,1.43,7,4.77,124,Security,Resolved,0,1
+TKT-1572,User-reported bug,Low,Bug,2026-01-19T12:58:21.252747,89.47,62.03,0.0,1.39,9,3.73,119,DevOps,Closed,1,1
+TKT-1573,L3 Engineering - Service Request #TKT-1573,Medium,Service Request,2026-06-23T01:59:20.605402,12.27,15.33,3.07,0.69,13,4.27,276,L3 Engineering,Resolved,0,1
+TKT-1574,[Critical] Change Request report,Critical,Change Request,2026-05-21T22:25:29.192243,1.89,1.42,0.0,1.28,10,8.91,273,L2 Support,Closed,0,1
+TKT-1575,Bug: System issue #575,Critical,Bug,2026-02-18T15:10:07.024533,1.52,1.24,0.0,0.38,10,1.62,62,L2 Support,Closed,0,1
+TKT-1576,[High] Service Request report,High,Service Request,2026-05-22T20:51:26.163750,9.44,11.12,1.68,8.58,8,5.76,204,Security,Open,1,1
+TKT-1577,Automated task ticket,Low,Task,2026-04-13T00:47:59.551821,78.79,66.31,0.0,2.01,5,2.4,311,L1 Support,Closed,1,1
+TKT-1578,User-reported task,Medium,Task,2026-04-06T08:34:13.644184,15.25,11.45,0.0,0.22,11,5.28,44,L3 Engineering,Resolved,0,1
+TKT-1579,Bug: System issue #579,High,Bug,2026-02-23T02:54:34.165472,3.34,11.37,8.03,0.17,8,3.54,404,L3 Engineering,Resolved,0,1
+TKT-1580,User-reported change request,High,Change Request,2026-03-08T07:05:33.763879,6.36,4.35,0.0,0.04,8,35.69,314,DevOps,Closed,0,1
+TKT-1581,Bug: System issue #581,Medium,Bug,2026-04-12T18:49:25.139225,23.63,20.99,0.0,2.05,8,6.59,32,L1 Support,Resolved,0,1
+TKT-1582,Automated incident ticket,High,Incident,2026-04-09T20:06:10.446744,12.23,8.35,0.0,1.14,9,3.71,106,L3 Engineering,Closed,1,1
+TKT-1583,Automated bug ticket,Medium,Bug,2026-01-29T01:13:41.224795,28.26,19.32,0.0,0.66,9,24.83,309,DevOps,Closed,1,1
+TKT-1584,User-reported task,Critical,Task,2026-05-29T13:54:28.945502,0.76,2.07,1.32,0.76,11,3.55,32,DevOps,In Progress,0,1
+TKT-1585,Automated change request ticket,Critical,Change Request,2026-02-01T14:07:18.589950,1.55,1.67,0.12,0.24,9,15.87,159,L1 Support,Waiting,1,1
+TKT-1586,[High] Bug report,High,Bug,2026-05-01T14:52:50.767462,5.22,5.46,0.24,1.33,6,3.98,124,DevOps,Resolved,0,1
+TKT-1587,[Medium] Bug report,Medium,Bug,2026-01-01T16:05:24.913431,5.31,13.61,8.3,0.16,8,11.71,113,L2 Support,In Progress,1,1
+TKT-1588,User-reported incident,High,Incident,2026-03-20T11:54:09.105700,9.04,7.1,0.0,0.62,7,7.02,139,Security,Closed,0,1
+TKT-1589,[Critical] Service Request report,Critical,Service Request,2026-03-07T19:43:27.034486,1.25,1.22,0.0,1.25,6,11.76,1530,L1 Support,Closed,1,1
+TKT-1590,Automated service request ticket,Medium,Service Request,2026-06-13T02:48:38.699573,3.44,9.37,5.93,3.44,9,11.26,39,L2 Support,Open,0,1
+TKT-1591,L1 Support - Bug #TKT-1591,High,Bug,2026-03-20T06:34:52.673109,4.11,9.17,5.07,1.21,7,5.14,731,L1 Support,Open,0,1
+TKT-1592,L3 Engineering - Task #TKT-1592,Critical,Task,2026-06-06T21:31:56.436666,4.71,3.69,0.0,0.12,6,3.35,76,L3 Engineering,Closed,0,1
+TKT-1593,[High] Change Request report,High,Change Request,2026-01-26T02:36:01.697539,9.45,7.35,0.0,6.73,11,2.53,526,L2 Support,Closed,0,1
+TKT-1594,Automated bug ticket,High,Bug,2026-04-28T18:08:08.842413,6.74,11.29,4.55,4.55,10,18.37,286,Security,Open,1,1
+TKT-1595,L2 Support - Service Request #TKT-1595,Medium,Service Request,2026-05-04T08:14:20.022646,12.78,12.49,0.0,6.57,10,6.31,123,L2 Support,Resolved,1,1
+TKT-1596,L2 Support - Change Request #TKT-1596,High,Change Request,2026-05-29T15:48:23.555974,4.09,8.44,4.35,0.55,9,10.35,434,L2 Support,Open,0,1
+TKT-1597,Automated service request ticket,Critical,Service Request,2026-05-14T02:09:53.892752,1.14,1.01,0.0,1.14,13,4.69,24,Security,Closed,0,1
+TKT-1598,User-reported service request,High,Service Request,2026-03-08T05:03:48.284396,6.23,7.24,1.0,6.23,15,8.26,214,DevOps,Resolved,1,1
+TKT-1599,Service Request: System issue #599,Medium,Service Request,2026-03-28T03:57:39.286493,5.91,13.0,7.08,3.28,9,12.48,118,Security,In Progress,1,1
+TKT-1600,[Medium] Service Request report,Medium,Service Request,2026-03-13T05:47:25.683906,6.51,19.67,13.17,1.18,8,7.15,38,Security,Waiting,0,1
+TKT-1601,L3 Engineering - Incident #TKT-1601,High,Incident,2026-06-02T03:39:45.779874,4.18,5.88,1.7,0.42,6,3.04,85,L3 Engineering,Open,0,1
+TKT-1602,L1 Support - Change Request #TKT-1602,High,Change Request,2026-04-06T22:46:43.648044,3.75,9.46,5.71,1.44,9,3.4,268,L1 Support,Open,0,1
+TKT-1603,DevOps - Incident #TKT-1603,High,Incident,2026-06-20T13:35:16.744624,11.07,9.98,0.0,0.12,8,13.49,171,DevOps,Resolved,0,1
+TKT-1604,Automated bug ticket,Medium,Bug,2026-06-15T01:53:17.300446,8.85,14.47,5.62,0.9,9,6.11,193,L3 Engineering,Open,0,1
+TKT-1605,Incident: System issue #605,Medium,Incident,2026-05-27T08:46:04.256569,13.9,11.46,0.0,1.28,6,41.22,379,L3 Engineering,Closed,1,1
+TKT-1606,Automated change request ticket,Critical,Change Request,2026-01-27T11:24:21.579875,1.56,1.09,0.0,1.56,9,4.0,330,L1 Support,Closed,0,1
+TKT-1607,[Medium] Task report,Medium,Task,2026-04-11T05:38:21.312857,1.41,11.9,10.49,1.41,5,2.27,111,L3 Engineering,Resolved,0,1
+TKT-1608,Automated service request ticket,Medium,Service Request,2026-06-28T13:30:49.380996,19.44,24.0,4.56,4.38,11,24.25,28,Security,Waiting,1,1
+TKT-1609,User-reported incident,High,Incident,2026-03-27T22:48:44.110192,7.88,9.16,1.28,2.58,8,12.25,771,DevOps,In Progress,1,1
+TKT-1610,[Medium] Change Request report,Medium,Change Request,2026-02-09T22:48:38.066345,0.75,10.88,10.14,0.59,12,4.75,167,L3 Engineering,In Progress,1,1
+TKT-1611,Task: System issue #611,Medium,Task,2026-03-12T11:18:48.785464,5.87,8.01,2.14,1.67,12,6.42,126,L2 Support,Closed,1,1
+TKT-1612,Change Request: System issue #612,Low,Change Request,2026-02-26T07:42:56.812772,13.71,38.95,25.24,0.95,8,0.89,194,Security,Waiting,0,1
+TKT-1613,[High] Bug report,High,Bug,2026-06-14T01:09:01.499203,3.03,10.62,7.6,3.03,6,3.01,74,L2 Support,Open,1,1
+TKT-1614,Automated bug ticket,Medium,Bug,2026-04-14T18:56:40.501073,16.39,13.25,0.0,0.51,4,3.68,145,Security,Closed,0,1
+TKT-1615,Security - Change Request #TKT-1615,High,Change Request,2026-06-19T02:47:12.052784,6.4,7.24,0.85,3.91,6,2.57,265,Security,Waiting,0,1
+TKT-1616,[Medium] Task report,Medium,Task,2026-04-24T12:40:39.823278,26.61,20.19,0.0,4.78,10,2.21,85,L3 Engineering,Closed,1,1
+TKT-1617,Task: System issue #617,High,Task,2026-05-28T11:27:01.037834,1.77,4.98,3.2,1.77,8,6.04,1374,L1 Support,Closed,0,1
+TKT-1618,Incident: System issue #618,High,Incident,2026-05-14T01:57:16.462321,4.1,5.03,0.92,0.82,7,9.01,63,L2 Support,Open,0,1
+TKT-1619,Automated incident ticket,Critical,Incident,2026-03-15T19:42:44.868104,1.21,1.93,0.72,0.91,13,4.84,26,L3 Engineering,In Progress,1,1
+TKT-1620,Service Request: System issue #620,High,Service Request,2026-05-09T09:28:56.369472,3.82,5.18,1.36,0.1,8,2.4,78,L2 Support,Resolved,0,1
+TKT-1621,User-reported task,Medium,Task,2026-06-16T06:22:21.208967,11.09,8.58,0.0,0.66,12,4.62,92,L2 Support,Resolved,1,1
+TKT-1622,[High] Incident report,High,Incident,2026-03-06T18:55:42.615046,1.64,11.15,9.51,1.64,9,4.32,82,Security,Waiting,0,1
+TKT-1623,Automated service request ticket,Critical,Service Request,2026-06-23T17:02:07.472387,0.83,3.12,2.29,0.83,12,7.86,176,L2 Support,Waiting,0,1
+TKT-1624,Security - Incident #TKT-1624,Medium,Incident,2026-01-08T13:39:30.046442,3.47,20.19,16.72,1.26,10,4.4,76,Security,In Progress,0,1
+TKT-1625,Security - Bug #TKT-1625,High,Bug,2026-01-17T10:32:47.812143,6.99,9.22,2.23,3.91,13,6.57,93,Security,Waiting,1,1
+TKT-1626,Service Request: System issue #626,Medium,Service Request,2026-01-04T03:35:47.088635,1.8,9.03,7.23,1.36,10,9.99,64,L3 Engineering,Open,1,1
+TKT-1627,User-reported bug,Critical,Bug,2026-04-28T22:49:33.284760,2.34,2.15,0.0,2.22,16,3.17,52,L2 Support,Closed,1,1
+TKT-1628,DevOps - Task #TKT-1628,Medium,Task,2026-03-11T06:49:52.854315,12.27,18.08,5.81,2.48,8,1.63,227,DevOps,In Progress,0,1
+TKT-1629,L1 Support - Task #TKT-1629,Medium,Task,2026-05-30T04:18:40.632253,5.74,10.5,4.76,3.23,5,8.92,17,L1 Support,Open,0,1
+TKT-1630,Automated bug ticket,Medium,Bug,2026-01-26T17:32:32.930063,7.08,10.01,2.94,1.81,9,14.22,78,Security,In Progress,0,1
+TKT-1631,L1 Support - Incident #TKT-1631,Medium,Incident,2026-04-17T14:32:38.741370,13.09,8.96,0.0,1.57,4,11.48,82,L1 Support,Closed,0,1
+TKT-1632,Service Request: System issue #632,High,Service Request,2026-05-02T14:39:35.156162,7.43,7.1,0.0,5.69,5,8.63,123,L3 Engineering,Resolved,1,1
+TKT-1633,Task: System issue #633,Low,Task,2026-06-07T20:48:31.543710,34.49,40.66,6.17,1.42,9,1.86,277,Security,Closed,0,1
+TKT-1634,User-reported task,Medium,Task,2026-02-16T12:23:46.810597,7.73,12.26,4.53,3.03,7,36.3,332,L3 Engineering,Closed,0,1
+TKT-1635,[High] Change Request report,High,Change Request,2026-04-19T02:32:08.474718,9.98,9.52,0.0,3.05,11,20.02,114,DevOps,Resolved,1,1
+TKT-1636,L1 Support - Task #TKT-1636,Medium,Task,2026-06-10T15:10:51.465663,12.14,14.87,2.73,7.77,7,7.96,310,L1 Support,In Progress,1,1
+TKT-1637,Bug: System issue #637,Medium,Bug,2026-02-07T00:47:22.466362,8.32,10.99,2.67,4.0,13,1.57,261,L2 Support,Waiting,1,1
+TKT-1638,Automated bug ticket,High,Bug,2026-04-28T07:05:45.394276,1.68,4.67,2.99,1.61,6,27.5,60,L3 Engineering,In Progress,1,1
+TKT-1639,DevOps - Change Request #TKT-1639,High,Change Request,2026-03-08T23:06:20.506857,13.97,10.73,0.0,0.33,12,9.55,317,DevOps,Closed,0,1
+TKT-1640,L1 Support - Bug #TKT-1640,Low,Bug,2026-03-18T13:37:26.683466,18.3,32.94,14.64,0.35,11,15.26,205,L1 Support,In Progress,0,1
+TKT-1641,Automated service request ticket,Critical,Service Request,2026-06-02T05:34:58.986032,1.73,3.02,1.29,0.09,11,12.84,157,L3 Engineering,Open,0,1
+TKT-1642,Bug: System issue #642,High,Bug,2026-01-08T04:49:24.879507,1.17,7.44,6.27,1.17,5,30.43,29,DevOps,In Progress,0,1
+TKT-1643,[High] Incident report,High,Incident,2026-06-24T19:07:33.612883,7.98,5.58,0.0,1.93,7,11.37,430,L3 Engineering,Closed,1,1
+TKT-1644,User-reported bug,Critical,Bug,2026-05-31T21:12:33.769573,1.34,2.38,1.04,1.34,10,27.89,405,L2 Support,Open,0,1
+TKT-1645,User-reported service request,High,Service Request,2026-01-10T06:12:25.461589,6.69,8.35,1.66,2.94,8,16.65,181,L1 Support,Resolved,1,1
+TKT-1646,Bug: System issue #646,High,Bug,2026-01-14T06:36:19.758961,6.0,9.73,3.72,3.63,8,16.59,138,L3 Engineering,Open,0,1
+TKT-1647,Task: System issue #647,Medium,Task,2026-01-31T22:51:42.229052,11.52,15.92,4.4,7.82,12,8.54,512,Security,In Progress,0,1
+TKT-1648,User-reported task,Critical,Task,2026-03-01T13:33:04.928443,1.18,2.79,1.62,0.84,11,7.16,18,L1 Support,Open,0,1
+TKT-1649,[Low] Task report,Low,Task,2026-05-03T16:45:12.911556,23.74,36.63,12.89,1.22,8,11.98,126,L3 Engineering,Resolved,0,1
+TKT-1650,Task: System issue #650,Low,Task,2026-06-05T00:13:18.128228,38.81,30.46,0.0,2.25,9,13.74,105,L1 Support,Closed,0,1
+TKT-1651,Service Request: System issue #651,Medium,Service Request,2026-03-12T16:24:03.358204,21.96,21.46,0.0,2.99,13,10.34,303,L1 Support,Closed,0,1
+TKT-1652,Security - Service Request #TKT-1652,Low,Service Request,2026-04-19T19:22:27.191834,13.83,32.86,19.03,1.31,15,6.13,681,Security,Waiting,0,1
+TKT-1653,Task: System issue #653,High,Task,2026-04-07T17:55:43.465080,4.35,5.1,0.75,0.39,9,12.78,234,DevOps,Waiting,0,1
+TKT-1654,Automated service request ticket,Low,Service Request,2026-01-21T04:12:22.196433,16.02,61.89,45.87,1.06,10,2.72,100,L2 Support,Resolved,0,1
+TKT-1655,[Medium] Incident report,Medium,Incident,2026-03-27T05:32:24.366259,1.51,12.3,10.8,1.31,8,5.87,370,L2 Support,Resolved,0,1
+TKT-1656,Incident: System issue #656,Critical,Incident,2026-04-04T23:53:46.231027,5.34,3.79,0.0,5.34,5,5.59,305,L1 Support,Resolved,1,1
+TKT-1657,Automated incident ticket,Medium,Incident,2026-04-10T12:04:44.102609,14.41,9.69,0.0,0.7,9,10.11,324,L3 Engineering,Closed,1,1
+TKT-1658,Automated incident ticket,Medium,Incident,2026-05-09T13:24:24.141863,5.69,15.75,10.06,1.93,18,5.16,32,DevOps,Open,0,1
+TKT-1659,Automated task ticket,Low,Task,2026-05-12T20:01:10.378117,85.49,70.34,0.0,7.05,8,12.39,192,L2 Support,Closed,0,1
+TKT-1660,Automated task ticket,Medium,Task,2026-01-04T09:08:05.288922,8.56,16.35,7.8,0.0,10,5.79,422,Security,Open,0,1
+TKT-1661,[Medium] Bug report,Medium,Bug,2026-03-06T23:21:17.833032,10.37,11.69,1.32,4.0,16,2.13,66,Security,Open,0,1
+TKT-1662,Automated task ticket,High,Task,2026-01-23T16:05:54.617258,2.55,7.36,4.81,1.34,8,4.95,227,DevOps,In Progress,0,1
+TKT-1663,Automated change request ticket,Low,Change Request,2026-06-16T00:42:43.916239,40.17,56.85,16.69,0.24,6,3.28,63,Security,Waiting,1,1
+TKT-1664,[Low] Task report,Low,Task,2026-04-09T11:08:58.384482,31.06,37.31,6.25,0.3,13,10.54,42,Security,Open,0,1
+TKT-1665,Automated incident ticket,Medium,Incident,2026-03-03T03:06:17.602748,12.97,9.15,0.0,3.71,8,6.71,37,Security,Resolved,0,1
+TKT-1666,Automated task ticket,High,Task,2026-04-17T18:35:59.956548,13.02,9.73,0.0,4.52,11,2.28,144,L2 Support,Closed,1,1
+TKT-1667,User-reported task,High,Task,2026-03-04T06:30:39.530190,7.01,11.92,4.92,3.58,13,43.12,60,DevOps,Resolved,1,1
+TKT-1668,Service Request: System issue #668,Medium,Service Request,2026-04-09T19:01:19.464465,12.35,12.11,0.0,7.92,6,14.39,227,L1 Support,Resolved,0,1
+TKT-1669,[High] Bug report,High,Bug,2026-06-08T22:44:15.012180,6.49,6.43,0.0,1.67,11,15.49,108,L1 Support,Closed,0,1
+TKT-1670,[High] Bug report,High,Bug,2026-03-22T12:09:05.225242,5.34,6.84,1.5,5.11,9,6.32,116,L2 Support,In Progress,1,1
+TKT-1671,[Medium] Incident report,Medium,Incident,2026-01-15T05:59:58.010399,10.3,18.92,8.62,0.64,10,17.2,64,L3 Engineering,In Progress,0,1
+TKT-1672,[Medium] Bug report,Medium,Bug,2026-04-29T07:00:31.062143,3.68,15.81,12.14,3.68,11,60.79,59,L3 Engineering,Resolved,0,1
+TKT-1673,L2 Support - Change Request #TKT-1673,Medium,Change Request,2026-01-21T01:44:51.878459,3.88,13.1,9.22,1.31,9,2.36,319,L2 Support,Open,0,1
+TKT-1674,User-reported task,Low,Task,2026-02-18T19:34:27.111158,67.65,63.33,0.0,9.99,15,2.26,242,Security,Closed,1,1
+TKT-1675,[Medium] Change Request report,Medium,Change Request,2026-03-11T23:38:08.453973,20.36,13.6,0.0,1.65,10,5.51,35,L1 Support,Resolved,1,1
+TKT-1676,Security - Service Request #TKT-1676,High,Service Request,2026-01-09T14:00:05.458991,4.95,5.63,0.68,0.97,8,7.11,121,Security,In Progress,0,1
+TKT-1677,User-reported bug,Medium,Bug,2026-06-18T11:54:05.131554,16.75,12.67,0.0,0.83,10,3.12,24,L3 Engineering,Closed,1,1
+TKT-1678,Change Request: System issue #678,Critical,Change Request,2026-06-26T13:38:50.656801,5.02,3.38,0.0,5.02,10,14.48,36,Security,Resolved,1,1
+TKT-1679,Automated incident ticket,Critical,Incident,2026-01-24T10:34:07.541978,2.62,2.5,0.0,2.62,8,7.96,266,L1 Support,Resolved,1,1
+TKT-1680,User-reported task,Low,Task,2026-04-22T02:06:03.885627,25.14,42.01,16.88,1.94,11,5.31,171,Security,In Progress,1,1
+TKT-1681,Change Request: System issue #681,Critical,Change Request,2026-01-30T04:46:50.630841,1.71,2.64,0.94,1.42,9,5.09,50,DevOps,Open,0,1
+TKT-1682,[Critical] Bug report,Critical,Bug,2026-04-10T22:39:19.230453,1.16,2.93,1.78,1.16,8,6.16,37,DevOps,Waiting,1,1
+TKT-1683,Task: System issue #683,High,Task,2026-04-12T21:25:17.978823,5.62,5.82,0.2,0.03,11,4.21,131,L3 Engineering,Waiting,1,1
+TKT-1684,User-reported task,High,Task,2026-06-01T00:21:16.634048,5.76,9.15,3.39,1.38,12,10.03,908,Security,Open,1,1
+TKT-1685,L3 Engineering - Service Request #TKT-1685,Medium,Service Request,2026-03-30T03:31:37.668801,2.45,11.46,9.01,1.73,9,2.98,157,L3 Engineering,In Progress,1,1
+TKT-1686,Automated task ticket,Medium,Task,2026-02-28T07:31:35.092512,6.54,18.98,12.44,3.09,12,6.95,158,DevOps,Open,0,1
+TKT-1687,[Medium] Change Request report,Medium,Change Request,2026-03-31T01:00:15.580389,4.7,17.17,12.46,4.7,13,6.85,79,DevOps,Open,0,1
+TKT-1688,User-reported incident,High,Incident,2026-06-21T23:26:15.653836,5.17,5.47,0.3,0.59,11,1.88,46,Security,Closed,1,1
+TKT-1689,Service Request: System issue #689,High,Service Request,2026-05-19T04:28:55.032384,5.31,7.03,1.72,0.51,8,8.18,935,L1 Support,In Progress,0,1
+TKT-1690,User-reported incident,High,Incident,2026-01-24T19:29:54.396903,11.2,10.38,0.0,1.87,8,10.79,792,L2 Support,Resolved,0,1
+TKT-1691,Automated service request ticket,Critical,Service Request,2026-05-17T02:08:55.382667,0.85,1.73,0.87,0.85,12,56.32,167,L2 Support,Closed,1,1
+TKT-1692,Service Request: System issue #692,High,Service Request,2026-01-14T09:11:38.133967,7.71,11.16,3.45,2.69,6,6.32,279,L2 Support,Open,1,1
+TKT-1693,User-reported bug,High,Bug,2026-03-10T19:14:13.228822,3.91,4.03,0.12,1.39,8,9.15,154,L2 Support,Waiting,0,1
+TKT-1694,Security - Service Request #TKT-1694,High,Service Request,2026-02-18T22:24:38.586397,8.98,6.82,0.0,0.92,14,2.84,21,Security,Closed,1,1
+TKT-1695,[Low] Service Request report,Low,Service Request,2026-05-16T18:52:50.209190,29.97,46.1,16.14,5.69,8,28.66,271,L3 Engineering,Open,1,1
+TKT-1696,User-reported service request,Critical,Service Request,2026-03-07T06:14:16.211595,1.43,2.45,1.02,1.43,12,3.12,69,L2 Support,In Progress,0,1
+TKT-1697,[High] Bug report,High,Bug,2026-02-22T10:06:48.224760,7.58,8.92,1.34,3.84,8,9.47,693,L1 Support,In Progress,1,1
+TKT-1698,L2 Support - Task #TKT-1698,Medium,Task,2026-01-09T07:21:22.542865,14.59,17.42,2.83,0.2,4,4.25,416,L2 Support,Open,0,1
+TKT-1699,Security - Bug #TKT-1699,Critical,Bug,2026-03-28T14:41:06.719903,2.17,3.17,1.0,0.61,12,6.5,179,Security,Open,0,1
+TKT-1700,Automated bug ticket,Low,Bug,2026-03-24T13:26:47.505161,30.23,63.64,33.41,1.21,6,5.72,91,L1 Support,In Progress,0,1
+TKT-1701,Task: System issue #701,High,Task,2026-03-09T03:14:13.437834,2.01,4.77,2.77,2.01,9,5.94,541,DevOps,Open,1,1
+TKT-1702,[Medium] Change Request report,Medium,Change Request,2026-05-25T02:00:29.623642,5.0,15.34,10.34,4.17,6,1.76,142,L3 Engineering,Open,0,1
+TKT-1703,Change Request: System issue #703,High,Change Request,2026-05-12T02:44:02.258912,5.86,9.69,3.83,5.86,11,1.86,174,DevOps,Waiting,1,1
+TKT-1704,[Critical] Incident report,Critical,Incident,2026-03-04T20:31:50.107803,2.89,2.45,0.0,0.17,6,55.52,442,L1 Support,Resolved,1,1
+TKT-1705,[Low] Task report,Low,Task,2026-06-29T11:54:24.482036,55.76,39.67,0.0,1.25,7,4.77,134,L3 Engineering,Closed,1,1
+TKT-1706,User-reported task,High,Task,2026-04-24T11:51:14.700012,13.36,11.08,0.0,1.2,7,13.63,31,Security,Closed,0,1
+TKT-1707,DevOps - Bug #TKT-1707,Low,Bug,2026-02-28T20:13:21.295176,14.35,35.17,20.83,0.63,6,2.17,123,DevOps,In Progress,1,1
+TKT-1708,L2 Support - Incident #TKT-1708,Low,Incident,2026-04-22T20:36:58.582663,11.61,25.81,14.2,1.33,7,7.07,33,L2 Support,In Progress,0,1
+TKT-1709,Service Request: System issue #709,High,Service Request,2026-05-14T22:23:53.986073,5.13,9.5,4.37,0.3,4,4.57,105,DevOps,Open,0,1
+TKT-1710,Automated bug ticket,Medium,Bug,2026-06-26T19:15:52.942118,24.54,22.69,0.0,1.39,8,1.74,435,Security,Closed,1,1
+TKT-1711,Security - Bug #TKT-1711,Low,Bug,2026-04-29T16:16:34.728451,88.09,65.77,0.0,2.58,12,10.53,567,Security,Closed,0,1
+TKT-1712,L1 Support - Service Request #TKT-1712,Medium,Service Request,2026-04-06T19:51:35.116907,3.74,11.43,7.69,0.21,12,23.05,31,L1 Support,Open,0,1
+TKT-1713,L3 Engineering - Incident #TKT-1713,Critical,Incident,2026-02-08T03:59:58.731522,2.54,3.6,1.05,2.54,8,7.69,111,L3 Engineering,Waiting,1,1
+TKT-1714,Service Request: System issue #714,High,Service Request,2026-04-05T22:43:47.535851,10.35,9.0,0.0,4.6,7,5.51,89,Security,Resolved,1,1
+TKT-1715,Task: System issue #715,Low,Task,2026-04-14T06:36:12.745054,92.4,70.3,0.0,5.22,5,8.78,41,Security,Resolved,0,1
+TKT-1716,[Low] Incident report,Low,Incident,2026-05-09T01:09:40.444743,76.2,53.4,0.0,4.26,11,2.78,182,Security,Closed,1,1
+TKT-1717,[High] Change Request report,High,Change Request,2026-06-19T00:04:33.661215,3.35,6.73,3.38,0.67,14,4.86,135,L2 Support,Open,0,1
+TKT-1718,Automated bug ticket,Medium,Bug,2026-06-11T06:32:41.370285,17.09,23.43,6.35,0.27,12,3.99,89,DevOps,Resolved,1,1
+TKT-1719,User-reported bug,High,Bug,2026-03-17T15:38:04.947122,8.64,10.41,1.77,0.89,11,5.05,189,DevOps,Open,1,1
+TKT-1720,[Medium] Service Request report,Medium,Service Request,2026-03-04T22:36:58.004482,3.88,8.55,4.67,3.88,10,2.67,178,Security,Closed,1,1
+TKT-1721,Incident: System issue #721,Low,Incident,2026-03-19T09:09:59.260283,38.57,39.65,1.08,0.35,10,3.01,113,DevOps,Resolved,1,1
+TKT-1722,User-reported bug,Medium,Bug,2026-05-08T11:10:03.635935,24.09,18.22,0.0,8.17,10,2.28,39,L1 Support,Resolved,1,1
+TKT-1723,Security - Service Request #TKT-1723,Medium,Service Request,2026-02-26T22:53:12.268431,18.88,18.13,0.0,2.69,11,3.31,114,Security,Closed,0,1
+TKT-1724,[High] Change Request report,High,Change Request,2026-05-10T02:21:28.674055,8.62,9.57,0.95,2.51,12,20.18,380,L3 Engineering,In Progress,0,1
+TKT-1725,User-reported change request,High,Change Request,2026-06-02T14:40:19.021126,5.18,6.5,1.32,2.63,4,6.01,90,L2 Support,In Progress,1,1
+TKT-1726,[Low] Service Request report,Low,Service Request,2026-06-19T01:51:29.704879,31.68,32.97,1.29,3.43,8,15.26,289,DevOps,Waiting,1,1
+TKT-1727,L1 Support - Bug #TKT-1727,Low,Bug,2026-05-17T07:45:21.516372,35.2,24.46,0.0,1.81,9,9.8,143,L1 Support,Closed,1,1
+TKT-1728,Automated incident ticket,Low,Incident,2026-05-17T11:11:38.655877,27.92,43.84,15.92,0.23,7,29.76,1442,L2 Support,Open,1,1
+TKT-1729,[Medium] Incident report,Medium,Incident,2026-02-01T09:34:14.269054,10.83,14.61,3.78,1.54,11,20.99,315,Security,Resolved,0,1
+TKT-1730,User-reported task,High,Task,2026-06-24T09:30:32.657802,9.85,8.89,0.0,1.06,11,14.94,243,DevOps,Closed,1,1
+TKT-1731,L3 Engineering - Task #TKT-1731,High,Task,2026-03-13T09:46:04.344326,1.84,6.04,4.2,1.84,9,2.67,77,L3 Engineering,Waiting,1,1
+TKT-1732,[Low] Service Request report,Low,Service Request,2026-02-10T17:45:20.755171,19.97,27.29,7.32,0.46,9,3.9,34,L2 Support,Open,1,1
+TKT-1733,Automated service request ticket,Medium,Service Request,2026-01-28T08:06:16.038752,5.51,16.08,10.56,0.19,13,3.71,279,L1 Support,In Progress,1,1
+TKT-1734,Automated bug ticket,High,Bug,2026-03-27T02:50:44.315991,7.36,7.68,0.32,0.75,5,2.92,70,DevOps,Closed,0,1
+TKT-1735,Automated change request ticket,Critical,Change Request,2026-01-18T23:20:14.228046,3.61,2.9,0.0,3.61,7,11.54,80,DevOps,Closed,1,1
+TKT-1736,Incident: System issue #736,Low,Incident,2026-01-17T18:55:10.171829,18.5,31.67,13.17,0.42,8,13.81,289,L3 Engineering,Closed,0,1
+TKT-1737,Automated task ticket,Medium,Task,2026-02-03T05:34:59.734223,25.07,22.33,0.0,0.28,12,15.11,50,Security,Closed,0,1
+TKT-1738,Automated bug ticket,High,Bug,2026-02-02T18:46:22.928158,8.85,9.02,0.16,3.72,12,1.68,285,Security,Waiting,0,1
+TKT-1739,Automated task ticket,High,Task,2026-06-12T22:19:09.709989,6.99,7.87,0.88,1.69,8,6.65,420,L2 Support,Resolved,1,1
+TKT-1740,[High] Task report,High,Task,2026-06-02T11:50:51.817696,6.19,7.95,1.76,6.19,6,12.04,132,L2 Support,Waiting,1,1
+TKT-1741,Security - Service Request #TKT-1741,Low,Service Request,2026-05-31T17:02:55.653638,60.47,53.73,0.0,1.85,16,3.55,127,Security,Closed,0,1
+TKT-1742,User-reported service request,Medium,Service Request,2026-04-15T04:15:18.439636,3.91,10.02,6.11,1.04,6,6.71,46,L3 Engineering,In Progress,0,1
+TKT-1743,[High] Incident report,High,Incident,2026-02-05T12:46:08.691234,11.93,9.84,0.0,2.62,12,2.63,136,DevOps,Resolved,1,1
+TKT-1744,Automated change request ticket,High,Change Request,2026-02-27T23:29:14.910717,3.03,7.69,4.66,0.51,8,6.17,392,L2 Support,Waiting,0,1
+TKT-1745,[Medium] Bug report,Medium,Bug,2026-02-14T00:53:18.609934,5.76,23.56,17.8,3.24,12,13.4,98,DevOps,Open,0,1
+TKT-1746,User-reported task,Low,Task,2026-06-23T19:06:42.250195,23.9,43.21,19.31,3.04,9,6.85,79,L2 Support,Open,1,1
+TKT-1747,Automated incident ticket,Medium,Incident,2026-01-13T07:59:42.653442,13.77,18.42,4.66,1.92,13,3.3,84,Security,Open,1,1
+TKT-1748,Bug: System issue #748,Medium,Bug,2026-04-17T01:22:19.223458,1.81,8.5,6.69,1.81,8,11.45,265,Security,Waiting,1,1
+TKT-1749,DevOps - Service Request #TKT-1749,Critical,Service Request,2026-06-29T05:41:59.240981,0.64,3.06,2.42,0.64,9,6.02,248,DevOps,Resolved,0,1
+TKT-1750,Automated bug ticket,High,Bug,2026-03-12T08:18:02.368486,13.19,9.35,0.0,11.0,15,26.42,463,Security,Resolved,1,1
+TKT-1751,L3 Engineering - Task #TKT-1751,Critical,Task,2026-03-26T20:47:48.351750,0.9,3.63,2.74,0.9,5,3.11,186,L3 Engineering,Open,0,1
+TKT-1752,L2 Support - Service Request #TKT-1752,High,Service Request,2026-03-18T20:17:40.236076,3.27,11.4,8.13,0.78,6,6.43,54,L2 Support,Closed,1,1
+TKT-1753,User-reported change request,Medium,Change Request,2026-01-25T13:43:35.626859,18.98,20.28,1.3,4.29,13,3.63,263,L3 Engineering,In Progress,1,1
+TKT-1754,Automated bug ticket,High,Bug,2026-04-23T05:51:32.321284,12.7,8.72,0.0,0.16,7,14.29,106,DevOps,Closed,0,1
+TKT-1755,Automated incident ticket,Low,Incident,2026-04-10T00:47:39.241135,16.43,28.46,12.03,0.95,17,3.38,112,L2 Support,Resolved,0,1
+TKT-1756,User-reported service request,Medium,Service Request,2026-05-17T14:46:29.710494,5.84,11.04,5.2,0.29,10,9.1,42,L3 Engineering,Open,0,1
+TKT-1757,User-reported bug,High,Bug,2026-04-14T12:45:30.386178,11.79,8.57,0.0,1.87,5,59.97,74,L1 Support,Closed,0,1
+TKT-1758,Bug: System issue #758,Low,Bug,2026-05-02T14:13:17.954183,3.79,66.95,63.16,3.79,12,22.42,82,DevOps,Resolved,1,1
+TKT-1759,DevOps - Service Request #TKT-1759,High,Service Request,2026-05-24T07:59:09.556730,5.04,6.05,1.01,5.04,10,4.48,185,DevOps,Waiting,1,1
+TKT-1760,Automated bug ticket,Medium,Bug,2026-01-07T14:37:14.575042,5.33,9.45,4.12,0.02,8,9.68,98,Security,Open,0,1
+TKT-1761,[Medium] Task report,Medium,Task,2026-05-26T19:28:45.940193,7.19,20.32,13.14,2.39,17,23.08,12,L3 Engineering,In Progress,0,1
+TKT-1762,Bug: System issue #762,Medium,Bug,2026-05-12T12:59:26.198239,1.6,10.89,9.29,1.39,7,9.04,497,L2 Support,Waiting,0,1
+TKT-1763,[High] Incident report,High,Incident,2026-05-07T01:59:46.173390,5.28,6.98,1.7,0.55,3,10.46,128,L1 Support,In Progress,1,1
+TKT-1764,User-reported service request,Low,Service Request,2026-03-05T18:44:02.483605,10.67,45.95,35.28,1.3,8,7.72,70,Security,In Progress,1,1
+TKT-1765,[Low] Bug report,Low,Bug,2026-05-16T14:42:33.132340,0.61,35.44,34.84,0.61,7,16.86,79,L3 Engineering,In Progress,1,1
+TKT-1766,L2 Support - Service Request #TKT-1766,High,Service Request,2026-05-18T08:26:01.483853,10.29,10.17,0.0,0.61,9,9.87,55,L2 Support,Resolved,0,1
+TKT-1767,User-reported service request,Medium,Service Request,2026-04-01T04:02:23.498155,18.34,18.44,0.1,4.07,9,4.43,124,DevOps,Resolved,0,1
+TKT-1768,Bug: System issue #768,Medium,Bug,2026-02-18T08:12:54.792874,9.13,12.16,3.02,1.55,10,5.69,71,Security,In Progress,1,1
+TKT-1769,Service Request: System issue #769,Low,Service Request,2026-03-05T18:55:01.874103,39.83,66.71,26.87,3.16,10,4.96,73,L2 Support,Waiting,1,1
+TKT-1770,Service Request: System issue #770,Medium,Service Request,2026-04-21T04:18:59.495118,14.6,10.72,0.0,0.56,5,15.27,355,Security,Closed,1,1
+TKT-1771,Incident: System issue #771,High,Incident,2026-04-26T20:41:50.081956,4.65,5.45,0.8,1.5,11,27.73,72,L2 Support,Open,0,1
+TKT-1772,[High] Incident report,High,Incident,2026-03-03T21:34:03.011131,1.13,4.94,3.81,1.02,5,3.99,260,DevOps,In Progress,1,1
+TKT-1773,Security - Incident #TKT-1773,Low,Incident,2026-01-28T02:19:54.138406,10.47,47.34,36.88,1.44,9,3.75,600,Security,Open,0,1
+TKT-1774,Change Request: System issue #774,Low,Change Request,2026-04-06T19:22:27.019393,34.78,43.04,8.27,2.47,7,10.0,126,L2 Support,Waiting,1,1
+TKT-1775,User-reported incident,Medium,Incident,2026-03-21T07:49:21.136631,18.64,22.95,4.31,2.96,6,7.94,80,Security,In Progress,0,1
+TKT-1776,Security - Incident #TKT-1776,High,Incident,2026-06-18T22:34:12.386680,8.28,5.57,0.0,0.88,9,5.78,88,Security,Resolved,0,1
+TKT-1777,[High] Change Request report,High,Change Request,2026-05-07T08:08:49.405085,6.82,5.19,0.0,0.9,8,5.84,162,L1 Support,Closed,0,1
+TKT-1778,User-reported change request,High,Change Request,2026-06-03T06:52:47.804117,3.29,10.5,7.21,2.25,8,13.47,44,L2 Support,In Progress,1,1
+TKT-1779,User-reported bug,High,Bug,2026-03-02T13:17:22.794109,11.46,9.56,0.0,0.53,14,6.87,66,L3 Engineering,Closed,1,1
+TKT-1780,Bug: System issue #780,Low,Bug,2026-03-02T16:49:00.878446,42.44,41.69,0.0,1.88,5,8.39,410,DevOps,Closed,0,1
+TKT-1781,Change Request: System issue #781,Low,Change Request,2026-01-08T15:42:11.229692,64.21,62.75,0.0,5.88,5,10.43,71,L2 Support,Closed,0,1
+TKT-1782,Bug: System issue #782,Medium,Bug,2026-05-13T03:16:40.371202,5.6,13.14,7.54,2.64,10,4.25,360,L1 Support,Waiting,1,1
+TKT-1783,[Medium] Change Request report,Medium,Change Request,2026-04-15T17:08:28.855813,10.32,18.12,7.8,3.32,6,5.02,385,Security,Resolved,0,1
+TKT-1784,User-reported task,Medium,Task,2026-05-07T10:35:12.707866,24.88,23.23,0.0,1.47,8,9.76,49,Security,Closed,1,1
+TKT-1785,Bug: System issue #785,Medium,Bug,2026-04-13T13:17:13.807246,6.57,21.36,14.79,3.09,10,5.37,2056,Security,Open,0,1
+TKT-1786,User-reported service request,High,Service Request,2026-01-22T02:49:45.943567,7.52,8.56,1.05,2.87,8,10.61,278,DevOps,In Progress,0,1
+TKT-1787,L1 Support - Incident #TKT-1787,Low,Incident,2026-01-23T19:12:44.388939,60.09,62.24,2.15,5.19,8,3.29,208,L1 Support,In Progress,0,1
+TKT-1788,[Medium] Task report,Medium,Task,2026-03-01T03:14:57.870446,11.05,11.89,0.83,5.77,9,53.76,99,L3 Engineering,Waiting,1,1
+TKT-1789,User-reported task,Medium,Task,2026-02-24T23:34:25.692298,0.99,14.57,13.58,0.99,7,5.94,72,Security,Waiting,0,1
+TKT-1790,User-reported bug,High,Bug,2026-01-30T17:33:10.115877,11.23,9.13,0.0,1.07,6,11.76,300,L1 Support,Closed,0,1
+TKT-1791,User-reported bug,High,Bug,2026-03-06T03:16:27.118842,1.62,9.94,8.32,1.62,5,4.62,51,Security,Open,0,1
+TKT-1792,User-reported bug,Low,Bug,2026-04-16T19:32:44.581594,26.41,68.04,41.63,2.01,8,16.85,234,L1 Support,In Progress,1,1
+TKT-1793,Service Request: System issue #793,High,Service Request,2026-02-18T11:24:26.112907,8.22,8.11,0.0,2.01,10,3.5,133,L1 Support,Closed,0,1
+TKT-1794,L2 Support - Bug #TKT-1794,Critical,Bug,2026-06-24T06:55:53.214945,3.01,2.02,0.0,0.73,13,12.71,157,L2 Support,Closed,1,1
+TKT-1795,L1 Support - Service Request #TKT-1795,Medium,Service Request,2026-03-13T12:53:47.729354,2.86,15.63,12.77,0.02,4,9.7,210,L1 Support,Open,0,1
+TKT-1796,User-reported service request,Critical,Service Request,2026-02-28T16:12:14.027312,1.36,1.26,0.0,0.74,14,6.45,198,DevOps,Closed,1,1
+TKT-1797,Change Request: System issue #797,Medium,Change Request,2026-01-11T05:25:04.866558,19.61,23.06,3.44,2.69,8,6.06,64,L3 Engineering,Resolved,0,1
+TKT-1798,Service Request: System issue #798,High,Service Request,2026-01-20T03:57:27.915743,3.01,9.55,6.54,0.26,15,3.66,83,L1 Support,Open,0,1
+TKT-1799,Bug: System issue #799,Critical,Bug,2026-02-25T05:40:50.027062,0.67,1.11,0.43,0.67,7,3.78,178,Security,Open,0,1
+TKT-1800,[Low] Bug report,Low,Bug,2026-02-28T01:57:38.827110,17.03,28.31,11.28,2.28,11,13.27,159,L1 Support,Open,0,1
+TKT-1801,Automated change request ticket,High,Change Request,2026-05-29T13:19:09.834644,3.51,9.97,6.46,3.51,11,6.29,234,L3 Engineering,Open,0,1
+TKT-1802,User-reported incident,Medium,Incident,2026-01-07T19:12:39.488549,20.35,15.73,0.0,1.69,13,3.39,142,DevOps,Closed,1,1
+TKT-1803,Change Request: System issue #803,Low,Change Request,2026-06-06T18:52:11.900625,63.32,71.9,8.58,3.48,13,15.77,58,DevOps,Resolved,0,1
+TKT-1804,Automated task ticket,Medium,Task,2026-02-13T11:50:54.498503,2.77,13.96,11.19,2.77,6,3.15,179,Security,Waiting,0,1
+TKT-1805,Bug: System issue #805,Low,Bug,2026-06-03T17:57:19.993146,40.88,30.6,0.0,6.12,9,16.51,141,DevOps,Closed,1,1
+TKT-1806,User-reported incident,High,Incident,2026-05-23T04:18:41.032314,3.89,9.85,5.96,1.43,6,3.99,114,Security,Waiting,1,1
+TKT-1807,[Medium] Bug report,Medium,Bug,2026-01-04T12:07:06.282453,20.65,15.13,0.0,0.91,7,6.97,287,Security,Closed,0,1
+TKT-1808,User-reported task,Critical,Task,2026-04-17T12:07:01.413686,0.61,1.42,0.82,0.61,10,8.13,145,L3 Engineering,Open,1,1
+TKT-1809,Incident: System issue #809,High,Incident,2026-05-19T16:54:36.954044,10.29,10.06,0.0,1.49,11,3.01,613,Security,Resolved,1,1
+TKT-1810,Automated bug ticket,Medium,Bug,2026-04-15T17:08:56.343639,2.44,14.14,11.7,1.28,9,3.06,301,Security,In Progress,0,1
+TKT-1811,User-reported bug,Medium,Bug,2026-01-18T18:38:39.976109,12.69,12.65,0.0,0.26,5,6.11,105,L2 Support,Closed,1,1
+TKT-1812,L3 Engineering - Incident #TKT-1812,High,Incident,2026-06-29T02:29:56.685834,2.37,7.4,5.04,1.6,8,4.19,257,L3 Engineering,Waiting,1,1
+TKT-1813,DevOps - Task #TKT-1813,Critical,Task,2026-01-17T02:50:59.220892,3.19,2.43,0.0,2.01,9,3.47,101,DevOps,Closed,1,1
+TKT-1814,[High] Incident report,High,Incident,2026-03-05T19:18:13.358941,1.22,5.94,4.72,1.22,10,19.92,264,L3 Engineering,Open,1,1
+TKT-1815,L1 Support - Service Request #TKT-1815,Low,Service Request,2026-06-10T02:02:24.027957,4.94,35.07,30.13,0.94,10,17.8,288,L1 Support,Open,0,1
+TKT-1816,Task: System issue #816,Low,Task,2026-05-24T20:26:30.054801,37.12,56.3,19.18,0.74,8,38.27,124,DevOps,Resolved,1,1
+TKT-1817,User-reported task,Medium,Task,2026-06-01T12:11:11.668870,19.71,18.36,0.0,2.53,11,4.24,434,DevOps,Closed,1,1
+TKT-1818,User-reported change request,Medium,Change Request,2026-04-07T22:00:45.780568,2.85,19.14,16.28,0.1,8,8.69,365,L3 Engineering,In Progress,0,1
+TKT-1819,Automated change request ticket,Critical,Change Request,2026-06-27T10:11:04.260826,4.96,3.6,0.0,0.61,11,16.19,69,L2 Support,Resolved,0,1
+TKT-1820,Automated service request ticket,High,Service Request,2026-01-03T02:02:15.892339,6.53,6.96,0.43,1.51,9,6.19,50,DevOps,In Progress,0,1
+TKT-1821,Automated service request ticket,Medium,Service Request,2026-03-26T17:00:16.491876,3.51,15.99,12.48,3.51,8,8.55,394,L1 Support,In Progress,0,1
+TKT-1822,[High] Task report,High,Task,2026-04-20T17:21:44.174363,5.43,8.61,3.18,5.43,11,9.04,857,Security,In Progress,0,1
+TKT-1823,Automated service request ticket,Medium,Service Request,2026-05-15T06:56:31.010632,7.4,21.76,14.36,1.3,12,3.3,489,L1 Support,Waiting,0,1
+TKT-1824,Service Request: System issue #824,High,Service Request,2026-05-28T00:55:01.525309,0.56,8.61,8.05,0.11,12,31.21,207,DevOps,Open,1,1
+TKT-1825,Automated bug ticket,Low,Bug,2026-05-12T20:31:34.458698,15.19,28.27,13.08,6.06,15,10.81,193,Security,Waiting,0,1
+TKT-1826,Automated bug ticket,Medium,Bug,2026-02-26T23:56:22.448037,13.93,13.12,0.0,0.3,9,19.35,95,L3 Engineering,Resolved,0,1
+TKT-1827,User-reported task,Low,Task,2026-04-16T11:03:55.993045,33.87,57.77,23.9,1.72,7,7.0,69,Security,Resolved,0,1
+TKT-1828,[Medium] Bug report,Medium,Bug,2026-04-20T18:59:49.657924,12.13,17.98,5.86,1.67,12,5.62,937,L2 Support,Waiting,1,1
+TKT-1829,L1 Support - Bug #TKT-1829,Medium,Bug,2026-04-02T15:43:26.614675,10.81,10.27,0.0,1.02,14,22.85,904,L1 Support,Closed,0,1
+TKT-1830,L3 Engineering - Task #TKT-1830,Critical,Task,2026-04-30T06:22:36.437300,2.22,1.84,0.0,0.32,12,9.31,169,L3 Engineering,Resolved,1,1
+TKT-1831,User-reported task,Critical,Task,2026-02-17T00:27:37.250797,2.06,3.23,1.17,2.06,10,36.17,175,Security,Open,1,1
+TKT-1832,Automated task ticket,High,Task,2026-05-21T17:05:49.525343,8.88,9.99,1.11,4.48,5,8.83,269,L2 Support,Open,0,1
+TKT-1833,Service Request: System issue #833,High,Service Request,2026-03-26T18:37:26.119560,14.0,10.04,0.0,3.41,8,19.65,164,DevOps,Resolved,1,1
+TKT-1834,User-reported incident,Medium,Incident,2026-04-30T01:45:24.569655,3.38,8.28,4.9,1.41,14,12.36,237,L2 Support,Open,0,1
+TKT-1835,DevOps - Change Request #TKT-1835,Critical,Change Request,2026-03-20T08:11:44.141708,3.36,2.78,0.0,3.33,15,9.56,210,DevOps,Closed,1,1
+TKT-1836,User-reported task,Low,Task,2026-06-16T22:51:59.938943,44.73,30.77,0.0,1.76,7,1.53,174,L3 Engineering,Resolved,0,1
+TKT-1837,Automated change request ticket,Medium,Change Request,2026-02-15T06:29:18.242577,33.03,23.06,0.0,5.35,12,16.84,96,L3 Engineering,Closed,1,1
+TKT-1838,DevOps - Incident #TKT-1838,Medium,Incident,2026-01-11T21:16:33.548972,11.76,10.39,0.0,0.52,5,21.16,66,DevOps,Closed,1,1
+TKT-1839,DevOps - Task #TKT-1839,High,Task,2026-05-31T22:37:08.467861,5.44,9.73,4.3,3.31,10,6.08,141,DevOps,Resolved,0,1
+TKT-1840,Security - Bug #TKT-1840,Medium,Bug,2026-03-21T07:46:28.950684,24.83,21.13,0.0,1.8,13,5.91,162,Security,Closed,1,1
+TKT-1841,Change Request: System issue #841,Medium,Change Request,2026-04-01T06:06:33.062853,6.74,19.34,12.6,3.58,7,29.14,137,L3 Engineering,Waiting,1,1
+TKT-1842,Security - Incident #TKT-1842,High,Incident,2026-06-25T02:03:38.787895,6.82,5.04,0.0,2.94,10,2.84,114,Security,Closed,0,1
+TKT-1843,[Low] Service Request report,Low,Service Request,2026-02-19T02:01:30.691560,14.11,35.7,21.59,6.19,10,13.23,74,Security,Waiting,0,1
+TKT-1844,[Critical] Service Request report,Critical,Service Request,2026-04-27T20:04:01.036780,2.38,3.54,1.16,2.01,8,23.46,421,Security,Open,1,1
+TKT-1845,Automated incident ticket,Critical,Incident,2026-06-18T12:50:54.840535,2.23,2.04,0.0,0.57,3,2.31,160,L3 Engineering,Resolved,1,1
+TKT-1846,User-reported service request,Medium,Service Request,2026-04-13T04:17:35.878863,1.36,22.81,21.45,1.36,7,1.91,75,Security,Open,0,1
+TKT-1847,L2 Support - Change Request #TKT-1847,Low,Change Request,2026-04-24T17:49:31.847831,86.92,64.47,0.0,1.49,4,7.35,68,L2 Support,Closed,0,1
+TKT-1848,User-reported change request,Medium,Change Request,2026-03-21T05:03:50.739842,19.37,19.54,0.17,0.45,10,6.9,162,Security,Open,0,1
+TKT-1849,[High] Change Request report,High,Change Request,2026-01-30T07:59:41.245450,4.83,8.78,3.95,1.54,8,2.75,44,L2 Support,Open,0,1
+TKT-1850,[High] Service Request report,High,Service Request,2026-01-28T20:13:03.819993,1.95,4.26,2.31,1.95,13,16.08,373,DevOps,In Progress,0,1
+TKT-1851,L3 Engineering - Service Request #TKT-1851,High,Service Request,2026-02-28T02:36:54.609949,7.82,9.59,1.78,2.79,7,10.06,49,L3 Engineering,Resolved,1,1
+TKT-1852,User-reported change request,High,Change Request,2026-01-10T02:34:39.990462,10.99,10.34,0.0,0.76,14,4.97,669,L3 Engineering,Closed,0,1
+TKT-1853,User-reported task,High,Task,2026-01-26T03:38:02.065495,8.35,11.67,3.32,2.09,7,10.51,157,L3 Engineering,Resolved,1,1
+TKT-1854,Task: System issue #854,Medium,Task,2026-03-02T02:12:12.794366,15.46,22.36,6.9,1.3,7,8.1,226,L2 Support,Waiting,0,1
+TKT-1855,Incident: System issue #855,Medium,Incident,2026-01-26T08:14:47.195782,31.57,22.64,0.0,2.88,7,3.25,164,L1 Support,Closed,1,1
+TKT-1856,Automated change request ticket,Medium,Change Request,2026-02-26T11:34:33.495303,8.64,8.68,0.04,2.88,8,4.27,92,L1 Support,In Progress,0,1
+TKT-1857,L3 Engineering - Task #TKT-1857,Medium,Task,2026-03-17T07:25:44.639188,6.04,13.23,7.19,5.34,9,4.02,145,L3 Engineering,In Progress,1,1
+TKT-1858,[High] Task report,High,Task,2026-06-01T10:13:20.804247,11.06,10.1,0.0,11.06,10,3.0,43,Security,Closed,1,1
+TKT-1859,[High] Bug report,High,Bug,2026-03-11T21:51:51.497683,4.66,4.68,0.02,0.83,8,10.32,436,L1 Support,Waiting,1,1
+TKT-1860,[High] Incident report,High,Incident,2026-05-25T13:40:08.343032,3.35,10.29,6.94,2.63,6,6.43,83,L1 Support,Open,0,1
+TKT-1861,L3 Engineering - Bug #TKT-1861,Low,Bug,2026-06-03T17:12:48.055521,62.04,59.06,0.0,1.04,6,12.92,76,L3 Engineering,Resolved,1,1
+TKT-1862,[Medium] Service Request report,Medium,Service Request,2026-01-28T09:34:19.222503,17.72,20.78,3.06,4.46,3,7.96,175,DevOps,Resolved,0,1
+TKT-1863,Automated service request ticket,High,Service Request,2026-04-14T10:21:26.425552,1.01,4.23,3.22,1.01,8,5.31,157,L2 Support,Open,0,1
+TKT-1864,L2 Support - Task #TKT-1864,Medium,Task,2026-04-07T13:45:37.372094,6.65,14.76,8.11,5.86,9,1.43,72,L2 Support,Waiting,0,1
+TKT-1865,L1 Support - Bug #TKT-1865,Medium,Bug,2026-05-09T03:38:58.879108,17.32,22.16,4.83,2.18,8,1.6,499,L1 Support,Waiting,0,1
+TKT-1866,Bug: System issue #866,Medium,Bug,2026-01-05T17:28:11.424115,2.11,12.02,9.91,1.02,12,2.65,60,Security,Open,0,1
+TKT-1867,Change Request: System issue #867,High,Change Request,2026-02-12T03:38:19.574801,9.11,6.24,0.0,0.49,13,5.33,726,L2 Support,Resolved,1,1
+TKT-1868,Automated task ticket,High,Task,2026-01-22T19:49:19.067992,4.51,6.48,1.98,0.74,5,6.68,243,L1 Support,In Progress,1,1
+TKT-1869,L3 Engineering - Service Request #TKT-1869,Medium,Service Request,2026-05-20T09:46:03.354638,2.47,23.36,20.89,0.1,7,12.27,133,L3 Engineering,Closed,0,1
+TKT-1870,[Low] Incident report,Low,Incident,2026-03-17T22:57:11.884540,75.46,66.51,0.0,2.27,7,3.88,392,L1 Support,Closed,1,1
+TKT-1871,Automated change request ticket,High,Change Request,2026-06-05T11:02:25.399809,6.22,5.63,0.0,0.85,6,6.57,129,L3 Engineering,Resolved,1,1
+TKT-1872,L3 Engineering - Task #TKT-1872,High,Task,2026-06-11T18:00:12.261918,7.08,8.49,1.41,0.77,11,7.28,200,L3 Engineering,In Progress,0,1
+TKT-1873,User-reported task,High,Task,2026-05-24T19:00:29.288123,12.19,10.39,0.0,1.86,9,6.47,18,L3 Engineering,Resolved,1,1
+TKT-1874,L3 Engineering - Bug #TKT-1874,Medium,Bug,2026-02-14T07:20:02.660642,17.97,22.28,4.31,1.65,10,35.0,199,L3 Engineering,In Progress,0,1
+TKT-1875,User-reported service request,Medium,Service Request,2026-03-30T10:29:45.445817,19.82,22.16,2.34,0.69,4,23.47,72,L1 Support,Waiting,0,1
+TKT-1876,Automated change request ticket,Low,Change Request,2026-06-02T09:36:19.249602,33.95,36.51,2.56,6.42,7,26.52,87,L1 Support,Open,1,1
+TKT-1877,Automated task ticket,High,Task,2026-05-01T08:41:07.746951,5.2,8.32,3.12,0.5,15,6.04,71,Security,Open,0,1
+TKT-1878,[Medium] Incident report,Medium,Incident,2026-05-24T20:48:20.507613,5.57,19.71,14.14,0.68,9,19.85,160,DevOps,In Progress,0,1
+TKT-1879,User-reported bug,Critical,Bug,2026-01-10T18:42:12.892259,4.05,2.74,0.0,1.35,11,11.69,178,L2 Support,Closed,1,1
+TKT-1880,L2 Support - Incident #TKT-1880,Medium,Incident,2026-05-04T18:07:50.168344,20.69,22.48,1.79,1.51,10,7.93,56,L2 Support,Waiting,1,1
+TKT-1881,[Low] Bug report,Low,Bug,2026-01-13T10:46:27.831991,45.77,59.86,14.09,0.68,7,13.19,93,Security,Open,0,1
+TKT-1882,L3 Engineering - Task #TKT-1882,Critical,Task,2026-03-07T09:28:47.295187,0.5,2.9,2.39,0.5,14,4.02,42,L3 Engineering,Waiting,0,1
+TKT-1883,Automated bug ticket,Low,Bug,2026-01-14T02:40:23.900786,11.58,24.47,12.89,1.25,6,9.9,326,L2 Support,Closed,1,1
+TKT-1884,Service Request: System issue #884,High,Service Request,2026-03-07T07:54:40.684535,8.38,8.37,0.0,2.42,7,6.75,23,L3 Engineering,Closed,1,1
+TKT-1885,[Medium] Task report,Medium,Task,2026-06-12T14:01:00.037588,8.85,8.76,0.0,0.11,10,7.41,280,L2 Support,Closed,1,1
+TKT-1886,Automated service request ticket,Critical,Service Request,2026-04-06T20:21:10.615664,1.54,1.31,0.0,1.13,9,6.44,159,DevOps,Resolved,0,1
+TKT-1887,[High] Bug report,High,Bug,2026-05-14T02:28:48.787258,4.23,10.38,6.15,3.15,10,6.11,140,DevOps,Closed,0,1
+TKT-1888,Automated incident ticket,High,Incident,2026-01-24T09:04:01.112015,13.99,11.97,0.0,5.24,8,3.62,314,Security,Closed,0,1
+TKT-1889,L1 Support - Service Request #TKT-1889,Critical,Service Request,2026-06-06T16:14:48.229446,0.77,1.06,0.29,0.24,14,18.99,314,L1 Support,Waiting,0,1
+TKT-1890,[Low] Change Request report,Low,Change Request,2026-05-15T10:00:59.835070,20.91,64.22,43.32,0.28,10,8.59,166,L3 Engineering,Open,0,1
+TKT-1891,Incident: System issue #891,Low,Incident,2026-01-06T03:50:08.183660,11.31,31.2,19.89,2.74,10,7.95,150,L2 Support,Open,0,1
+TKT-1892,Security - Change Request #TKT-1892,Medium,Change Request,2026-01-09T04:07:16.378620,17.61,20.25,2.65,1.39,13,3.08,632,Security,Waiting,0,1
+TKT-1893,Automated incident ticket,High,Incident,2026-01-31T01:49:39.668552,8.74,7.32,0.0,1.33,8,5.99,86,DevOps,Closed,1,1
+TKT-1894,L3 Engineering - Incident #TKT-1894,Medium,Incident,2026-04-15T04:24:12.413599,13.41,14.74,1.33,7.36,7,4.7,779,L3 Engineering,Waiting,0,1
+TKT-1895,Automated task ticket,High,Task,2026-03-25T12:12:19.771126,2.8,4.62,1.82,2.8,10,20.67,107,L1 Support,Waiting,1,1
+TKT-1896,Automated service request ticket,Medium,Service Request,2026-02-01T15:00:52.958146,16.55,15.89,0.0,2.64,7,12.35,52,Security,Resolved,0,1
+TKT-1897,[Medium] Incident report,Medium,Incident,2026-06-20T13:35:23.938780,22.18,18.8,0.0,1.14,8,2.49,112,L3 Engineering,Resolved,1,1
+TKT-1898,Security - Change Request #TKT-1898,Low,Change Request,2026-05-01T20:09:28.588050,98.87,67.78,0.0,1.72,5,8.22,95,Security,Closed,1,1
+TKT-1899,[Critical] Incident report,Critical,Incident,2026-04-06T18:14:57.781118,3.72,3.7,0.0,1.92,9,11.33,83,L2 Support,Resolved,1,1
+TKT-1900,Automated change request ticket,Low,Change Request,2026-01-15T16:01:54.579107,40.48,67.1,26.62,2.65,9,10.37,189,Security,Resolved,0,1
+TKT-1901,L1 Support - Incident #TKT-1901,High,Incident,2026-02-14T00:20:24.840360,3.26,8.21,4.95,3.26,11,3.33,156,L1 Support,Open,0,1
+TKT-1902,[Low] Incident report,Low,Incident,2026-03-06T01:33:52.282614,23.11,46.28,23.17,1.3,9,9.2,128,L1 Support,Resolved,0,1
+TKT-1903,User-reported task,Medium,Task,2026-05-31T13:27:12.927148,24.92,20.34,0.0,1.83,9,4.26,114,L3 Engineering,Closed,1,1
+TKT-1904,Automated change request ticket,Medium,Change Request,2026-05-18T11:10:10.466205,10.28,13.3,3.01,1.21,10,2.47,132,L3 Engineering,In Progress,0,1
+TKT-1905,Service Request: System issue #905,High,Service Request,2026-03-06T18:04:42.429846,5.77,10.41,4.64,3.55,7,23.49,172,L1 Support,Open,1,1
+TKT-1906,L3 Engineering - Service Request #TKT-1906,Critical,Service Request,2026-01-15T06:41:39.866476,1.36,2.8,1.44,0.77,9,3.55,55,L3 Engineering,In Progress,1,1
+TKT-1907,Automated incident ticket,High,Incident,2026-06-04T11:12:00.194442,8.06,6.47,0.0,2.09,9,5.39,253,DevOps,Closed,1,1
+TKT-1908,[Medium] Service Request report,Medium,Service Request,2026-02-08T07:55:10.119290,27.43,23.24,0.0,0.55,9,5.28,194,Security,Closed,0,1
+TKT-1909,L2 Support - Incident #TKT-1909,Critical,Incident,2026-04-04T00:32:06.344942,0.58,1.13,0.54,0.02,10,5.42,90,L2 Support,Open,0,1
+TKT-1910,Automated bug ticket,Medium,Bug,2026-06-09T13:20:28.683206,2.74,20.39,17.64,2.74,10,16.8,137,Security,In Progress,1,1
+TKT-1911,[High] Bug report,High,Bug,2026-06-02T05:28:14.980696,4.46,11.43,6.97,4.46,11,14.65,200,DevOps,In Progress,1,1
+TKT-1912,Change Request: System issue #912,High,Change Request,2026-03-15T05:21:56.782984,4.0,4.2,0.2,0.86,8,4.36,79,Security,In Progress,1,1
+TKT-1913,[Critical] Change Request report,Critical,Change Request,2026-03-31T18:04:23.082740,2.28,1.87,0.0,0.36,12,27.2,96,DevOps,Closed,0,1
+TKT-1914,[Medium] Incident report,Medium,Incident,2026-03-08T05:17:45.072201,7.18,8.02,0.84,4.23,2,15.41,369,L1 Support,In Progress,1,1
+TKT-1915,Security - Service Request #TKT-1915,Low,Service Request,2026-03-05T21:46:39.032041,76.74,71.46,0.0,1.14,8,8.21,87,Security,Closed,0,1
+TKT-1916,Service Request: System issue #916,High,Service Request,2026-05-02T10:27:21.113616,8.74,7.98,0.0,4.34,10,7.21,369,L2 Support,Closed,0,1
+TKT-1917,Automated task ticket,Critical,Task,2026-06-23T20:36:07.979026,2.11,3.07,0.96,2.11,6,0.95,180,L1 Support,Open,1,1
+TKT-1918,Automated task ticket,Critical,Task,2026-03-27T06:20:47.341715,3.37,2.5,0.0,2.32,12,9.82,138,L2 Support,Resolved,1,1
+TKT-1919,[Low] Service Request report,Low,Service Request,2026-01-12T17:53:47.747544,1.08,38.34,37.26,1.08,9,2.54,225,DevOps,Open,0,1
+TKT-1920,Change Request: System issue #920,Medium,Change Request,2026-04-17T10:20:38.423625,16.69,16.36,0.0,0.19,8,3.88,78,L2 Support,Closed,1,1
+TKT-1921,[Medium] Task report,Medium,Task,2026-05-30T18:27:55.542370,8.67,16.73,8.06,7.36,18,2.48,40,Security,Waiting,1,1
+TKT-1922,Automated task ticket,Low,Task,2026-05-26T03:58:08.210836,58.74,46.44,0.0,1.05,10,0.95,47,DevOps,Resolved,1,1
+TKT-1923,[Low] Service Request report,Low,Service Request,2026-05-09T06:38:56.884773,73.03,55.41,0.0,5.79,6,1.14,302,Security,Closed,1,1
+TKT-1924,Service Request: System issue #924,Critical,Service Request,2026-04-16T23:01:08.694425,0.73,2.13,1.4,0.73,9,3.61,184,Security,Resolved,0,1
+TKT-1925,User-reported bug,Critical,Bug,2026-01-31T18:23:24.673363,3.53,3.26,0.0,0.36,11,1.35,471,L3 Engineering,Closed,0,1
+TKT-1926,Automated task ticket,Low,Task,2026-04-08T05:21:27.629401,44.38,32.56,0.0,2.61,5,3.44,111,Security,Resolved,0,1
+TKT-1927,Automated bug ticket,Critical,Bug,2026-06-06T02:36:05.732925,2.54,2.53,0.0,0.9,14,6.29,94,L1 Support,Closed,1,1
+TKT-1928,User-reported change request,Low,Change Request,2026-06-15T16:40:05.179933,32.93,42.28,9.35,1.57,12,13.59,690,DevOps,Waiting,1,1
+TKT-1929,L2 Support - Bug #TKT-1929,Medium,Bug,2026-03-19T18:15:04.510248,2.72,21.94,19.22,1.15,6,21.72,158,L2 Support,In Progress,0,1
+TKT-1930,User-reported bug,Critical,Bug,2026-01-25T10:57:32.946296,2.33,1.88,0.0,2.33,8,8.86,550,L1 Support,Resolved,1,1
+TKT-1931,[Medium] Incident report,Medium,Incident,2026-01-03T12:19:43.181586,8.16,13.32,5.15,1.56,11,6.95,166,L3 Engineering,Open,0,1
+TKT-1932,Task: System issue #932,Medium,Task,2026-06-25T21:26:09.953018,28.5,23.81,0.0,2.48,14,7.88,965,L3 Engineering,Closed,1,1
+TKT-1933,User-reported service request,High,Service Request,2026-03-17T13:25:26.141941,2.48,4.53,2.05,0.95,2,30.76,390,L2 Support,Waiting,0,1
+TKT-1934,User-reported service request,Low,Service Request,2026-01-07T08:02:41.189103,10.81,45.85,35.05,4.34,8,12.37,157,Security,Waiting,0,1
+TKT-1935,User-reported incident,Low,Incident,2026-03-29T00:06:07.209099,45.29,38.62,0.0,6.51,7,10.17,339,L1 Support,Closed,1,1
+TKT-1936,User-reported bug,Medium,Bug,2026-02-18T15:57:17.068685,8.68,11.06,2.38,0.57,12,2.25,174,L2 Support,Resolved,0,1
+TKT-1937,User-reported task,Medium,Task,2026-03-27T00:11:10.379449,7.41,12.46,5.05,2.28,8,7.76,141,L2 Support,Waiting,1,1
+TKT-1938,L3 Engineering - Task #TKT-1938,Low,Task,2026-06-14T16:37:47.854173,28.74,61.98,33.24,6.47,9,14.86,140,L3 Engineering,In Progress,0,1
+TKT-1939,Automated change request ticket,Medium,Change Request,2026-03-24T17:56:40.209175,26.02,18.02,0.0,1.5,7,10.75,93,Security,Resolved,1,1
+TKT-1940,Automated service request ticket,High,Service Request,2026-02-26T01:28:44.831764,3.52,4.47,0.95,0.81,8,19.62,140,L2 Support,In Progress,0,1
+TKT-1941,Automated bug ticket,Low,Bug,2026-02-04T16:02:20.754152,32.95,48.41,15.46,3.15,5,8.39,139,L3 Engineering,Open,0,1
+TKT-1942,Automated bug ticket,Low,Bug,2026-03-18T11:36:52.441183,17.33,52.16,34.83,1.21,9,3.26,35,DevOps,Waiting,0,1
+TKT-1943,User-reported incident,High,Incident,2026-06-01T14:06:48.454623,8.26,6.04,0.0,2.53,13,17.94,57,L1 Support,Resolved,1,1
+TKT-1944,Automated service request ticket,Low,Service Request,2026-05-11T06:02:51.352847,1.85,32.28,30.43,1.31,16,3.8,715,L3 Engineering,Open,0,1
+TKT-1945,Task: System issue #945,Medium,Task,2026-05-31T16:16:00.549067,0.74,14.25,13.51,0.74,8,12.45,161,L2 Support,Open,0,1
+TKT-1946,[Medium] Change Request report,Medium,Change Request,2026-01-23T16:59:45.711746,19.55,13.96,0.0,5.24,10,6.66,153,Security,Resolved,0,1
+TKT-1947,L2 Support - Bug #TKT-1947,Critical,Bug,2026-02-26T12:39:19.234283,0.92,2.01,1.09,0.92,9,12.76,113,L2 Support,In Progress,0,1
+TKT-1948,Bug: System issue #948,High,Bug,2026-01-31T09:58:45.846340,5.54,10.08,4.54,0.36,13,40.97,150,Security,Waiting,1,1
+TKT-1949,L2 Support - Task #TKT-1949,Medium,Task,2026-03-23T20:59:21.966561,23.32,22.44,0.0,0.16,9,3.06,95,L2 Support,Closed,1,1
+TKT-1950,[Medium] Task report,Medium,Task,2026-06-10T02:22:59.650641,28.04,18.72,0.0,0.46,7,40.22,96,DevOps,Closed,1,1
+TKT-1951,[High] Task report,High,Task,2026-06-02T08:32:50.488542,3.39,4.03,0.65,0.61,8,4.27,216,Security,Waiting,1,1
+TKT-1952,Change Request: System issue #952,Medium,Change Request,2026-06-04T14:44:58.368103,27.67,19.73,0.0,1.06,7,23.44,175,Security,Closed,1,1
+TKT-1953,Service Request: System issue #953,High,Service Request,2026-06-06T10:56:46.804133,12.11,8.77,0.0,2.2,13,5.85,285,L3 Engineering,Closed,1,1
+TKT-1954,[Medium] Bug report,Medium,Bug,2026-04-02T15:38:25.168062,12.63,9.09,0.0,0.87,13,7.83,146,DevOps,Closed,1,1
+TKT-1955,Change Request: System issue #955,Critical,Change Request,2026-04-22T13:45:16.225585,1.42,1.16,0.0,0.29,12,6.13,97,DevOps,Resolved,0,1
+TKT-1956,L2 Support - Bug #TKT-1956,High,Bug,2026-02-27T01:07:02.475018,1.45,4.76,3.31,1.45,7,14.1,832,L2 Support,In Progress,0,1
+TKT-1957,Security - Incident #TKT-1957,Medium,Incident,2026-05-12T14:10:36.427702,10.62,13.7,3.08,2.2,15,10.91,198,Security,In Progress,0,1
+TKT-1958,Automated change request ticket,Medium,Change Request,2026-02-17T16:48:48.033690,5.43,18.77,13.34,0.25,9,26.97,103,Security,Waiting,1,1
+TKT-1959,Service Request: System issue #959,Low,Service Request,2026-04-21T22:45:57.080523,38.6,28.71,0.0,2.16,14,6.65,189,Security,Closed,1,1
+TKT-1960,Task: System issue #960,High,Task,2026-03-06T06:32:08.782974,0.6,4.37,3.78,0.6,11,15.43,307,L3 Engineering,Open,0,1
+TKT-1961,Service Request: System issue #961,Critical,Service Request,2026-01-06T01:21:05.643143,4.3,3.84,0.0,0.21,7,11.28,103,Security,Resolved,0,1
+TKT-1962,Change Request: System issue #962,High,Change Request,2026-05-03T03:01:57.766524,3.4,5.7,2.3,1.62,9,14.96,233,DevOps,In Progress,1,1
+TKT-1963,User-reported service request,Low,Service Request,2026-02-02T07:43:07.574251,88.94,71.91,0.0,1.05,7,1.68,76,L2 Support,Closed,1,1
+TKT-1964,Bug: System issue #964,High,Bug,2026-03-29T09:58:51.724129,8.42,7.61,0.0,1.28,9,5.7,606,Security,Closed,0,1
+TKT-1965,Bug: System issue #965,High,Bug,2026-06-01T06:34:50.771566,8.71,11.91,3.21,8.71,7,0.98,79,Security,In Progress,0,1
+TKT-1966,Bug: System issue #966,Medium,Bug,2026-02-17T05:54:23.535418,7.58,8.77,1.19,3.48,6,10.46,133,L2 Support,Closed,0,1
+TKT-1967,[Critical] Service Request report,Critical,Service Request,2026-03-15T02:37:26.196414,1.65,2.48,0.83,1.65,7,10.13,146,Security,Resolved,0,1
+TKT-1968,L1 Support - Incident #TKT-1968,High,Incident,2026-04-17T15:45:50.948537,8.96,8.31,0.0,1.36,7,8.7,209,L1 Support,Closed,0,1
+TKT-1969,Automated bug ticket,Low,Bug,2026-01-01T19:47:17.434666,9.07,39.07,30.01,0.62,4,34.87,405,L2 Support,Open,1,1
+TKT-1970,Service Request: System issue #970,High,Service Request,2026-05-22T16:22:54.055418,4.85,6.48,1.64,0.67,10,9.81,775,L3 Engineering,Resolved,0,1
+TKT-1971,User-reported service request,High,Service Request,2026-01-20T01:16:58.510515,2.8,6.23,3.43,2.8,10,4.61,286,L2 Support,In Progress,1,1
+TKT-1972,L3 Engineering - Incident #TKT-1972,Low,Incident,2026-05-06T02:19:51.588611,7.26,46.48,39.22,1.58,10,34.75,78,L3 Engineering,Open,0,1
+TKT-1973,L1 Support - Change Request #TKT-1973,Critical,Change Request,2026-04-30T04:22:42.317517,0.81,3.2,2.39,0.11,7,9.2,51,L1 Support,Resolved,0,1
+TKT-1974,User-reported bug,High,Bug,2026-03-21T14:45:14.407876,0.97,7.12,6.15,0.97,11,4.76,101,L3 Engineering,In Progress,1,1
+TKT-1975,Service Request: System issue #975,Low,Service Request,2026-06-02T21:00:36.000697,35.84,29.19,0.0,3.69,3,13.48,159,L1 Support,Closed,0,1
+TKT-1976,User-reported incident,Critical,Incident,2026-02-01T03:14:55.906642,3.98,3.74,0.0,3.0,12,9.95,158,L2 Support,Resolved,1,1
+TKT-1977,User-reported service request,Medium,Service Request,2026-06-17T04:58:58.907239,13.65,15.8,2.15,0.74,12,3.93,57,L3 Engineering,Resolved,1,1
+TKT-1978,Change Request: System issue #978,High,Change Request,2026-03-23T19:13:54.499191,11.56,8.0,0.0,1.53,7,7.18,463,L3 Engineering,Closed,0,1
+TKT-1979,DevOps - Incident #TKT-1979,Medium,Incident,2026-03-09T19:44:44.708076,14.64,11.57,0.0,1.61,13,24.53,255,DevOps,Resolved,0,1
+TKT-1980,Bug: System issue #980,High,Bug,2026-03-26T15:37:02.434582,10.16,11.33,1.16,0.59,11,4.97,74,L2 Support,Open,1,1
+TKT-1981,[Critical] Incident report,Critical,Incident,2026-06-22T11:34:08.895657,0.96,1.06,0.1,0.28,9,8.2,139,DevOps,Waiting,1,1
+TKT-1982,[High] Task report,High,Task,2026-01-07T10:12:27.655195,2.46,10.48,8.02,2.46,6,12.22,127,DevOps,In Progress,0,1
+TKT-1983,[High] Incident report,High,Incident,2026-02-07T00:46:42.753962,3.74,4.19,0.46,0.44,7,7.31,50,L3 Engineering,Open,1,1
+TKT-1984,Service Request: System issue #984,Low,Service Request,2026-05-09T22:38:40.991615,8.78,44.05,35.27,1.16,11,5.79,131,L2 Support,Resolved,1,1
+TKT-1985,[Medium] Task report,Medium,Task,2026-01-29T05:17:46.489809,7.99,16.57,8.58,1.68,6,2.11,130,Security,Open,0,1
+TKT-1986,Change Request: System issue #986,High,Change Request,2026-03-09T01:28:57.341818,5.0,7.26,2.26,5.0,7,5.97,71,L1 Support,Open,1,1
+TKT-1987,User-reported service request,High,Service Request,2026-01-12T22:44:12.537391,3.34,7.13,3.79,2.16,9,6.48,292,DevOps,Waiting,0,1
+TKT-1988,[Low] Change Request report,Low,Change Request,2026-03-16T16:16:37.640094,26.99,35.06,8.08,2.69,6,4.37,293,Security,In Progress,0,1
+TKT-1989,Automated service request ticket,Critical,Service Request,2026-03-29T11:07:00.288724,2.88,2.91,0.03,1.11,7,8.92,103,Security,In Progress,0,1
+TKT-1990,Automated service request ticket,Low,Service Request,2026-04-10T08:36:12.222883,67.47,55.24,0.0,1.42,14,21.17,140,L3 Engineering,Resolved,1,1
+TKT-1991,Incident: System issue #991,High,Incident,2026-01-24T06:15:52.057873,1.6,4.92,3.33,1.6,11,10.57,153,Security,Open,0,1
+TKT-1992,User-reported change request,Medium,Change Request,2026-02-12T16:21:50.297392,13.04,19.56,6.51,2.64,10,5.71,56,L1 Support,Waiting,0,1
+TKT-1993,Bug: System issue #993,Medium,Bug,2026-01-26T18:06:41.566536,6.72,15.04,8.32,3.62,10,2.04,455,L3 Engineering,Waiting,0,1
+TKT-1994,L1 Support - Incident #TKT-1994,Medium,Incident,2026-01-18T06:47:15.555279,18.29,22.14,3.85,0.1,12,11.52,63,L1 Support,In Progress,0,1
+TKT-1995,Automated change request ticket,Medium,Change Request,2026-02-05T03:35:37.995736,1.59,11.87,10.28,0.4,7,10.08,267,DevOps,Open,0,1
+TKT-1996,[High] Incident report,High,Incident,2026-06-12T19:38:01.192650,6.04,8.61,2.56,2.74,10,5.73,801,L2 Support,Waiting,1,1
+TKT-1997,User-reported service request,Medium,Service Request,2026-06-13T01:53:16.926960,3.51,11.76,8.26,2.98,16,5.51,397,Security,Resolved,0,1
+TKT-1998,[High] Service Request report,High,Service Request,2026-02-26T13:04:25.276230,4.05,5.83,1.78,2.83,11,2.84,329,DevOps,Waiting,1,1
+TKT-1999,L2 Support - Bug #TKT-1999,Medium,Bug,2026-05-18T18:09:00.441452,4.42,10.67,6.25,3.82,10,9.71,44,L2 Support,Waiting,1,1

@@ -1,0 +1,19 @@
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SQLite temporary journal files
+*.db-journal
+*.db-wal
+*.db-shm

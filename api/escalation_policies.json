@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "name": "urgent_high_risk",
+      "description": "Risk >= 80%: Urgent human review required",
+      "conditions": {
+        "min_risk_score": 0.80
+      },
+      "action": "urgent_review",
+      "escalation_level": "critical",
+      "reviewer_role": "reviewer",
+      "timeout_minutes": 30,
+      "notify": true
+    },
+    {
+      "name": "high_risk_low_time",
+      "description": "Risk >= 60% and less than 1 hour remaining: Notify team lead",
+      "conditions": {
+        "min_risk_score": 0.60,
+        "max_time_remaining_hours": 1.0
+      },
+      "action": "notify_lead",
+      "escalation_level": "high",
+      "reviewer_role": "reviewer",
+      "timeout_minutes": 45,
+      "notify": true
+    },
+    {
+      "name": "critical_severity",
+      "description": "Critical-severity ticket: Escalate per critical-incident policy",
+      "conditions": {
+        "priority": "Critical"
+      },
+      "action": "critical_escalation",
+      "escalation_level": "critical",
+      "reviewer_role": "admin",
+      "timeout_minutes": 20,
+      "notify": true
+    },
+    {
+      "name": "low_confidence_triage",
+      "description": "Model confidence is low or data is incomplete: Request human triage",
+      "conditions": {
+        "max_confidence": 0.55,
+        "min_risk_score": 0.40
+      },
+      "action": "human_triage",
+      "escalation_level": "medium",
+      "reviewer_role": "reviewer",
+      "timeout_minutes": 60,
+      "notify": true
+    },
+    {
+      "name": "no_acknowledgement",
+      "description": "No acknowledgement within configured period: Notify next level",
+      "conditions": {
+        "min_response_delay_hours": 4.0,
+        "min_risk_score": 0.40
+      },
+      "action": "escalate_next_level",
+      "escalation_level": "high",
+      "reviewer_role": "reviewer",
+      "timeout_minutes": 60,
+      "notify": true
+    }
+  ],
+  "escalation_chain": [
+    {"level": 1, "role": "reviewer", "label": "Team Lead"},
+    {"level": 2, "role": "reviewer", "label": "Senior Engineer"},
+    {"level": 3, "role": "admin", "label": "Engineering Manager"}
+  ],
+  "deduplication_window_minutes": 120,
+  "max_escalation_level": 3
+}
