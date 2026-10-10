@@ -732,3 +732,86 @@ def test_model_governance_and_rollback(client):
     dash_res = client.get("/dashboard")
     assert dash_res.status_code == 200
     assert b"AI Ticket Intelligence Platform" in dash_res.data
+
+
+def test_authentication_regression_suite():
+    from api.app import app
+    """Phase 1.7 Authentication Regression Tests:
+    - Direct unauthenticated URL access (redirect for pages, 401 for API)
+    - Invalid credentials rejection
+    - Successful login and persistent session state
+    - Navigation between all protected sections without redirect loops
+    - Role-based authorization enforcement (Agent, Reviewer, Admin)
+    - Session invalidation on logout
+    """
+    # 1. Unauthenticated direct access
+    anon_client = app.test_client()
+    dash_unauth = anon_client.get("/dashboard")
+    assert dash_unauth.status_code == 302
+    assert "/login" in dash_unauth.headers["Location"]
+
+    root_unauth = anon_client.get("/", follow_redirects=True)
+    assert root_unauth.status_code == 200
+    assert b"Sign in to access the dashboard" in root_unauth.data
+
+    api_unauth = anon_client.get("/api/me")
+    assert api_unauth.status_code == 401
+
+    tickets_unauth = anon_client.get("/tickets")
+    assert tickets_unauth.status_code == 401
+
+    # 2. Invalid credentials rejection
+    bad_login = anon_client.post("/api/login", json={"username": "admin", "password": "wrongpassword"})
+    assert bad_login.status_code == 401
+    assert "Invalid" in bad_login.get_json()["error"]
+    # Verify still unauthenticated
+    assert anon_client.get("/api/me").status_code == 401
+
+    # 3. Successful login & session establishment
+    login_res = anon_client.post("/api/login", json={"username": "admin", "password": "admin123"})
+    assert login_res.status_code == 200
+    assert login_res.get_json()["status"] == "authenticated"
+    assert login_res.get_json()["role"] == "admin"
+
+    # 4. Session restoration and navigation across all protected sections
+    assert anon_client.get("/api/me").status_code == 200
+    assert anon_client.get("/dashboard").status_code == 200
+    assert anon_client.get("/tickets").status_code == 200
+    assert anon_client.get("/escalations").status_code == 200
+    assert anon_client.get("/model-health").status_code == 200
+    assert anon_client.get("/audit-logs").status_code == 200
+
+    # 5. Role-based permission enforcement: Agent
+    agent_client = app.test_client()
+    agent_login = agent_client.post("/api/login", json={"username": "agent", "password": "agent123"})
+    assert agent_login.status_code == 200
+    assert agent_login.get_json()["role"] == "agent"
+
+    # Agent can view tickets & predictions
+    assert agent_client.get("/tickets").status_code == 200
+    # Agent is denied privileged admin actions (403)
+    assert agent_client.post("/model-health/activate", json={"version": "1.0.0"}).status_code == 403
+    assert agent_client.post("/model-health/retrain").status_code == 403
+    assert agent_client.post("/model-health/rollback").status_code == 403
+
+    # 6. Role-based permission enforcement: Reviewer
+    reviewer_client = app.test_client()
+    rev_login = reviewer_client.post("/api/login", json={"username": "reviewer", "password": "reviewer123"})
+    assert rev_login.status_code == 200
+    assert rev_login.get_json()["role"] == "reviewer"
+
+    # Reviewer can view escalations and outcomes
+    assert reviewer_client.get("/escalations").status_code == 200
+    # Reviewer cannot activate or roll back models (403)
+    assert reviewer_client.post("/model-health/activate", json={"version": "1.0.0"}).status_code == 403
+    assert reviewer_client.post("/model-health/rollback").status_code == 403
+
+    # 7. Explicit logout invalidation
+    logout_res = anon_client.post("/api/logout")
+    assert logout_res.status_code == 200
+    assert logout_res.get_json()["status"] == "logged_out"
+
+    # Verify session is dead and subsequent visits redirect/401
+    assert anon_client.get("/dashboard").status_code == 302
+    assert anon_client.get("/api/me").status_code == 401
+
