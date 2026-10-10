@@ -21,7 +21,7 @@ import csv
 import json
 import secrets
 from functools import wraps
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from flask import (
     Flask,
@@ -89,9 +89,15 @@ from api.escalation_engine import (
 # ---------------------------------------------------------------------------
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+app.secret_key = os.environ.get(
+    "FLASK_SECRET_KEY",
+    "ticket-intelligence-prod-secret-key-326-secure-fixed-2026"
+)
+app.config["SESSION_COOKIE_NAME"] = "ticket_intel_session"
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_PATH"] = "/"
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
 
 # Initialize database on startup
 init_db()
@@ -100,7 +106,6 @@ init_db()
 # ---------------------------------------------------------------------------
 # Authentication helpers
 # ---------------------------------------------------------------------------
-
 def login_required(f):
     """Decorator requiring an authenticated session or valid HTTP Basic auth."""
     @wraps(f)
@@ -110,14 +115,17 @@ def login_required(f):
             if auth and auth.username and auth.password:
                 user = get_user(auth.username)
                 if user and check_password_hash(user["password_hash"], auth.password):
+                    session.permanent = True
                     session["username"] = user["username"]
                     session["display_name"] = user["display_name"]
                     session["role"] = user["role"]
                     session["team"] = user.get("team", "")
                     return f(*args, **kwargs)
-            if request.is_json or request.content_type == "application/json":
-                return jsonify({"error": "Authentication required"}), 401
-            return redirect(url_for("login_page"))
+            # Web pages redirect to /login
+            if request.path in ["/dashboard", "/"]:
+                return redirect(url_for("login_page"))
+            # API endpoints return 401 JSON
+            return jsonify({"error": "Authentication required"}), 401
         return f(*args, **kwargs)
     return decorated
 
@@ -167,8 +175,9 @@ def api_login():
 
     user = get_user(username)
     if not user or not check_password_hash(user["password_hash"], password):
-        return jsonify({"error": "Invalid credentials"}), 401
+        return jsonify({"error": "Invalid username or password"}), 401
 
+    session.permanent = True
     session["username"] = user["username"]
     session["display_name"] = user["display_name"]
     session["role"] = user["role"]

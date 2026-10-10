@@ -487,10 +487,15 @@ async function api(url, opts={}) {
   try {
     const r = await fetch(url, {
       headers: {'Content-Type':'application/json', ...opts.headers},
+      credentials: 'same-origin',
       ...opts,
       body: opts.body ? JSON.stringify(opts.body) : undefined
     });
-    if (r.status === 401) { window.location.href='/login'; return null; }
+    // Never auto-redirect on login attempt or when already on login page
+    if (r.status === 401 && !url.includes('/api/login') && window.location.pathname !== '/login') {
+      window.location.href = '/login';
+      return null;
+    }
     const contentType = r.headers.get('content-type') || '';
     if (contentType.includes('application/json')) {
       const data = await r.json();
@@ -521,13 +526,33 @@ function fmtNum(v, d=4) { return v != null ? Number(v).toFixed(d) : '—'; }
 
 /* ========== LOGIN ========== */
 async function doLogin() {
-  const u = document.getElementById('loginUser')?.value;
+  const u = document.getElementById('loginUser')?.value?.trim();
   const p = document.getElementById('loginPass')?.value;
   const err = document.getElementById('loginError');
-  if (!u || !p) { err.textContent='Enter username and password'; err.style.display='block'; return; }
-  const r = await api('/api/login', {method:'POST', body:{username:u, password:p}});
-  if (r?.error) { err.textContent=r.error; err.style.display='block'; }
-  else { window.location.href='/dashboard'; }
+  const btn = document.getElementById('loginBtn');
+  if (!u || !p) {
+    if (err) { err.textContent = 'Please enter both username and password'; err.style.display = 'block'; }
+    return;
+  }
+  if (btn) btn.disabled = true;
+  try {
+    const r = await api('/api/login', {method: 'POST', body: {username: u, password: p}});
+    if (r?.status === 'authenticated') {
+      window.location.replace('/dashboard');
+    } else {
+      if (err) {
+        err.textContent = r?.error || 'Invalid credentials. Please try again.';
+        err.style.display = 'block';
+      }
+      if (btn) btn.disabled = false;
+    }
+  } catch (e) {
+    if (err) {
+      err.textContent = 'Network or server error during login.';
+      err.style.display = 'block';
+    }
+    if (btn) btn.disabled = false;
+  }
 }
 async function doLogout() { await api('/api/logout', {method:'POST'}); window.location.href='/login'; }
 
